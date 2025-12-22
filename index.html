@@ -1,717 +1,275 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="description" content="Shubham Bhattacharya | Backend Developer Portfolio. Building REST APIs and backend systems using Node.js, Express, and databases.">
-    <meta name="keywords" content="Backend Developer, Node.js, Express, MongoDB, PostgreSQL, REST APIs">
-    <meta name="author" content="Shubham Bhattacharya">
-    <meta name="robots" content="index, follow">
+  <title>Shubham Bhattacharya | Backend Developer</title>
 
-    <link rel="canonical" href="https://shubhambahattacharya.dev">
+  <meta name="description" content="Shubham Bhattacharya – Backend Developer focused on Node.js, Express, MongoDB, and REST APIs. Open to backend internships." />
+  <meta name="keywords" content="Backend Developer, Node.js, Express, MongoDB, REST APIs" />
+  <meta name="author" content="Shubham Bhattacharya" />
 
-    <meta property="og:title" content="Shubham Bhattacharya | Backend Developer">
-    <meta property="og:description" content="Backend-focused developer building APIs and real-world backend projects using Node.js.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://shubhambahattacharya.dev">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80">
+  <link rel="canonical" href="https://shubhambahattacharya.dev" />
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Shubham Bhattacharya | Backend Developer">
-    <meta name="twitter:description" content="Backend developer portfolio – APIs, databases, and real-world backend systems.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Shubham Bhattacharya | Backend Developer" />
+  <meta property="og:description" content="Backend-focused developer building APIs and real-world projects using Node.js." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shubhambahattacharya.dev" />
+  <meta property="og:image" content="https://img.icons8.com/color/96/code.png" />
 
-    <title>Shubham Bhattacharya | Backend Developer</title>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shubham Bhattacharya | Backend Developer" />
+  <meta name="twitter:description" content="Backend-focused developer building APIs and real-world projects using Node.js." />
+  <meta name="twitter:image" content="https://img.icons8.com/color/96/code.png" />
 
+  <!-- Icons -->
+  <link rel="icon" href="https://img.icons8.com/color/96/code.png" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/code.png">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Structured Data for SEO -->
- <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Shubham Bhattacharya",
-  "jobTitle": "Backend Developer",
-  "description": "Backend-focused developer building REST APIs and real-world backend systems using Node.js and Express.",
-  "url": "https://shubhambahattacharya.dev",
-  "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-  "sameAs": [
-    "https://github.com/shubhambhattacharya-dev",
-    "https://www.linkedin.com/in/shubhambhattadev/"
-  ],
-  "knowsAbout": [
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "PostgreSQL",
-    "REST APIs",
-    "JWT",
-    "Socket.io"
-  ]
-}
-</script>
-
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-    <!-- Skip to main content for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Loading Screen -->
-    <div class="loading-overlay" id="loadingOverlay" role="status" aria-label="Loading">
-        <div class="loader" aria-hidden="true"></div>
-        <span class="sr-only">Loading portfolio...</span>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Loading -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loader"></div>
+</div>
+
+<button class="back-to-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <i class="fas fa-code"></i>
+        <span>Shubham Bhattacharya</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="profile-container">
+      <img src="img/WhatsApp Image 2025-11-24 at 8.32.47 PM.jpeg" alt="Shubham Bhattacharya" class="profile-img" />
     </div>
 
-    <!-- Particles Background -->
-    <div class="particles-container" id="particles" aria-hidden="true"></div>
+    <h1 class="hero-title gradient-text">Shubham Bhattacharya</h1>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
-    </button>
+    <p class="hero-subtitle">
+      Backend Developer | Node.js, Express, MongoDB | Open to Internships
+    </p>
 
-    <!-- Navigation -->
-    <header>
-        <nav class="navbar" id="navbar" aria-label="Main navigation">
-            <div class="nav-container">
-                <a href="#" class="logo" aria-label="AJDev Home">
-                    <i class="fas fa-code" aria-hidden="true"></i>
-                    <span>Shubham Bhattacharya</span>
-                </a>
+    <p class="hero-description">
+      I build backend applications and REST APIs using Node.js, Express, and MongoDB.
+      I enjoy working on authentication, database design, and real-time features.
+    </p>
 
-                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
-                    <span class="menu-bar"></span>
-                    <span class="menu-bar"></span>
-                    <span class="menu-bar"></span>
-                </button>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#contact" class="btn btn-secondary">Contact Me</a>
+    </div>
 
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#hero" class="nav-link">Home</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">3+</span>
+        <span class="stat-label">Backend Projects</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">Node.js</span>
+        <span class="stat-label">Primary Stack</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">Actively</span>
+        <span class="stat-label">Seeking Internship</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <!-- Theme Toggle -->
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                    <span class="theme-icon">
-                        <i class="fas fa-moon" id="themeIcon"></i>
-                    </span>
-                    <span class="sr-only">Toggle theme</span>
-                </button>
-            </div>
-        </nav>
-    </header>
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
 
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero" id="hero" aria-label="Introduction">
-            <div class="hero-bg" aria-hidden="true">
-                <div class="floating-element element-1"></div>
-                <div class="floating-element element-2"></div>
-                <div class="floating-element element-3"></div>
-            </div>
-            
-            <div class="hero-content">
-                <div class="profile-container">
-                    <div class="profile-glow" aria-hidden="true"></div>
-                    <img src="/Portfolio//img/WhatsApp Image 2025-11-24 at 8.32.47 PM.jpeg" 
-                         alt="Shubham Bhattacharya- Professional headshot" 
-                         class="profile-img"
-                         width="200"
-                         height="200">
-                </div>
-                
-                <h1 class="hero-title">
-                    <span class="gradient-text">Shubham Bhattacharya</span>
-                </h1>
-                
-                <p class="hero-subtitle">
-                    Backend Developer | Node.js, Express, MongoDB | Open to Internships
-                </p>
-                
-                <p class="hero-description">
-                   I build backend applications and RESTful APIs using Node.js, Express, and MongoDB.
-    I enjoy working on authentication, database design, and real-time features while continuously improving my backend fundamentals.
-                </p>
-                
-                <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary" aria-label="View my projects">
-                        <i class="fas fa-rocket" aria-hidden="true"></i>
-                        Explore My Work
-                    </a>
-                    <a href="#contact" class="btn btn-secondary" aria-label="Contact me">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                        Let's Connect
-                    </a>
-                </div>
-                
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">3+</span>
-                        <span class="stat-label">Backend Projects</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">Node.js</span>
-                        <span class="stat-label">Primary Stack</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">Actively</span>
-                        <span class="stat-label">Seeking Internships
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="projects-grid">
 
-        <!-- Projects Section -->
-        <section id="projects" class="section" aria-label="Projects portfolio">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Featured Projects</h2>
-                    <p class="section-subtitle">
-                      A showcase of my backend projects and technical implementations
+      <!-- CHAT APP -->
+      <article class="project-card">
+        <img src="img/RealTime.png" class="project-image" alt="Real-time chat app">
+        <div class="project-content">
+          <h3>Real-Time Chat Application</h3>
+          <p>
+            WebSocket-based chat app using Node.js, Express, Socket.io, and MongoDB.
+            Supports authentication, real-time messaging, and message persistence.
+          </p>
 
-                    </p>
-                </div>
-                
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <article class="project-card" aria-label="Real-Time Chat Platform project">
-                        <div class="project-media">
-                            <div class="project-image-container">
-                                <img src="/Portfolio/img/RealTime.png" 
-                                     alt="Real-time chat application interface" 
-                                     class="project-image"
-                                     loading="lazy"
-                                     width="600"
-                                     height="400">
-                                <div class="project-overlay">
-                                    <span class="project-badge">Featured</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3 class="project-title">Just chat-Real-Time Chat Platform</h3>
-                                <time datetime="2024-01" class="project-date">oct 2025</time>
-                            </div>
-                            
-                            <p class="project-description">
-                               Real-time chat application built using WebSockets (Socket.io) with Node.js and Express,
-supporting user authentication, real-time messaging, and message persistence using MongoDB.
+          <div class="project-tech">
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Socket.io</span>
+            <span class="tech-tag">MongoDB</span>
+          </div>
 
-                            </p>
-                            
-                            <div class="project-tech">
-                                <span class="tech-tag">Node.js</span>
-<span class="tech-tag">Socket.io</span>
-<span class="tech-tag">MongoDB</span>
-
-                            </div>
-                            
-                            <div class="project-links">
-                                <a href="https://justchat-d566.onrender.com"
-                                   class="btn btn-sm btn-primary"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   aria-label="View live demo of chat platform">
-                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                                    Live Demo
-                                </a>
-                                <a href="https://github.com/shubhambhattacharya-dev/chatApp.git" 
-                                   class="btn btn-sm btn-secondary"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   aria-label="View source code on GitHub">
-                                    <i class="fab fa-github" aria-hidden="true"></i>
-                                    Source Code
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 2 -->
-                    <article class="project-card" aria-label="GitHub">
-                        <div class="project-media">
-                            <div class="project-image-container">
-                                <img src="/Portfolio//img//Screenshot 2025-12-22 210810.png" 
-                                     alt="Github-Clone" 
-                                     class="project-image"
-                                     loading="lazy"
-                                     width="600"
-                                     height="400">
-                                <div class="project-overlay">
-                                    <span class="project-badge">Featured</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3 class="project-title">Github-Clone</h3>
-                                <time datetime="2023-11" class="project-date">Nov 2024</time>
-                            </div>
-                            
-                            <p class="project-description">
-                                A GitHub-inspired social coding platform built using the MERN stack.
-The project includes GitHub OAuth authentication, repository browsing and saving,
-user profiles, and basic social features like starring and following repositories.
-The backend is designed with REST APIs, JWT-based authentication, and secure data handling.
-
-                            </p>
-                            
-                            <div class="project-tech">
-                                <span class="tech-tag">Node.js</span>
-<span class="tech-tag">Express</span>
-<span class="tech-tag">MongoDB</span>
-<span class="tech-tag">React</span>
-<span class="tech-tag">GitHub OAuth</span>
-<span class="tech-tag">JWT</span>
-
-                            </div>
-                            
-                            <div class="project-links">
-                                <a href="https://github-clone-aozk.onrender.com"
-                                   class="btn btn-sm btn-primary"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   aria-label="View API documentation">
-                                    <i class="fas fa-book" aria-hidden="true"></i>
-                                    Live Demo
-                                </a>
-                                <a href="https://github.com/alexjohnson/ecommerce-api" 
-                                   class="btn btn-sm btn-secondary"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   aria-label="View source code on GitHub">
-                                    <i class="fab fa-github" aria-hidden="true"></i>
-                                    Source code
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 3 -->
-                    <article class="project-card" aria-label="Analytics Dashboard project">
-                        <div class="project-media">
-                            <div class="project-image-container">
-                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                                     alt="Analytics dashboard with charts and metrics" 
-                                     class="project-image"
-                                     loading="lazy"
-                                     width="600"
-                                     height="400">
-                                <div class="project-overlay">
-                                    <span class="project-badge">Scalable</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3 class="project-title">Real-Time Analytics Dashboard</h3>
-                                <time datetime="2023-08" class="project-date">Aug 2023</time>
-                            </div>
-                            
-                            <p class="project-description">
-                                Scalable analytics platform processing millions of events daily with 
-                                real-time visualization, custom reporting, and predictive analytics.
-                            </p>
-                            
-                            <div class="project-tech">
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">GraphQL</span>
-                                <span class="tech-tag">Elasticsearch</span>
-                                <span class="tech-tag">Kafka</span>
-                                <span class="tech-tag">AWS</span>
-                            </div>
-                            
-                            <div class="project-links">
-                                <a href="https://analytics.alexjohnson.dev" 
-                                   class="btn btn-sm btn-primary"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   aria-label="View analytics dashboard">
-                                    <i class="fas fa-chart-line" aria-hidden="true"></i>
-                                    View Dashboard
-                                </a>
-                                <a href="https://github.com/alexjohnson/analytics-platform" 
-                                   class="btn btn-sm btn-secondary"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   aria-label="View source code on GitHub">
-                                    <i class="fab fa-github" aria-hidden="true"></i>
-                                    Code
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="section" aria-label="About Alex Johnson">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">About Me</h2>
-                    <p class="section-subtitle">
-                       Backend-focused developer with an interest in building reliable and efficient backend systems.
-
-                    </p>
-                </div>
-                
-                <div class="about-grid">
-                    <div class="about-content">
-                        <p class="about-text">
-                          I'm a backend-focused developer with around 3 years of hands-on learning and project experience,
-building API-driven systems and real-time applications. I enjoy working with Node.js, Express,
-and databases while continuously improving my understanding of backend architecture and design.
-
-                        </p>
-                        <p class="about-text">
-                           I enjoy solving backend problems and improving the reliability of APIs and application logic.
-Currently, I am learning backend design concepts and exploring topics like system scalability,
-real-time communication, and API performance through hands-on projects.
-
-                        </p>
-                        
-                        <div class="about-cta">
-                            <a href="#contact" class="btn btn-primary" aria-label="Hire me for your project">
-                                <i class="fas fa-briefcase" aria-hidden="true"></i>
-                                Hire Me
-                            </a>
-                            <a href="/resume.pdf" 
-                               class="btn btn-secondary"
-                               download="Alex_Johnson_Resume.pdf"
-                               aria-label="Download my resume">
-                                <i class="fas fa-download" aria-hidden="true"></i>
-                                Download Resume
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="about-stats">
-                        <div class="stat-card">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label">Projects Delivered</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">4+</div>
-                            <div class="stat-label">Years Experience</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">99.9%</div>
-                            <div class="stat-label">Uptime</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">24/7</div>
-                            <div class="stat-label">Support Available</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="section" aria-label="Technical skills">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Technical Expertise</h2>
-                    <p class="section-subtitle">
-                        Technologies and tools I work with to build exceptional backend systems
-                    </p>
-                </div>
-                
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">
-                            <i class="fab fa-node-js skill-category-icon" aria-hidden="true"></i>
-                            Backend Development
-                        </h3>
-                        <div class="skill-list">
-                            <span class="skill-item">Node.js</span>
-                            <span class="skill-item">Express</span>
-                            <span class="skill-item">NestJS</span>
-                            <span class="skill-item">Fastify</span>
-                            <span class="skill-item">REST APIs</span>
-                            <span class="skill-item">Microservices</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">
-                            <i class="fas fa-database skill-category-icon" aria-hidden="true"></i>
-                            Databases
-                        </h3>
-                        <div class="skill-list">
-                            <span class="skill-item">MongoDB</span>
-                            <span class="skill-item">PostgreSQL</span>
-                            <span class="skill-item">Redis</span>
-                            <span class="skill-item">Elasticsearch</span>
-                            <span class="skill-item">Mongoose</span>
-                            <span class="skill-item">Prisma ORM</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">
-                            <i class="fas fa-shield-alt skill-category-icon" aria-hidden="true"></i>
-                            Security & Auth
-                        </h3>
-                        <div class="skill-list">
-                            <span class="skill-item">JWT</span>
-                            <span class="skill-item">OAuth2</span>
-                            <span class="skill-item">bcrypt</span>
-                            <span class="skill-item">Rate Limiting</span>
-                            <span class="skill-item">CORS</span>
-                            <span class="skill-item">Helmet.js</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">
-                            <i class="fas fa-server skill-category-icon" aria-hidden="true"></i>
-                            DevOps & Deployment
-                        </h3>
-                        <div class="skill-list">
-                            <span class="skill-item">Docker</span>
-                            <span class="skill-item">AWS</span>
-                            <span class="skill-item">Nginx</span>
-                            <span class="skill-item">PM2</span>
-                            <span class="skill-item">CI/CD</span>
-                            <span class="skill-item">Load Balancing</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">
-                            <i class="fas fa-bolt skill-category-icon" aria-hidden="true"></i>
-                            Real-time Technologies
-                        </h3>
-                        <div class="skill-list">
-                            <span class="skill-item">Socket.io</span>
-                            <span class="skill-item">WebSockets</span>
-                            <span class="skill-item">Server-Sent Events</span>
-                            <span class="skill-item">GraphQL Subscriptions</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">
-                            <i class="fas fa-tools skill-category-icon" aria-hidden="true"></i>
-                            Tools & Testing
-                        </h3>
-                        <div class="skill-list">
-                            <span class="skill-item">Git</span>
-                            <span class="skill-item">Jest</span>
-                            <span class="skill-item">Postman</span>
-                            <span class="skill-item">Swagger</span>
-                            <span class="skill-item">Message Queues</span>
-                            <span class="skill-item">Redis Cache</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section" aria-label="Contact information">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Get In Touch</h2>
-                    <p class="section-subtitle">
-                        Ready to build something amazing together? Let's connect!
-                    </p>
-                </div>
-                
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <p class="contact-intro">
-                            I'm currently available for freelance projects and full-time opportunities. 
-                            Whether you need a backend system built from scratch or want to optimize your 
-                            existing infrastructure, I'd love to hear about your project.
-                        </p>
-                        
-                        <div class="contact-methods">
-                            <a href="mailto:alex@johnsondev.com" class="contact-method">
-                                <div class="contact-icon">
-                                    <i class="fas fa-envelope" aria-hidden="true"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <div class="contact-label">Email</div>
-                                    <div class="contact-value">alex@johnsondev.com</div>
-                                </div>
-                            </a>
-                            
-                            <a href="https://github.com/alexjohnson" 
-                               class="contact-method"
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                <div class="contact-icon">
-                                    <i class="fab fa-github" aria-hidden="true"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <div class="contact-label">GitHub</div>
-                                    <div class="contact-value">@alexjohnson</div>
-                                </div>
-                            </a>
-                            
-                            <a href="https://linkedin.com/in/alexjohnson" 
-                               class="contact-method"
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                <div class="contact-icon">
-                                    <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <div class="contact-label">LinkedIn</div>
-                                    <div class="contact-value">Alex Johnson</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <form class="contact-form" id="contactForm" aria-label="Contact form">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Full Name</label>
-                            <input type="text" 
-                                   id="name" 
-                                   name="name" 
-                                   class="form-input" 
-                                   required
-                                   aria-required="true">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" 
-                                   id="email" 
-                                   name="email" 
-                                   class="form-input" 
-                                   required
-                                   aria-required="true">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" 
-                                   id="subject" 
-                                   name="subject" 
-                                   class="form-input" 
-                                   required
-                                   aria-required="true">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" 
-                                      name="message" 
-                                      class="form-textarea" 
-                                      rows="5"
-                                      required
-                                      aria-required="true"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-block">
-                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer" aria-label="Footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#" class="footer-logo" aria-label="AJDev Home">
-                        <i class="fas fa-code" aria-hidden="true"></i>
-                        <span>AJDev</span>
-                    </a>
-                    <p class="footer-tagline">
-                        Building the backend systems that power the modern web. 
-                        Specializing in scalable architecture, API development, and real-time applications.
-                    </p>
-                </div>
-                
-                <div class="footer-links">
-                    <div class="footer-nav">
-                        <h3 class="footer-heading">Quick Links</h3>
-                        <ul>
-                            <li><a href="#hero" class="footer-link">Home</a></li>
-                            <li><a href="#projects" class="footer-link">Projects</a></li>
-                            <li><a href="#about" class="footer-link">About</a></li>
-                            <li><a href="#skills" class="footer-link">Skills</a></li>
-                            <li><a href="#contact" class="footer-link">Contact</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-social">
-                        <h3 class="footer-heading">Connect With Me</h3>
-                        <div class="social-links">
-                            <a href="https://github.com/alexjohnson" 
-                               class="social-link"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               aria-label="GitHub profile">
-                                <i class="fab fa-github" aria-hidden="true"></i>
-                            </a>
-                            <a href="https://linkedin.com/in/alexjohnson" 
-                               class="social-link"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               aria-label="LinkedIn profile">
-                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                            </a>
-                            <a href="https://twitter.com/alexjohnson" 
-                               class="social-link"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               aria-label="Twitter profile">
-                                <i class="fab fa-twitter" aria-hidden="true"></i>
-                            </a>
-                            <a href="https://dev.to/alexjohnson" 
-                               class="social-link"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               aria-label="Dev.to blog">
-                                <i class="fab fa-dev" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p class="copyright">
-                    &copy; <span id="currentYear">2024</span> Alex Johnson. All rights reserved.
-                </p>
-                <p class="footer-credits">
-                    Built with <i class="fas fa-heart" aria-hidden="true"></i> and modern web technologies
-                </p>
-            </div>
+          <a href="https://justchat-d566.onrender.com" target="_blank" class="btn btn-sm btn-primary">Live Demo</a>
+          <a href="https://github.com/shubhambhattacharya-dev/chatApp" target="_blank" class="btn btn-sm btn-secondary">GitHub</a>
         </div>
-    </footer>
+      </article>
 
-    <script src="script.js"></script>
+      <!-- GITHUB CLONE -->
+      <article class="project-card">
+        <img src="img/Screenshot 2025-12-22 210810.png" class="project-image" alt="GitHub Clone">
+        <div class="project-content">
+          <h3>GitHub Clone (MERN)</h3>
+          <p>
+            MERN stack project with GitHub OAuth, repository browsing,
+            JWT authentication, and REST APIs.
+          </p>
+
+          <div class="project-tech">
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Express</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">OAuth</span>
+          </div>
+
+          <a href="https://github-clone-aozk.onrender.com" target="_blank" class="btn btn-sm btn-primary">Live Demo</a>
+          <a href="https://github.com/shubhambhattacharya-dev/github-clone" target="_blank" class="btn btn-sm btn-secondary">GitHub</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+
+    <p class="about-text">
+      I'm a backend-focused developer with around 3 years of hands-on learning and project experience.
+      I enjoy building APIs, working with databases, and learning system design fundamentals.
+    </p>
+
+    <a href="resume/Shubham Bhattacharya _ Backend Developer.pdf"
+       class="btn btn-primary"
+       download>
+       Download Resume
+    </a>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <div class="container">
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills-grid">
+      <span class="skill-item">Node.js</span>
+      <span class="skill-item">Express</span>
+      <span class="skill-item">MongoDB</span>
+      <span class="skill-item">REST APIs</span>
+      <span class="skill-item">JWT</span>
+      <span class="skill-item">Socket.io</span>
+      <span class="skill-item">Git</span>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <div class="container">
+    <h2 class="section-title">Experience</h2>
+
+    <div class="experience-list">
+      <div class="experience-item">
+        <h3>Backend Developer Intern</h3>
+        <p class="experience-company">Freelance / Personal Projects</p>
+        <p class="experience-duration">2022 - Present</p>
+        <p>Developed multiple backend projects using Node.js, Express, and MongoDB. Built REST APIs, implemented authentication with JWT, and worked on real-time features with Socket.io.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-subtitle">
+      Have a question or want to work together? Leave your details and I'll get back to you.
+    </p>
+
+    <div class="contact-grid">
+      <form id="contactForm">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+
+      <div class="contact-details">
+        <h3>Contact Information</h3>
+        <p>Email: <a href="mailto:shubhambhattacharya107@gmail.com">shubhambhattacharya107@gmail.com</a></p>
+        <p>Location: Kolkata, India</p>
+        <div class="social-links">
+          <a href="https://github.com/shubhambhattacharya-dev" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/shubhambhattadev/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://x.com/Shubham_level" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>© 2025 Shubham Bhattacharya</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
