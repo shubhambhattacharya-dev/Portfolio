@@ -6,9 +6,17 @@
     <meta name="description" content="Alex Johnson - Senior Backend Developer & API Specialist. Building scalable backend systems and RESTful APIs.">
     <meta name="keywords" content="Backend Developer, Node.js, API Development, MongoDB, PostgreSQL, Microservices">
     <meta name="author" content="Alex Johnson">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://alexjohnson.dev">
     <meta property="og:title" content="Alex Johnson | Backend Developer Portfolio">
     <meta property="og:description" content="Senior Backend Developer specializing in scalable systems and API development.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alexjohnson.dev">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alex Johnson | Backend Developer Portfolio">
+    <meta name="twitter:description" content="Senior Backend Developer specializing in scalable systems and API development.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80">
     <title>Alex Johnson | Senior Backend Developer & API Specialist</title>
     
     <!-- Favicon -->
@@ -23,6 +31,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Alex Johnson",
+        "jobTitle": "Senior Backend Developer & API Specialist",
+        "description": "Senior Backend Developer specializing in scalable systems and API development.",
+        "url": "https://alexjohnson.dev",
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        "sameAs": [
+            "https://github.com/alexjohnson",
+            "https://linkedin.com/in/alexjohnson",
+            "https://twitter.com/alexjohnson"
+        ],
+        "knowsAbout": [
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "PostgreSQL",
+            "REST APIs",
+            "Microservices",
+            "Docker",
+            "AWS"
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
@@ -37,14 +73,6 @@
     <!-- Particles Background -->
     <div class="particles-container" id="particles" aria-hidden="true"></div>
 
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <span class="theme-icon">
-            <i class="fas fa-moon" id="themeIcon"></i>
-        </span>
-        <span class="sr-only">Toggle theme</span>
-    </button>
-
     <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
@@ -58,13 +86,13 @@
                     <i class="fas fa-code" aria-hidden="true"></i>
                     <span>AJDev</span>
                 </a>
-                
+
                 <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
                     <span class="menu-bar"></span>
                     <span class="menu-bar"></span>
                     <span class="menu-bar"></span>
                 </button>
-                
+
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#hero" class="nav-link">Home</a></li>
                     <li><a href="#projects" class="nav-link">Projects</a></li>
@@ -72,6 +100,14 @@
                     <li><a href="#skills" class="nav-link">Skills</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
+
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <span class="theme-icon">
+                        <i class="fas fa-moon" id="themeIcon"></i>
+                    </span>
+                    <span class="sr-only">Toggle theme</span>
+                </button>
             </div>
         </nav>
     </header>

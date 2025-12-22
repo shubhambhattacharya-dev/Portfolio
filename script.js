@@ -13,29 +13,29 @@ class ThemeManager {
 
     init() {
         // Load saved theme from localStorage or default to light
-        const savedTheme = localStorage.getItem('theme') || 'light-theme';
+        const savedTheme = localStorage.getItem('theme') || 'light';
         this.setTheme(savedTheme);
-        
+
         // Add event listener with passive option for better performance
         this.themeToggle.addEventListener('click', () => this.toggleTheme(), { passive: true });
     }
 
     setTheme(theme) {
-        this.body.className = theme;
+        this.body.setAttribute('data-theme', theme);
         this.updateIcon();
     }
 
     toggleTheme() {
-        const isDark = this.body.classList.contains('dark-theme');
-        const newTheme = isDark ? 'light-theme' : 'dark-theme';
-        
+        const isDark = this.body.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+
         this.setTheme(newTheme);
         localStorage.setItem('theme', newTheme);
         this.animateToggle();
     }
 
     updateIcon() {
-        const isDark = this.body.classList.contains('dark-theme');
+        const isDark = this.body.getAttribute('data-theme') === 'dark';
         this.themeIcon.className = `fas ${isDark ? 'fa-sun' : 'fa-moon'}`;
     }
 
@@ -222,7 +222,7 @@ class BackToTop {
     }
 
     handleScroll() {
-        const shouldShow = window.scrollY > 300;
+        const shouldShow = window.scrollY > 100;
         this.button.classList.toggle('visible', shouldShow);
     }
 
@@ -234,398 +234,10 @@ class BackToTop {
     }
 }
 
-// ==================== PARTICLES ANIMATION ====================
-class ParticlesAnimation {
-    constructor() {
-        this.container = $('#particles');
-        this.particles = [];
-        this.particleCount = 30; // Reduced for better performance
-        this.mouseX = 0;
-        this.mouseY = 0;
-        this.animationId = null;
-        this.init();
-    }
 
-    init() {
-        if (!this.container || window.innerWidth < 768) return;
 
-        this.createParticles();
-        this.setupEventListeners();
-        this.animate();
-    }
 
-    createParticle() {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        
-        const size = Math.random() * 3 + 1;
-        const x = Math.random() * 100;
-        const y = Math.random() * 100;
-        const duration = Math.random() * 20 + 10;
-        const delay = Math.random() * 5;
 
-        particle.style.cssText = `
-            width: ${size}px;
-            height: ${size}px;
-            left: ${x}%;
-            top: ${y}%;
-            animation-duration: ${duration}s;
-            animation-delay: ${delay}s;
-        `;
-
-        this.container.appendChild(particle);
-        return particle;
-    }
-
-    createParticles() {
-        for (let i = 0; i < this.particleCount; i++) {
-            this.particles.push({
-                element: this.createParticle(),
-                x: parseFloat(this.container.style.left) || 0,
-                y: parseFloat(this.container.style.top) || 0,
-                size: Math.random() * 3 + 1
-            });
-        }
-    }
-
-    setupEventListeners() {
-        // Throttle mousemove events
-        let mouseMoveTimeout;
-        this.container.addEventListener('mousemove', (e) => {
-            clearTimeout(mouseMoveTimeout);
-            mouseMoveTimeout = setTimeout(() => {
-                const rect = this.container.getBoundingClientRect();
-                this.mouseX = e.clientX - rect.left;
-                this.mouseY = e.clientY - rect.top;
-            }, 16); // ~60fps
-        }, { passive: true });
-
-        // Pause animation when tab is not visible
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                cancelAnimationFrame(this.animationId);
-            } else {
-                this.animate();
-            }
-        });
-    }
-
-    animate() {
-        this.particles.forEach(particle => {
-            const particleX = parseFloat(particle.element.style.left) * this.container.offsetWidth / 100;
-            const particleY = parseFloat(particle.element.style.top) * this.container.offsetHeight / 100;
-            
-            const distance = Math.sqrt(
-                Math.pow(this.mouseX - particleX, 2) +
-                Math.pow(this.mouseY - particleY, 2)
-            );
-
-            if (distance < 150) {
-                const scale = 1 + (150 - distance) / 150;
-                particle.element.style.transform = `scale(${scale})`;
-            } else {
-                particle.element.style.transform = 'scale(1)';
-            }
-        });
-
-        this.animationId = requestAnimationFrame(() => this.animate());
-    }
-
-    cleanup() {
-        if (this.animationId) {
-            cancelAnimationFrame(this.animationId);
-        }
-    }
-}
-
-// ==================== SCROLL REVEAL ANIMATION ====================
-class ScrollReveal {
-    constructor() {
-        this.elements = $$('.project-card, .skill-card, .stat-box, .contact-item, .section-title');
-        this.init();
-    }
-
-    init() {
-        if ('IntersectionObserver' in window) {
-            this.observeElements();
-        } else {
-            // Fallback for older browsers
-            this.showAllElements();
-        }
-    }
-
-    observeElements() {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.add('revealed');
-                        }, index * 100);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            }
-        );
-
-        this.elements.forEach(element => {
-            element.classList.add('scroll-reveal');
-            observer.observe(element);
-        });
-    }
-
-    showAllElements() {
-        this.elements.forEach(element => {
-            element.classList.add('revealed');
-        });
-    }
-}
-
-// ==================== TYPING EFFECT ====================
-class TypingEffect {
-    constructor(element, texts, speed = 100) {
-        this.element = element;
-        this.texts = texts;
-        this.speed = speed;
-        this.textIndex = 0;
-        this.charIndex = 0;
-        this.isDeleting = false;
-        this.timeoutId = null;
-        this.init();
-    }
-
-    init() {
-        if (!this.element) return;
-        this.type();
-    }
-
-    type() {
-        const currentText = this.texts[this.textIndex];
-        
-        if (this.isDeleting) {
-            this.element.textContent = currentText.substring(0, this.charIndex - 1);
-            this.charIndex--;
-        } else {
-            this.element.textContent = currentText.substring(0, this.charIndex + 1);
-            this.charIndex++;
-        }
-
-        let typeSpeed = this.speed;
-        
-        if (this.isDeleting) {
-            typeSpeed = this.speed / 2;
-        }
-
-        if (!this.isDeleting && this.charIndex === currentText.length) {
-            typeSpeed = 1500; // Pause at end of typing
-            this.isDeleting = true;
-        } else if (this.isDeleting && this.charIndex === 0) {
-            this.isDeleting = false;
-            this.textIndex = (this.textIndex + 1) % this.texts.length;
-            typeSpeed = 500;
-        }
-
-        this.timeoutId = setTimeout(() => this.type(), typeSpeed);
-    }
-
-    destroy() {
-        if (this.timeoutId) {
-            clearTimeout(this.timeoutId);
-        }
-    }
-}
-
-// ==================== COUNTER ANIMATION ====================
-class CounterAnimation {
-    constructor() {
-        this.counters = $$('.stat-number');
-        this.init();
-    }
-
-    init() {
-        if ('IntersectionObserver' in window) {
-            this.observeCounters();
-        }
-    }
-
-    observeCounters() {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        this.animateCounter(entry.target);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.5 }
-        );
-
-        this.counters.forEach(counter => observer.observe(counter));
-    }
-
-    animateCounter(counter) {
-        const target = counter.textContent.trim();
-        
-        // Handle different counter types
-        if (target.includes('/')) {
-            // Time format (e.g., "24/7")
-            return;
-        }
-
-        const isPercentage = target.includes('%');
-        const isPlus = target.includes('+');
-        const numericValue = parseInt(target.replace(/\D/g, '')) || 0;
-        
-        const duration = 2000;
-        const startTime = performance.now();
-        
-        const updateCounter = (currentTime) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            // Easing function for smoother animation
-            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-            const current = Math.floor(easeOutQuart * numericValue);
-            
-            let displayValue = current.toString();
-            if (isPlus) displayValue += '+';
-            if (isPercentage) displayValue += '%';
-            
-            counter.textContent = displayValue;
-            
-            if (progress < 1) {
-                requestAnimationFrame(updateCounter);
-            } else {
-                // Ensure final value is exact
-                let finalValue = numericValue.toString();
-                if (isPlus) finalValue += '+';
-                if (isPercentage) finalValue += '%';
-                counter.textContent = finalValue;
-            }
-        };
-        
-        requestAnimationFrame(updateCounter);
-    }
-}
-
-// ==================== PROJECT CARD TILT EFFECT ====================
-class CardTiltEffect {
-    constructor() {
-        this.cards = $$('.project-card, .skill-card');
-        this.init();
-    }
-
-    init() {
-        // Only enable on non-touch devices
-        if ('ontouchstart' in window) return;
-        
-        this.cards.forEach(card => {
-            card.addEventListener('mousemove', this.handleMouseMove.bind(this));
-            card.addEventListener('mouseleave', this.handleMouseLeave.bind(this));
-        });
-    }
-
-    handleMouseMove(e) {
-        const card = e.currentTarget;
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = (y - centerY) / 25; // Reduced sensitivity
-        const rotateY = (centerX - x) / 25;
-        
-        // Use CSS variables for better performance
-        card.style.setProperty('--rotate-x', `${rotateX}deg`);
-        card.style.setProperty('--rotate-y', `${rotateY}deg`);
-        card.style.setProperty('--scale', '1.02');
-    }
-
-    handleMouseLeave(e) {
-        const card = e.currentTarget;
-        card.style.setProperty('--rotate-x', '0deg');
-        card.style.setProperty('--rotate-y', '0deg');
-        card.style.setProperty('--scale', '1');
-    }
-}
-
-// ==================== CURSOR EFFECT ====================
-class CursorEffect {
-    constructor() {
-        this.cursor = null;
-        this.cursorFollower = null;
-        this.init();
-    }
-
-    init() {
-        // Only enable on desktop and non-touch devices
-        if (window.innerWidth < 1024 || 'ontouchstart' in window) return;
-        
-        this.createCursor();
-        this.setupEventListeners();
-    }
-
-    createCursor() {
-        this.cursor = document.createElement('div');
-        this.cursorFollower = document.createElement('div');
-        
-        this.cursor.className = 'custom-cursor';
-        this.cursorFollower.className = 'cursor-follower';
-        
-        document.body.appendChild(this.cursor);
-        document.body.appendChild(this.cursorFollower);
-        
-        // Hide default cursor
-        document.body.style.cursor = 'none';
-    }
-
-    setupEventListeners() {
-        let mouseX = 0;
-        let mouseY = 0;
-        let followerX = 0;
-        let followerY = 0;
-        
-        // Use requestAnimationFrame for smooth animation
-        const animate = () => {
-            // Smooth follower movement
-            followerX += (mouseX - followerX) * 0.15;
-            followerY += (mouseY - followerY) * 0.15;
-            
-            this.cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-            this.cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px)`;
-            
-            requestAnimationFrame(animate);
-        };
-        
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX - 5;
-            mouseY = e.clientY - 5;
-        }, { passive: true });
-        
-        // Handle interactive elements
-        const interactiveElements = $$('a, button, .btn, input, textarea');
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                this.cursor.classList.add('hover');
-                this.cursorFollower.classList.add('hover');
-            });
-            
-            el.addEventListener('mouseleave', () => {
-                this.cursor.classList.remove('hover');
-                this.cursorFollower.classList.remove('hover');
-            });
-        });
-        
-        animate();
-    }
-}
 
 // ==================== PERFORMANCE OPTIMIZATION ====================
 class PerformanceOptimizer {
@@ -674,79 +286,37 @@ class PerformanceOptimizer {
     }
 }
 
-// ==================== EASTER EGG ====================
-class EasterEgg {
+
+// ==================== CONTACT FORM HANDLER ====================
+class ContactForm {
     constructor() {
-        this.clickCount = 0;
-        this.lastClickTime = 0;
+        this.form = $('#contactForm');
         this.init();
     }
-    
+
     init() {
-        const logo = $('.logo');
-        if (!logo) return;
-        
-        logo.addEventListener('click', (e) => {
+        if (!this.form) return;
+
+        this.form.addEventListener('submit', (e) => {
             e.preventDefault();
-            this.handleLogoClick();
+            this.handleSubmit();
         });
     }
-    
-    handleLogoClick() {
-        const now = Date.now();
-        const timeDiff = now - this.lastClickTime;
-        
-        // Reset if too much time between clicks
-        if (timeDiff > 1000) {
-            this.clickCount = 0;
+
+    handleSubmit() {
+        // Simple form handling - in real app, send to backend
+        const formData = new FormData(this.form);
+        const data = Object.fromEntries(formData);
+
+        // Basic validation
+        if (!data.name || !data.email || !data.message) {
+            alert('Please fill in all required fields.');
+            return;
         }
-        
-        this.clickCount++;
-        this.lastClickTime = now;
-        
-        if (this.clickCount === 5) {
-            this.activateEasterEgg();
-            this.clickCount = 0;
-        }
-    }
-    
-    activateEasterEgg() {
-        // Create a fun confetti effect
-        const colors = ['#667eea', '#764ba2', '#f093fb', '#f5576c'];
-        const confettiCount = 100;
-        
-        for (let i = 0; i < confettiCount; i++) {
-            const confetti = document.createElement('div');
-            confetti.style.cssText = `
-                position: fixed;
-                width: 10px;
-                height: 10px;
-                background: ${colors[Math.floor(Math.random() * colors.length)]};
-                border-radius: 50%;
-                top: -20px;
-                left: ${Math.random() * 100}vw;
-                z-index: 9999;
-                pointer-events: none;
-            `;
-            
-            document.body.appendChild(confetti);
-            
-            // Animate confetti
-            const animation = confetti.animate([
-                { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
-                { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
-            ], {
-                duration: 1000 + Math.random() * 2000,
-                easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
-            });
-            
-            animation.onfinish = () => confetti.remove();
-        }
-        
-        // Show message
-        setTimeout(() => {
-            alert('🎉 You found the easter egg! Thanks for exploring!');
-        }, 500);
+
+        // Simulate sending
+        alert('Thank you for your message! I will get back to you soon.');
+        this.form.reset();
     }
 }
 
@@ -756,11 +326,11 @@ class App {
         this.components = [];
         this.init();
     }
-    
+
     init() {
         // Initialize performance optimizations first
         PerformanceOptimizer.init();
-        
+
         // Initialize all components
         this.components = [
             new LoadingScreen(),
@@ -768,30 +338,13 @@ class App {
             new Navigation(),
             new SmoothScroll(),
             new BackToTop(),
-            new ParticlesAnimation(),
-            new ScrollReveal(),
-            new CounterAnimation(),
-            new CardTiltEffect(),
-            new CursorEffect(),
-            new EasterEgg()
+            new ContactForm()
         ];
-        
-        // Initialize typing effect if element exists
-        const heroRole = $('.hero-role');
-        if (heroRole) {
-            const roles = [
-                'Senior Backend Developer & API Specialist',
-                'Full Stack Engineer',
-                'Database Architect',
-                'Cloud Solutions Expert'
-            ];
-            this.components.push(new TypingEffect(heroRole, roles, 100));
-        }
-        
+
         // Handle cleanup on page unload
         window.addEventListener('beforeunload', () => this.cleanup());
     }
-    
+
     cleanup() {
         // Clean up any resources
         this.components.forEach(component => {
@@ -821,63 +374,5 @@ style.textContent = `
         transform: translateY(0);
     }
     
-    .custom-cursor {
-        width: 10px;
-        height: 10px;
-        background: var(--accent-primary);
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
-        transform: translate(-50%, -50%);
-    }
-    
-    .custom-cursor.hover {
-        transform: translate(-50%, -50%) scale(1.5);
-    }
-    
-    .cursor-follower {
-        width: 40px;
-        height: 40px;
-        border: 2px solid var(--accent-primary);
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9998;
-        transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease;
-        transform: translate(-50%, -50%);
-        opacity: 0.5;
-    }
-    
-    .cursor-follower.hover {
-        transform: translate(-50%, -50%) scale(1.5);
-    }
-    
-    @media (max-width: 1023px) {
-        .custom-cursor,
-        .cursor-follower {
-            display: none;
-        }
-        
-        body {
-            cursor: auto !important;
-        }
-    }
-    
-    .particle {
-        position: absolute;
-        background: radial-gradient(circle, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.4));
-        border-radius: 50%;
-        pointer-events: none;
-        animation: float 20s ease-in-out infinite;
-    }
-    
-    @keyframes float {
-        0%, 100% { transform: translate(0, 0) scale(1); }
-        25% { transform: translate(20px, -20px) scale(1.1); }
-        50% { transform: translate(-15px, 15px) scale(0.9); }
-        75% { transform: translate(10px, -10px) scale(1.05); }
-    }
 `;
 document.head.appendChild(style);
