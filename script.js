@@ -15,11 +15,8 @@ class ThemeManager {
   }
 
   init() {
-    // Load saved theme or default to light
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     this.setTheme(savedTheme);
-    
-    // Add click event listener
     this.toggleBtn.addEventListener('click', () => this.toggleTheme());
   }
 
@@ -30,8 +27,7 @@ class ThemeManager {
   }
 
   toggleTheme() {
-    const currentTheme = this.html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    const newTheme = this.html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     this.setTheme(newTheme);
   }
 
@@ -44,400 +40,150 @@ class ThemeManager {
 class LoadingScreen {
   constructor() {
     this.overlay = $('#loadingOverlay');
+    this.loaderText = $('#loaderText');
     if (!this.overlay) return;
     
     this.init();
   }
-
+  
   init() {
+    new TypingEffect(this.loaderText, ['Initializing portfolio...', 'Loading assets...', 'Building DOM...', 'Done.'], 80, 40, 600, false);
     window.addEventListener('load', () => {
-      setTimeout(() => {
-        this.hideLoading();
-      }, 500);
+      setTimeout(() => this.hide(), 3000); // Give typing effect time to finish
     });
   }
 
-  hideLoading() {
+  hide() {
     this.overlay.classList.add('hidden');
-    setTimeout(() => {
-      this.overlay.style.display = 'none';
-    }, 400);
   }
 }
 
 // ==================== NAVIGATION ====================
 class Navigation {
   constructor() {
-    this.navbar = $('#navbar');
+    this.sidebar = $('#sidebar');
     this.menuToggle = $('#menuToggle');
-    this.navLinks = $('#navLinks');
-    this.navLinkItems = $$('#navLinks a');
+    this.navLinks = $$('.nav-link');
     
-    if (!this.navbar || !this.menuToggle || !this.navLinks) return;
+    if (!this.sidebar || !this.menuToggle) return;
     
     this.init();
   }
 
   init() {
-    // Handle scroll for navbar styling
-    window.addEventListener('scroll', () => this.handleScroll(), { passive: true });
-    
-    // Mobile menu toggle
     this.menuToggle.addEventListener('click', () => this.toggleMenu());
     
-    // Close menu when clicking nav links
-    this.navLinkItems.forEach(link => {
-      link.addEventListener('click', () => {
-        this.closeMenu();
-        this.setActiveLink(link);
-      });
+    this.navLinks.forEach(link => {
+      link.addEventListener('click', () => this.closeMenu());
     });
     
-    // Close menu on escape key
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && this.navLinks.classList.contains('active')) {
+      if (e.key === 'Escape' && this.sidebar.classList.contains('active')) {
         this.closeMenu();
       }
     });
-    
-    // Close menu when clicking outside
+
     document.addEventListener('click', (e) => {
-      if (this.navLinks.classList.contains('active') && 
-          !this.navLinks.contains(e.target) && 
-          !this.menuToggle.contains(e.target)) {
-        this.closeMenu();
-      }
+        if (this.sidebar.classList.contains('active') && !e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+            this.closeMenu();
+        }
     });
-    
-    // Set active link on scroll
+
     this.handleActiveSection();
   }
 
-  handleScroll() {
-    if (window.scrollY > 50) {
-      this.navbar.classList.add('scrolled');
-    } else {
-      this.navbar.classList.remove('scrolled');
-    }
-  }
-
   toggleMenu() {
-    const isActive = this.navLinks.classList.toggle('active');
+    const isActive = this.sidebar.classList.toggle('active');
     this.menuToggle.classList.toggle('active');
     this.menuToggle.setAttribute('aria-expanded', isActive);
-    
-    // Prevent body scroll when menu is open
-    document.body.style.overflow = isActive ? 'hidden' : '';
+    document.body.classList.toggle('menu-open');
   }
 
   closeMenu() {
-    this.navLinks.classList.remove('active');
+    this.sidebar.classList.remove('active');
     this.menuToggle.classList.remove('active');
     this.menuToggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-
-  setActiveLink(activeLink) {
-    this.navLinkItems.forEach(link => {
-      link.classList.remove('active');
-    });
-    activeLink.classList.add('active');
+    document.body.classList.remove('menu-open');
   }
 
   handleActiveSection() {
     const sections = $$('section[id]');
     
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      
-      sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          const activeLink = $(`#navLinks a[href="#${sectionId}"]`);
-          if (activeLink) {
-            this.navLinkItems.forEach(link => link.classList.remove('active'));
-            activeLink.classList.add('active');
-          }
-        }
-      });
-    }, { passive: true });
-  }
-}
-
-// ==================== SMOOTH SCROLL ====================
-class SmoothScroll {
-  constructor() {
-    this.init();
-  }
-
-  init() {
-    // Handle all anchor links with smooth scrolling
-    $$('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        const targetId = link.getAttribute('href');
-        
-        // Skip if href is just '#'
-        if (targetId === '#' || targetId.length <= 1) return;
-        
-        const target = $(targetId);
-        if (!target) return;
-        
-        e.preventDefault();
-        
-        const navbarHeight = $('#navbar')?.offsetHeight || 70;
-        const targetPosition = target.offsetTop - navbarHeight;
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-        
-        // Update URL without jumping
-        history.pushState(null, null, targetId);
-      });
-    });
-  }
-}
-
-// ==================== BACK TO TOP BUTTON ====================
-class BackToTop {
-  constructor() {
-    this.button = $('#backToTop');
-    if (!this.button) return;
-    
-    this.init();
-  }
-
-  init() {
-    // Show/hide button based on scroll position
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        this.button.classList.add('visible');
-      } else {
-        this.button.classList.remove('visible');
-      }
-    }, { passive: true });
-    
-    // Scroll to top when clicked
-    this.button.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
-}
-
-// ==================== CONTACT FORM ====================
-class ContactForm {
-  constructor() {
-    this.form = $('#contactForm');
-    if (!this.form) return;
-    
-    this.init();
-  }
-
-  init() {
-    this.form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      this.handleSubmit();
-    });
-    
-    // Add real-time validation
-    const inputs = this.form.querySelectorAll('input, textarea');
-    inputs.forEach(input => {
-      input.addEventListener('blur', () => this.validateField(input));
-      input.addEventListener('input', () => this.clearError(input));
-    });
-  }
-
-  validateField(field) {
-    const value = field.value.trim();
-    
-    if (field.hasAttribute('required') && !value) {
-      this.showError(field, 'This field is required');
-      return false;
-    }
-    
-    if (field.type === 'email' && value) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(value)) {
-        this.showError(field, 'Please enter a valid email address');
-        return false;
-      }
-    }
-    
-    this.clearError(field);
-    return true;
-  }
-
-  showError(field, message) {
-    this.clearError(field);
-    
-    field.style.borderColor = 'var(--error)';
-    
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'field-error';
-    errorDiv.style.color = 'var(--error)';
-    errorDiv.style.fontSize = '0.875rem';
-    errorDiv.style.marginTop = '0.25rem';
-    errorDiv.textContent = message;
-    
-    field.parentNode.appendChild(errorDiv);
-  }
-
-  clearError(field) {
-    field.style.borderColor = '';
-    
-    const errorDiv = field.parentNode.querySelector('.field-error');
-    if (errorDiv) {
-      errorDiv.remove();
-    }
-  }
-
-  async handleSubmit() {
-    const formData = new FormData(this.form);
-    const data = Object.fromEntries(formData);
-    
-    // Validate all fields
-    const inputs = this.form.querySelectorAll('input[required], textarea[required]');
-    let isValid = true;
-    
-    inputs.forEach(input => {
-      if (!this.validateField(input)) {
-        isValid = false;
-      }
-    });
-    
-    if (!isValid) {
-      this.showNotification('Please fill in all required fields correctly.', 'error');
-      return;
-    }
-    
-    // Show loading state
-    const submitBtn = this.form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    
-    // Simulate sending (replace with actual API call)
-    try {
-      await this.simulateApiCall(data);
-      
-      this.showNotification('Thank you! Your message has been sent successfully.', 'success');
-      this.form.reset();
-    } catch (error) {
-      this.showNotification('Oops! Something went wrong. Please try again.', 'error');
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalText;
-    }
-  }
-
-  simulateApiCall(data) {
-    return new Promise((resolve) => {
-      console.log('Form data:', data);
-      setTimeout(resolve, 1500);
-    });
-  }
-
-  showNotification(message, type = 'success') {
-    // Remove existing notifications
-    const existingNotif = $('.notification');
-    if (existingNotif) existingNotif.remove();
-    
-    const notification = document.createElement('div');
-    notification.className = 'notification';
-    notification.style.cssText = `
-      position: fixed;
-      top: 90px;
-      right: 20px;
-      padding: 1rem 1.5rem;
-      background: ${type === 'success' ? 'var(--success)' : 'var(--error)'};
-      color: white;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow-lg);
-      z-index: 9999;
-      animation: slideIn 0.3s ease;
-      max-width: 400px;
-    `;
-    
-    notification.innerHTML = `
-      <div style="display: flex; align-items: center; gap: 0.75rem;">
-        <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}" style="font-size: 1.25rem;"></i>
-        <span>${message}</span>
-      </div>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Auto remove after 5 seconds
-    setTimeout(() => {
-      notification.style.animation = 'slideOut 0.3s ease';
-      setTimeout(() => notification.remove(), 300);
-    }, 5000);
-  }
-}
-
-// ==================== ANIMATIONS ON SCROLL ====================
-class ScrollAnimations {
-  constructor() {
-    this.init();
-  }
-
-  init() {
-    // Check if IntersectionObserver is supported
-    if (!('IntersectionObserver' in window)) return;
-    
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-    
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-    
-    // Observe elements that should animate
-    const animateElements = $$('.project-card, .skill-category, .timeline-item, .stat-item');
-    
-    animateElements.forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(el);
-    });
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.getAttribute('id');
+                const activeLink = $(`a[href="#${sectionId}"]`);
+                
+                this.navLinks.forEach(link => link.classList.remove('active'));
+                if(activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    }, { rootMargin: '-30% 0px -70% 0px' });
+
+    sections.forEach(section => observer.observe(section));
   }
 }
+
+// ==================== EXPERIENCE TABS ====================
+class ExperienceTabs {
+    constructor() {
+        this.tabsContainer = $('.experience-tabs');
+        if(!this.tabsContainer) return;
+
+        this.tabLinks = $$('.tab-link');
+        this.tabPanels = $$('.tab-panel');
+
+        this.init();
+    }
+
+    init() {
+        this.tabsContainer.addEventListener('click', (e) => {
+            const clickedTab = e.target.closest('.tab-link');
+            if(!clickedTab) return;
+            
+            e.preventDefault();
+            this.activateTab(clickedTab);
+        });
+    }
+
+    activateTab(activeTab) {
+        const targetPanelId = activeTab.dataset.tab;
+        
+        this.tabLinks.forEach(tab => {
+            tab.classList.toggle('active', tab === activeTab);
+        });
+
+        this.tabPanels.forEach(panel => {
+            panel.classList.toggle('active', panel.id === targetPanelId);
+        });
+    }
+}
+
 
 // ==================== TYPING EFFECT ====================
 class TypingEffect {
-  constructor(element, texts, speed = 100, deleteSpeed = 50, pauseTime = 2000) {
+  constructor(element, texts, speed = 100, deleteSpeed = 50, pauseTime = 2000, loop = true) {
+    if (!element) return;
     this.element = element;
     this.texts = texts;
     this.speed = speed;
     this.deleteSpeed = deleteSpeed;
     this.pauseTime = pauseTime;
+    this.loop = loop;
     this.textIndex = 0;
     this.charIndex = 0;
     this.isDeleting = false;
     
-    if (this.element) {
-      this.type();
-    }
+    this.type();
   }
 
   type() {
     const currentText = this.texts[this.textIndex];
-    
+    let typeSpeed = this.isDeleting ? this.deleteSpeed : this.speed;
+
     if (this.isDeleting) {
       this.element.textContent = currentText.substring(0, this.charIndex - 1);
       this.charIndex--;
@@ -446,11 +192,12 @@ class TypingEffect {
       this.charIndex++;
     }
     
-    let typeSpeed = this.isDeleting ? this.deleteSpeed : this.speed;
-    
     if (!this.isDeleting && this.charIndex === currentText.length) {
-      typeSpeed = this.pauseTime;
-      this.isDeleting = true;
+        if (this.textIndex === this.texts.length - 1 && !this.loop) {
+            return; // Stop if it's the last text and not looping
+        }
+        typeSpeed = this.pauseTime;
+        this.isDeleting = true;
     } else if (this.isDeleting && this.charIndex === 0) {
       this.isDeleting = false;
       this.textIndex = (this.textIndex + 1) % this.texts.length;
@@ -461,108 +208,44 @@ class TypingEffect {
   }
 }
 
-// ==================== INITIALIZE APP ====================
-class App {
+// ==================== ANIMATIONS ON SCROLL ====================
+class ScrollAnimations {
   constructor() {
     this.init();
   }
 
   init() {
-    // Wait for DOM to be fully loaded
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => this.initializeComponents());
-    } else {
-      this.initializeComponents();
-    }
+    if (!('IntersectionObserver' in window)) return;
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    $$('.section').forEach(el => observer.observe(el));
   }
+}
 
-  initializeComponents() {
-    // Initialize all components
-    new LoadingScreen();
+// ==================== INITIALIZE APP ====================
+document.addEventListener('DOMContentLoaded', () => {
     new ThemeManager();
+    new LoadingScreen();
     new Navigation();
-    new SmoothScroll();
-    new BackToTop();
-    new ContactForm();
+    new ExperienceTabs();
     new ScrollAnimations();
-    
-    // Optional: Add typing effect to hero subtitle
-    // Uncomment if you want this feature
-    // const subtitleElement = $('.hero-subtitle');
-    // if (subtitleElement) {
-    //   new TypingEffect(
-    //     subtitleElement,
-    //     [
-    //       'Backend Developer Specializing in Node.js & MongoDB',
-    //       'Building Scalable REST APIs',
-    //       'Creating Real-time Applications'
-    //     ]
-    //   );
-    // }
-    
-    // Add CSS for notification animations
-    this.addNotificationStyles();
-    
-    // Log initialization
-    console.log('Portfolio initialized successfully! 🚀');
-  }
 
-  addNotificationStyles() {
-    if ($('#notification-styles')) return;
-    
-    const style = document.createElement('style');
-    style.id = 'notification-styles';
-    style.textContent = `
-      @keyframes slideIn {
-        from {
-          transform: translateX(400px);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-      
-      @keyframes slideOut {
-        from {
-          transform: translateX(0);
-          opacity: 1;
-        }
-        to {
-          transform: translateX(400px);
-          opacity: 0;
-        }
-      }
-    `;
-    
-    document.head.appendChild(style);
-  }
-}
+    new TypingEffect(
+        $('#hero-subtitle-text'),
+        [
+            'I build things for the web.',
+            'Backend Developer.',
+            'Node.js & MongoDB Expert.'
+        ]
+    );
 
-// ==================== START APPLICATION ====================
-new App();
-
-// ==================== PERFORMANCE MONITORING ====================
-if ('performance' in window) {
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const perfData = performance.getEntriesByType('navigation')[0];
-      if (perfData) {
-        console.log(`Page load time: ${perfData.loadEventEnd - perfData.loadEventStart}ms`);
-      }
-    }, 0);
-  });
-}
-
-// ==================== SERVICE WORKER REGISTRATION (Optional) ====================
-// Uncomment to enable offline support
-/*
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(reg => console.log('Service Worker registered'))
-      .catch(err => console.log('Service Worker registration failed'));
-  });
-}
-*/
+    console.log("Portfolio Initialized.");
+});
