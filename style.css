@@ -433,7 +433,7 @@ main {
 .image-wrapper {
   position: relative;
   border-radius: var(--border-radius);
-  background: var(--accent-primary);
+  background: transparent;
   width: fit-content;
 }
 
@@ -457,19 +457,12 @@ main {
 .profile-img {
   border-radius: var(--border-radius);
   position: relative;
-  mix-blend-mode: multiply;
-  filter: grayscale(100%) contrast(1.2);
   transition: var(--transition);
 }
 
-[data-theme="dark"] .profile-img {
-  mix-blend-mode: screen;
-}
 
-.image-wrapper:hover .profile-img {
-  mix-blend-mode: normal;
-  filter: none;
-}
+
+
 
 
 /* ==================== SKILLS SECTION ==================== */
