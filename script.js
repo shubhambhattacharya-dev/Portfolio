@@ -2,6 +2,19 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
+// Debounce function for performance optimization
+const debounce = (func, wait) => {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
+
 // ==================== THEME MANAGER ====================
 class ThemeManager {
   constructor() {
@@ -15,9 +28,19 @@ class ThemeManager {
   }
 
   init() {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    // Check for user preference, system preference, or default to dark
+    const savedTheme = localStorage.getItem('theme') || 
+                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     this.setTheme(savedTheme);
+    
     this.toggleBtn.addEventListener('click', () => this.toggleTheme());
+    
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        this.setTheme(e.matches ? 'dark' : 'light');
+      }
+    });
   }
 
   setTheme(theme) {
@@ -33,6 +56,7 @@ class ThemeManager {
 
   updateIcon(theme) {
     this.icon.className = `fas ${theme === 'dark' ? 'fa-sun' : 'fa-moon'}`;
+    this.icon.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
   }
 }
 
@@ -47,14 +71,33 @@ class LoadingScreen {
   }
   
   init() {
-    new TypingEffect(this.loaderText, ['Initializing portfolio...', 'Loading assets...', 'Building DOM...', 'Done.'], 80, 40, 600, false);
-    window.addEventListener('load', () => {
-      setTimeout(() => this.hide(), 3000); // Give typing effect time to finish
-    });
+    new TypingEffect(
+      this.loaderText, 
+      ['Initializing portfolio...', 'Loading assets...', 'Building DOM...', 'Done.'], 
+      80, 
+      40, 
+      600, 
+      false
+    );
+    
+    // Hide loading screen when page is fully loaded
+    if (document.readyState === 'complete') {
+      setTimeout(() => this.hide(), 2500);
+    } else {
+      window.addEventListener('load', () => {
+        setTimeout(() => this.hide(), 2500);
+      });
+    }
   }
 
   hide() {
     this.overlay.classList.add('hidden');
+    // Remove from DOM after animation completes
+    setTimeout(() => {
+      if (this.overlay && this.overlay.parentNode) {
+        this.overlay.style.display = 'none';
+      }
+    }, 500);
   }
 }
 
@@ -71,24 +114,42 @@ class Navigation {
   }
 
   init() {
+    // Menu toggle
     this.menuToggle.addEventListener('click', () => this.toggleMenu());
     
+    // Close menu when clicking nav links
     this.navLinks.forEach(link => {
-      link.addEventListener('click', () => this.closeMenu());
+      link.addEventListener('click', (e) => {
+        // Smooth scroll
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetSection = $(targetId);
+        
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        this.closeMenu();
+      });
     });
     
+    // Close menu on Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && this.sidebar.classList.contains('active')) {
         this.closeMenu();
       }
     });
 
+    // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (this.sidebar.classList.contains('active') && !e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
-            this.closeMenu();
-        }
+      if (this.sidebar.classList.contains('active') && 
+          !e.target.closest('.sidebar') && 
+          !e.target.closest('.menu-toggle')) {
+        this.closeMenu();
+      }
     });
 
+    // Handle active section highlighting
     this.handleActiveSection();
   }
 
@@ -109,19 +170,36 @@ class Navigation {
   handleActiveSection() {
     const sections = $$('section[id]');
     
+    // Intersection Observer for better performance
+    const observerOptions = {
+      rootMargin: '-30% 0px -70% 0px',
+      threshold: 0
+    };
+    
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const sectionId = entry.target.getAttribute('id');
-                const activeLink = $(`a[href="#${sectionId}"]`);
-                
-                this.navLinks.forEach(link => link.classList.remove('active'));
-                if(activeLink) {
-                    activeLink.classList.add('active');
-                }
-            }
-        });
-    }, { rootMargin: '-30% 0px -70% 0px' });
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.getAttribute('id');
+          const activeLink = $(`.nav-link[href="#${sectionId}"]`);
+          
+          // Update active state
+          this.navLinks.forEach(link => {
+            link.classList.remove('active');
+            link.setAttribute('aria-current', 'false');
+          });
+          
+          if (activeLink) {
+            activeLink.classList.add('active');
+            activeLink.setAttribute('aria-current', 'page');
+          }
+          
+          // Update URL without scrolling
+          if (history.pushState) {
+            history.pushState(null, null, `#${sectionId}`);
+          }
+        }
+      });
+    }, observerOptions);
 
     sections.forEach(section => observer.observe(section));
   }
@@ -129,39 +207,69 @@ class Navigation {
 
 // ==================== EXPERIENCE TABS ====================
 class ExperienceTabs {
-    constructor() {
-        this.tabsContainer = $('.experience-tabs');
-        if(!this.tabsContainer) return;
+  constructor() {
+    this.tabsContainer = $('.experience-tabs');
+    if (!this.tabsContainer) return;
 
-        this.tabLinks = $$('.tab-link');
-        this.tabPanels = $$('.tab-panel');
+    this.tabLinks = $$('.tab-link');
+    this.tabPanels = $$('.tab-panel');
 
-        this.init();
-    }
+    this.init();
+  }
 
-    init() {
-        this.tabsContainer.addEventListener('click', (e) => {
-            const clickedTab = e.target.closest('.tab-link');
-            if(!clickedTab) return;
-            
-            e.preventDefault();
-            this.activateTab(clickedTab);
-        });
-    }
-
-    activateTab(activeTab) {
-        const targetPanelId = activeTab.dataset.tab;
+  init() {
+    this.tabsContainer.addEventListener('click', (e) => {
+      const clickedTab = e.target.closest('.tab-link');
+      if (!clickedTab) return;
+      
+      e.preventDefault();
+      this.activateTab(clickedTab);
+    });
+    
+    // Keyboard navigation for tabs
+    this.tabLinks.forEach((tab, index) => {
+      tab.addEventListener('keydown', (e) => {
+        let newIndex = index;
         
-        this.tabLinks.forEach(tab => {
-            tab.classList.toggle('active', tab === activeTab);
-        });
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          newIndex = (index + 1) % this.tabLinks.length;
+          e.preventDefault();
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          newIndex = (index - 1 + this.tabLinks.length) % this.tabLinks.length;
+          e.preventDefault();
+        } else if (e.key === 'Home') {
+          newIndex = 0;
+          e.preventDefault();
+        } else if (e.key === 'End') {
+          newIndex = this.tabLinks.length - 1;
+          e.preventDefault();
+        }
+        
+        if (newIndex !== index) {
+          this.tabLinks[newIndex].focus();
+          this.activateTab(this.tabLinks[newIndex]);
+        }
+      });
+    });
+  }
 
-        this.tabPanels.forEach(panel => {
-            panel.classList.toggle('active', panel.id === targetPanelId);
-        });
-    }
+  activateTab(activeTab) {
+    const targetPanelId = activeTab.dataset.tab;
+    
+    // Update tabs
+    this.tabLinks.forEach(tab => {
+      const isActive = tab === activeTab;
+      tab.classList.toggle('active', isActive);
+      tab.setAttribute('aria-selected', isActive);
+      tab.setAttribute('tabindex', isActive ? '0' : '-1');
+    });
+
+    // Update panels
+    this.tabPanels.forEach(panel => {
+      panel.classList.toggle('active', panel.id === targetPanelId);
+    });
+  }
 }
-
 
 // ==================== TYPING EFFECT ====================
 class TypingEffect {
@@ -176,6 +284,7 @@ class TypingEffect {
     this.textIndex = 0;
     this.charIndex = 0;
     this.isDeleting = false;
+    this.timeoutId = null;
     
     this.type();
   }
@@ -193,18 +302,24 @@ class TypingEffect {
     }
     
     if (!this.isDeleting && this.charIndex === currentText.length) {
-        if (this.textIndex === this.texts.length - 1 && !this.loop) {
-            return; // Stop if it's the last text and not looping
-        }
-        typeSpeed = this.pauseTime;
-        this.isDeleting = true;
+      if (this.textIndex === this.texts.length - 1 && !this.loop) {
+        return; // Stop if it's the last text and not looping
+      }
+      typeSpeed = this.pauseTime;
+      this.isDeleting = true;
     } else if (this.isDeleting && this.charIndex === 0) {
       this.isDeleting = false;
       this.textIndex = (this.textIndex + 1) % this.texts.length;
       typeSpeed = 500;
     }
     
-    setTimeout(() => this.type(), typeSpeed);
+    this.timeoutId = setTimeout(() => this.type(), typeSpeed);
+  }
+  
+  destroy() {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+    }
   }
 }
 
@@ -215,7 +330,17 @@ class ScrollAnimations {
   }
 
   init() {
-    if (!('IntersectionObserver' in window)) return;
+    // Check for IntersectionObserver support
+    if (!('IntersectionObserver' in window)) {
+      // Fallback: make all sections visible
+      $$('.section').forEach(el => el.classList.add('visible'));
+      return;
+    }
+    
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
     
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -224,28 +349,133 @@ class ScrollAnimations {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, observerOptions);
     
     $$('.section').forEach(el => observer.observe(el));
   }
 }
 
+// ==================== PERFORMANCE MONITORING ====================
+class PerformanceMonitor {
+  constructor() {
+    this.init();
+  }
+  
+  init() {
+    // Log performance metrics in development
+    if (window.performance && window.performance.timing) {
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const perfData = window.performance.timing;
+          const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+          const connectTime = perfData.responseEnd - perfData.requestStart;
+          const renderTime = perfData.domComplete - perfData.domLoading;
+          
+          console.log('Performance Metrics:');
+          console.log(`Page Load Time: ${pageLoadTime}ms`);
+          console.log(`Server Connection Time: ${connectTime}ms`);
+          console.log(`DOM Render Time: ${renderTime}ms`);
+        }, 0);
+      });
+    }
+  }
+}
+
+// ==================== SMOOTH SCROLL POLYFILL ====================
+function smoothScrollPolyfill() {
+  // Check if smooth scroll is supported
+  if ('scrollBehavior' in document.documentElement.style) {
+    return;
+  }
+  
+  // Add polyfill for older browsers
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+}
+
 // ==================== INITIALIZE APP ====================
 document.addEventListener('DOMContentLoaded', () => {
+  try {
+    // Initialize all components
     new ThemeManager();
     new LoadingScreen();
     new Navigation();
     new ExperienceTabs();
     new ScrollAnimations();
-
-    new TypingEffect(
-        $('#hero-subtitle-text'),
+    
+    // Initialize hero typing effect
+    const heroSubtitle = $('#hero-subtitle-text');
+    if (heroSubtitle) {
+      new TypingEffect(
+        heroSubtitle,
         [
-            'I build things for the web.',
-            'Backend Developer.',
-            'Node.js & MongoDB Expert.'
-        ]
-    );
-
-    console.log("Portfolio Initialized.");
+          'I build things for the web.',
+          'Backend Developer.',
+          'Node.js & MongoDB Expert.'
+        ],
+        100,
+        50,
+        2000,
+        true
+      );
+    }
+    
+    // Initialize smooth scroll polyfill
+    smoothScrollPolyfill();
+    
+    // Initialize performance monitoring (development only)
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      new PerformanceMonitor();
+    }
+    
+    console.log('✨ Portfolio Initialized Successfully');
+    
+  } catch (error) {
+    console.error('Error initializing portfolio:', error);
+  }
 });
+
+// ==================== SERVICE WORKER REGISTRATION (Optional) ====================
+// Uncomment to enable PWA features
+/*
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(registration => {
+        console.log('SW registered:', registration);
+      })
+      .catch(error => {
+        console.log('SW registration failed:', error);
+      });
+  });
+}
+*/
+
+// ==================== HANDLE NETWORK STATUS ====================
+window.addEventListener('online', () => {
+  console.log('Connection restored');
+});
+
+window.addEventListener('offline', () => {
+  console.log('Connection lost');
+});
+
+// ==================== PREVENT CONTEXT MENU ON PRODUCTION (Optional) ====================
+// Uncomment to disable right-click on production
+/*
+if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+  document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+  });
+}
+*/
