@@ -17,14 +17,14 @@
   --bg-primary-light: #FFFFFF;
   --bg-secondary-light: #F5F5F5;
   --text-primary-light: #212121;
-  --text-secondary-light: #757575;
+  --text-secondary-light: #555555;
   --accent-primary-light: #000000;
   --accent-secondary-light: #212121;
   --border-light: #EEEEEE;
 
   /* Typography */
-  --font-heading: 'Space Grotesk', sans-serif;
-  --font-body: 'Space Grotesk', sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   --font-mono: 'Fira Code', monospace;
 
   /* Sizing & Spacing - More responsive */

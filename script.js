@@ -2,18 +2,7 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
-// Debounce function for performance optimization
-const debounce = (func, wait) => {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-};
+
 
 // ==================== THEME MANAGER ====================
 class ThemeManager {
@@ -29,23 +18,36 @@ class ThemeManager {
 
   init() {
     // Check for user preference, system preference, or default to dark
-    const savedTheme = localStorage.getItem('theme') || 
-                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    let savedTheme;
+    try {
+      savedTheme = localStorage.getItem('theme');
+    } catch (e) {
+      savedTheme = null;
+    }
+    savedTheme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     this.setTheme(savedTheme);
     
     this.toggleBtn.addEventListener('click', () => this.toggleTheme());
     
     // Listen for system theme changes
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      if (!localStorage.getItem('theme')) {
-        this.setTheme(e.matches ? 'dark' : 'light');
+      try {
+        if (!localStorage.getItem('theme')) {
+          this.setTheme(e.matches ? 'dark' : 'light');
+        }
+      } catch (err) {
+        // ignore
       }
     });
   }
 
   setTheme(theme) {
     this.html.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    try {
+      localStorage.setItem('theme', theme);
+    } catch (e) {
+      console.warn('LocalStorage is not available');
+    }
     this.updateIcon(theme);
   }
 
@@ -71,7 +73,7 @@ class LoadingScreen {
   }
   
   init() {
-    new TypingEffect(
+    this.typingEffect = new TypingEffect(
       this.loaderText, 
       ['Initializing portfolio...', 'Loading assets...', 'Building DOM...', 'Done.'], 
       80, 
@@ -92,6 +94,9 @@ class LoadingScreen {
 
   hide() {
     this.overlay.classList.add('hidden');
+    if (this.typingEffect) {
+      this.typingEffect.destroy();
+    }
     // Remove from DOM after animation completes
     setTimeout(() => {
       if (this.overlay && this.overlay.parentNode) {
@@ -419,9 +424,10 @@ document.addEventListener('DOMContentLoaded', () => {
       new TypingEffect(
         heroSubtitle,
         [
-          'I build things for the web.',
-          'Backend Developer.',
-          'Node.js & MongoDB Expert.'
+          'robust backend systems.',
+          'scalable REST APIs.',
+          'fast, secure applications.',
+          'things for the web.'
         ],
         100,
         50,
