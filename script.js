@@ -75,7 +75,7 @@ class LoadingScreen {
   init() {
     this.typingEffect = new TypingEffect(
       this.loaderText, 
-      ['Initializing portfolio...', 'Loading assets...', 'Building DOM...', 'Done.'], 
+      ['Booting portfolio...', 'Loading projects...', 'Warming up APIs...', 'Ready.'],
       80, 
       40, 
       600, 
@@ -210,72 +210,6 @@ class Navigation {
   }
 }
 
-// ==================== EXPERIENCE TABS ====================
-class ExperienceTabs {
-  constructor() {
-    this.tabsContainer = $('.experience-tabs');
-    if (!this.tabsContainer) return;
-
-    this.tabLinks = $$('.tab-link');
-    this.tabPanels = $$('.tab-panel');
-
-    this.init();
-  }
-
-  init() {
-    this.tabsContainer.addEventListener('click', (e) => {
-      const clickedTab = e.target.closest('.tab-link');
-      if (!clickedTab) return;
-      
-      e.preventDefault();
-      this.activateTab(clickedTab);
-    });
-    
-    // Keyboard navigation for tabs
-    this.tabLinks.forEach((tab, index) => {
-      tab.addEventListener('keydown', (e) => {
-        let newIndex = index;
-        
-        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-          newIndex = (index + 1) % this.tabLinks.length;
-          e.preventDefault();
-        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-          newIndex = (index - 1 + this.tabLinks.length) % this.tabLinks.length;
-          e.preventDefault();
-        } else if (e.key === 'Home') {
-          newIndex = 0;
-          e.preventDefault();
-        } else if (e.key === 'End') {
-          newIndex = this.tabLinks.length - 1;
-          e.preventDefault();
-        }
-        
-        if (newIndex !== index) {
-          this.tabLinks[newIndex].focus();
-          this.activateTab(this.tabLinks[newIndex]);
-        }
-      });
-    });
-  }
-
-  activateTab(activeTab) {
-    const targetPanelId = activeTab.dataset.tab;
-    
-    // Update tabs
-    this.tabLinks.forEach(tab => {
-      const isActive = tab === activeTab;
-      tab.classList.toggle('active', isActive);
-      tab.setAttribute('aria-selected', isActive);
-      tab.setAttribute('tabindex', isActive ? '0' : '-1');
-    });
-
-    // Update panels
-    this.tabPanels.forEach(panel => {
-      panel.classList.toggle('active', panel.id === targetPanelId);
-    });
-  }
-}
-
 // ==================== TYPING EFFECT ====================
 class TypingEffect {
   constructor(element, texts, speed = 100, deleteSpeed = 50, pauseTime = 2000, loop = true) {
@@ -331,14 +265,32 @@ class TypingEffect {
 // ==================== ANIMATIONS ON SCROLL ====================
 class ScrollAnimations {
   constructor() {
+    this.revealSelector = [
+      '.hero-intro',
+      '.hero-title',
+      '.hero-subtitle',
+      '.hero-description',
+      '.hero-cta',
+      '.section-title',
+      '.about-text > *',
+      '.about-image',
+      '.skill-item',
+      '.project-card',
+      '.timeline-item',
+      '.contact-content > *'
+    ].join(', ');
+
     this.init();
   }
 
   init() {
+    const sections = $$('.section');
+    sections.forEach(section => this.prepareRevealItems(section));
+
     // Check for IntersectionObserver support
     if (!('IntersectionObserver' in window)) {
       // Fallback: make all sections visible
-      $$('.section').forEach(el => el.classList.add('visible'));
+      sections.forEach(el => el.classList.add('visible'));
       return;
     }
     
@@ -356,7 +308,15 @@ class ScrollAnimations {
       });
     }, observerOptions);
     
-    $$('.section').forEach(el => observer.observe(el));
+    sections.forEach(el => observer.observe(el));
+  }
+
+  prepareRevealItems(section) {
+    const items = Array.from(section.querySelectorAll(this.revealSelector));
+    items.forEach((item, index) => {
+      item.classList.add('reveal-item');
+      item.style.setProperty('--reveal-delay', `${Math.min(index * 70, 560)}ms`);
+    });
   }
 }
 
@@ -415,7 +375,6 @@ document.addEventListener('DOMContentLoaded', () => {
     new ThemeManager();
     new LoadingScreen();
     new Navigation();
-    new ExperienceTabs();
     new ScrollAnimations();
     
     // Initialize hero typing effect
@@ -426,8 +385,8 @@ document.addEventListener('DOMContentLoaded', () => {
         [
           'robust backend systems.',
           'scalable REST APIs.',
-          'fast, secure applications.',
-          'things for the web.'
+          'real-time features.',
+          'clean TypeScript APIs.'
         ],
         100,
         50,
@@ -444,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
       new PerformanceMonitor();
     }
     
-    console.log('✨ Portfolio Initialized Successfully');
+    console.log('Portfolio initialized successfully');
     
   } catch (error) {
     console.error('Error initializing portfolio:', error);
