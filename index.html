@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -186,17 +184,32 @@
           <h1 class="hero-title"><span>Shubham</span> <span>Bhattacharya.</span></h1>
           <h2 class="hero-subtitle">I build <span id="hero-subtitle-text">autonomous AI agents & robust systems.</span></h2>
           <p class="hero-description">
+            I am a self-taught Agentic AI & Backend Engineer specializing in Node.js, TypeScript, and LLMOps. I focus on building secure, cost-optimized backend architectures, LangGraph.js state machines, and zero-trust LLM integrations.
+          </p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary" aria-label="View my featured projects">
+              View My Work <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#contact" class="btn btn-secondary" aria-label="Get in touch with me">
+              Get In Touch
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT SECTION -->
+      <section class="section" id="about">
         <h2 class="section-title" data-number="02">About Me</h2>
         <div class="about-grid">
           <div class="about-text">
             <p>
-              Hello! I'm <strong>Shubham Bhattacharya</strong>, a passionate Backend Developer based in <strong>Vadodara, Gujarat, India</strong>. My journey into programming started with a curiosity for how things work behind the scenes, which naturally led me to the world of servers, databases, and APIs.
+              Hello! I'm <strong>Shubham Bhattacharya</strong>, a passionate <strong>Agentic AI & Backend Engineer</strong> based in <strong>Vadodara, Gujarat, India</strong>. I am a BCA graduate from <strong>Parul University</strong> and immediately available for hybrid or remote junior developer / high-stipend internship opportunities.
             </p>
             <p>
-              Over the past <strong>3 years</strong>, I've taught myself backend development from scratch - no bootcamp, no CS degree, just relentless curiosity and hundreds of hours building real projects. I've gone from "what is an API?" to deploying full-stack applications with authentication, real-time features, and production databases.
+              Over the past <strong>3 years</strong>, I have focused on teaching myself backend development. I went from learning the basics of HTTP to building full-stack products with robust databases, queues, and real-time features. My recent focus has shifted heavily towards the engineering side of AI, building pipelines that treat LLMs not as magic boxes, but as untrusted endpoints.
             </p>
             <p>
-              Today I build with <strong>Node.js, Express.js, MongoDB, TypeScript</strong>, and modern full-stack tools like <strong>PostgreSQL, Prisma, Clerk, and Zod</strong>. I'm currently seeking backend internships, junior opportunities, or freelance projects where I can contribute, learn quickly, and ship useful software.
+              I compile under strict TypeScript configurations, use schema validation at all system boundaries, and design event-driven architectures to keep applications fast and secure.
             </p>
             <a href="resume/Shubham_Resume.pdf" 
                class="btn btn-secondary" 
@@ -208,28 +221,32 @@
           <div class="about-image">
             <div class="image-wrapper">
               <img src="img/profile.jpg" 
-                   alt="Shubham Bhattacharya - Backend Developer specializing in Node.js and MongoDB" 
+                   alt="Shubham Bhattacharya - Agentic AI & Backend Developer" 
                    class="profile-img" 
                    width="300" 
                    height="300"
                    loading="lazy">
             </div>
-            <a href="resume/Shubham_Resume.pdf" 
-               class="btn btn-secondary" 
-               download="Shubham_Resume.pdf"
-               aria-label="Download Shubham Bhattacharya's resume">
-              <i class="fas fa-download"></i> Download Resume
-            </a>
           </div>
-          <div class="about-image">
-            <div class="image-wrapper">
-              <img src="img/profile.jpg" 
-                   alt="Shubham Bhattacharya - Backend Developer specializing in Node.js and MongoDB" 
-                   class="profile-img" 
-                   width="300" 
-                   height="300"
-                   loading="lazy">
-            </div>
+        </div>
+
+        <!-- ENGINEERING PHILOSOPHY -->
+        <h3 class="about-subtitle">My Engineering Philosophy: "Zero-Trust AI Backend"</h3>
+        <div class="philosophy-grid">
+          <div class="philosophy-card">
+            <div class="philosophy-icon"><i class="fas fa-user-shield"></i></div>
+            <h4>AI as an Untrusted API</h4>
+            <p>AI models can hallucinate or output malformed data. I enforce validation at the boundary, routing all LLM responses through strict Zod schemas to ensure type-safe execution before touching databases.</p>
+          </div>
+          <div class="philosophy-card">
+            <div class="philosophy-icon"><i class="fas fa-microchip"></i></div>
+            <h4>CPU &amp; Event Loop Safety</h4>
+            <p>Heavy operations—like pgvector embedding extractions or token math—must not block the Node.js event loop. I offload heavy data ingestion to background worker processes via Redis and BullMQ.</p>
+          </div>
+          <div class="philosophy-card">
+            <div class="philosophy-icon"><i class="fas fa-wallet"></i></div>
+            <h4>Budget &amp; HITL Guards</h4>
+            <p>To prevent database corruption and API wallet drains, I write tiktoken-based WASM token monitors and implement persistent Human-in-the-loop (HITL) gateways for critical transactions.</p>
           </div>
         </div>
       </section>
