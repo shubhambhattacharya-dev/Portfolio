@@ -73,15 +73,15 @@
         <a href="#experience" class="nav-link">Experience</a>
         <a href="#contact" class="nav-link">Contact</a>
         <button class="nav-theme-mobile" id="themeToggleMobile" aria-label="Toggle theme">
-          <i class="fas fa-sun" id="themeIconMobile"></i>
+          <svg class="icon icon-sun" id="themeIconMobileSvg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
         </button>
       </div>
       <div style="display:flex;align-items:center;gap:0.75rem;">
         <button class="nav-theme" id="themeToggle" aria-label="Toggle theme">
-          <i class="fas fa-sun" id="themeIcon"></i>
+          <svg class="icon icon-sun" id="themeIconSvg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
         </button>
         <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
-          <i class="fas fa-bars" id="mobileIcon"></i>
+          <svg class="icon icon-bars" id="mobileIconSvg" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
         </button>
       </div>
     </div>
@@ -94,8 +94,12 @@
     <section class="hero" id="home">
       <div class="container">
         <p class="hero-prompt">shubham@dev <span>~</span> $ whoami</p>
+        <div class="hero-status">
+          <span class="hero-status-dot"></span>
+          Open to backend engineering roles
+        </div>
         <h1 class="hero-name">Shubham Bhattacharya</h1>
-        <p class="hero-role">Backend Engineer — Agentic AI & Systems</p>
+        <p class="hero-role">Backend Engineer — Agentic AI &amp; Systems</p>
         <p class="hero-desc">
           I build autonomous AI agents, production APIs, and data pipelines.
           Self-taught, shipping real systems with Node.js, TypeScript, PostgreSQL, and LangGraph.js.
@@ -115,6 +119,7 @@
           <span class="section-number">01 / About</span>
           <h2 class="section-title">Background</h2>
         </div>
+        <img src="img/profile.jpg" alt="Shubham Bhattacharya" class="about-photo" width="80" height="80" loading="lazy">
         <div class="about-text">
           <p>
             I'm a self-taught backend engineer focused on <strong>agentic AI systems</strong> and
@@ -128,8 +133,9 @@
             schema validation, graceful shutdowns, rate limiting, and cost tracking.
           </p>
           <p>
-            Currently looking for backend engineering roles — internships, junior positions,
-            or remote startup work where I can ship production code from day one.
+            Started learning Node.js in late 2022. Shipped my first production API within 6 months.
+            Since then, I've built 3 production-grade systems including an enterprise AI agent,
+            a healthcare platform, and a launch-readiness auditor.
           </p>
         </div>
       </div>
@@ -143,18 +149,115 @@
           <h2 class="section-title">Projects</h2>
         </div>
 
-        <!-- DocNow -->
+        <!-- Gigi AI Ops — Enterprise D2C AI Agent -->
+        <article class="system-card">
+          <div class="system-header">
+            <h3 class="system-name">Gigi AI Ops<span class="system-featured">Featured</span></h3>
+            <div class="system-links">
+              <a href="https://github.com/shubhambhattacharya-dev/Agentic_Project" target="_blank" rel="noopener">Source</a>
+              <a href="https://agentic-project-drab.vercel.app/" target="_blank" rel="noopener">Live</a>
+            </div>
+          </div>
+          <p class="system-desc">
+            Enterprise-grade D2C customer support AI agent for an energy drink brand. Uses Groq's Llama models
+            with a hybrid RAG pipeline and session-secure context injection to bridge LLM reasoning with
+            database actions — while preventing prompt injection and spoofing attacks.
+          </p>
+          <img src="img/gigi-ai-ops-preview.png" alt="Gigi AI Ops — Enterprise D2C Customer Support AI Agent" class="system-preview" loading="lazy" width="680" height="380">
+          <div class="system-arch">
+            <pre> User Query
+     │
+     ▼
+┌──────────────┐     ┌──────────────┐
+│  Express +   │────▶│  Groq Llama  │
+│  TypeScript  │     │  (Reasoning) │
+└──────┬───────┘     └──────────────┘
+       │
+       ▼
+┌──────────────┐     ┌──────────────┐
+│  Zod Schema  │────▶│  PostgreSQL  │
+│ (Validation) │     │  (Prisma)    │
+└──────┬───────┘     └──────────────┘
+       │
+       ▼
+┌──────────────┐
+│    Clerk     │
+│ (Auth+Svix)  │
+└──────────────┘</pre>
+          </div>
+          <div class="system-decisions">
+            <h4>Key Decisions</h4>
+            <ul>
+              <li>Hybrid RAG pipeline with session-secure context injection — prevents LLM prompt spoofing in production</li>
+              <li>Zod runtime validation on all LLM outputs — raw model responses are untrusted input</li>
+              <li>Sentry + Pino for structured observability — production debugging without guesswork</li>
+              <li>Express + Helmet + rate-limit — defense in depth from day one</li>
+            </ul>
+          </div>
+          <div class="system-stack">
+            <span>Stack: </span>TypeScript · Express · Groq SDK · Prisma · PostgreSQL · Clerk · Sentry · Zod · Helmet
+          </div>
+        </article>
+
+        <!-- Medo Copilot — Launch-Readiness Auditor -->
+        <article class="system-card">
+          <div class="system-header">
+            <h3 class="system-name">Medo Copilot<span class="system-featured">Featured</span></h3>
+            <div class="system-links">
+              <a href="https://github.com/shubhambhattacharya-dev/Medo_Copilot" target="_blank" rel="noopener">Source</a>
+              <a href="https://medo-copilot.vercel.app/" target="_blank" rel="noopener">Live</a>
+            </div>
+          </div>
+          <p class="system-desc">
+            AI-powered launch-readiness auditor that tells you if your app is ready to <em>sell</em>,
+            not just if your code is clean. Uses Playwright to scrape live sites, then feeds the DOM
+            and screenshots to multi-provider LLMs (Google Gemini, Groq, OpenAI) for conversion-focused
+            UX analysis — scoring landing pages on hierarchy, friction, and social proof.
+          </p>
+          <img src="img/medo-copilot-preview.png" alt="Medo Copilot — Launch-Readiness Auditor dashboard" class="system-preview" loading="lazy" width="680" height="380">
+          <div class="system-arch">
+            <pre> User submits URL
+        │
+        ▼
+┌──────────────┐     ┌──────────────┐
+│  Playwright  │────▶│  Cheerio     │
+│  (Scrape)    │     │  (Parse DOM) │
+└──────┬───────┘     └──────────────┘
+       │
+       ▼
+┌──────────────┐     ┌──────────────┐
+│  AI SDK      │────▶│  Neon PgSQL  │
+│  (Multi-LLM) │     │  (Results)   │
+└──────────────┘     └──────────────┘</pre>
+          </div>
+          <div class="system-decisions">
+            <h4>Key Decisions</h4>
+            <ul>
+              <li>Multi-provider LLM routing (Google, Groq, OpenAI) — not locked to one provider, cost-optimized per query</li>
+              <li>Playwright + Cheerio for live DOM scraping — audits real deployed sites, not source code</li>
+              <li>Conversion-focused scoring over technical linting — bridges the gap between "it works" and "it converts"</li>
+              <li>Next.js App Router with Clerk auth — production-grade from the start</li>
+            </ul>
+          </div>
+          <div class="system-stack">
+            <span>Stack: </span>Next.js · TypeScript · AI SDK · Playwright · Cheerio · Neon PostgreSQL · Clerk · Shadcn UI
+          </div>
+        </article>
+
+        <!-- DocNow — Healthcare Platform -->
         <article class="system-card">
           <div class="system-header">
             <h3 class="system-name">DocNow</h3>
             <div class="system-links">
+              <a href="https://github.com/shubhambhattacharya-dev/health" target="_blank" rel="noopener">Source</a>
               <a href="https://docnow-zeta.vercel.app/" target="_blank" rel="noopener">Live</a>
             </div>
           </div>
           <p class="system-desc">
-            Healthcare appointment platform with doctor booking, video consultations,
-            and a credit-based payment model. Handles auth, scheduling, and payments
-            as separate concerns behind a unified Next.js frontend.
+            Full-stack telemedicine platform with doctor booking, video consultations via Vonage,
+            and a credit-based payment model. Patients browse verified doctors, book slots in under
+            2 minutes, and consult via live video. Doctors manage availability and payouts from a
+            separate dashboard.
           </p>
           <div class="system-arch">
             <pre>┌──────────────┐     ┌──────────────┐
@@ -164,98 +267,21 @@
        │                     │
        ▼                     ▼
 ┌──────────────┐     ┌──────────────┐
-│    Clerk     │     │    Stripe    │
-│    (Auth)    │     │  (Payments)  │
+│    Clerk     │     │   Vonage     │
+│    (Auth)    │     │  (Video)     │
 └──────────────┘     └──────────────┘</pre>
           </div>
           <div class="system-decisions">
             <h4>Key Decisions</h4>
             <ul>
+              <li>Clerk for auth instead of rolling custom JWT — auth is solved, not worth reinventing</li>
+              <li>Credit-based model over per-session billing — simpler state, fewer edge cases</li>
+              <li>Vonage for video consultations — reliable WebRTC without managing TURN servers</li>
               <li>Prisma for type-safe DB access — catches schema mismatches at compile time</li>
-              <li>Clerk over rolling my own JWT — auth is solved, not worth reinventing</li>
-              <li>Credit-based model instead of per-session billing — simpler state, fewer edge cases</li>
             </ul>
           </div>
           <div class="system-stack">
-            <span>Stack: </span>Next.js · PostgreSQL · Prisma · Clerk · Stripe · Tailwind
-          </div>
-        </article>
-
-        <!-- RAG Agent Pipeline -->
-        <article class="system-card">
-          <div class="system-header">
-            <h3 class="system-name">Agentic RAG Pipeline</h3>
-            <div class="system-links">
-              <a href="https://github.com/shubhambhattacharya-dev" target="_blank" rel="noopener">Source</a>
-            </div>
-          </div>
-          <p class="system-desc">
-            Multi-step AI agent that processes user queries through retrieval, validation,
-            and response generation. Uses structured error recovery and cost tracking at each step.
-          </p>
-          <div class="system-arch">
-            <pre> User Query
-     │
-     ▼
-┌──────────────┐     ┌──────────────┐
-│  LangGraph   │────▶│   pgvector   │
-│  (Orchestr.) │     │  (Retrieval) │
-└──────┬───────┘     └──────────────┘
-       │
-       ▼
-┌──────────────┐     ┌──────────────┐
-│  Zod Schema  │────▶│  BullMQ Job  │
-│ (Validation) │     │  (Response)  │
-└──────────────┘     └──────────────┘</pre>
-          </div>
-          <div class="system-decisions">
-            <h4>Key Decisions</h4>
-            <ul>
-              <li>Zod validation on all LLM outputs — raw model responses are untrusted input</li>
-              <li>tiktoken WASM for local token counting — avoids API calls just to estimate cost</li>
-              <li>BullMQ for async response generation — decouples retrieval from generation, enables retries</li>
-            </ul>
-          </div>
-          <div class="system-stack">
-            <span>Stack: </span>LangGraph.js · pgvector · PostgreSQL · Redis · BullMQ · Zod · OpenAI SDK
-          </div>
-        </article>
-
-        <!-- Real-Time Chat -->
-        <article class="system-card">
-          <div class="system-header">
-            <h3 class="system-name">Real-Time Chat</h3>
-            <div class="system-links">
-              <a href="https://github.com/shubhambhattacharya-dev/chatApp" target="_blank" rel="noopener">Source</a>
-              <a href="https://justchat-d566.onrender.com" target="_blank" rel="noopener">Live</a>
-            </div>
-          </div>
-          <p class="system-desc">
-            Chat platform with real-time messaging via WebSocket, persistent message history,
-            and online presence indicators. Focused on reliable message delivery and connection handling.
-          </p>
-          <div class="system-arch">
-            <pre>┌──────────────┐     ┌──────────────┐
-│   Express    │────▶│   MongoDB    │
-│   (HTTP)     │     │  (Messages)  │
-└──────┬───────┘     └──────────────┘
-       │
-       ▼
-┌──────────────┐
-│   Socket.io  │
-│  (WebSocket) │
-└──────────────┘</pre>
-          </div>
-          <div class="system-decisions">
-            <h4>Key Decisions</h4>
-            <ul>
-              <li>Socket.io over raw WebSocket — automatic reconnection, room support, fallback transports</li>
-              <li>Messages persisted to MongoDB before broadcast — survives server restarts</li>
-              <li>JWT stored in httpOnly cookie — not localStorage, not vulnerable to XSS</li>
-            </ul>
-          </div>
-          <div class="system-stack">
-            <span>Stack: </span>Node.js · Express · Socket.io · MongoDB · JWT
+            <span>Stack: </span>Next.js · TypeScript · PostgreSQL · Prisma · Clerk · Vonage · Zod · Shadcn UI
           </div>
         </article>
 
@@ -266,58 +292,66 @@
     <section class="section" id="stack">
       <div class="container container--wide">
         <div class="section-header">
-          <span class="section-number">03 / Stack & Tools</span>
+          <span class="section-number">03 / Technical Stack</span>
           <h2 class="section-title">What I Work With</h2>
         </div>
 
         <div class="stack-grid">
           <div class="stack-row">
             <span class="stack-category">Runtime</span>
-            <span class="stack-items"><code>Node.js</code> · <code>Bun</code></span>
+            <span class="stack-items"><code class="stack-primary">Node.js</code> · <code class="stack-secondary">Bun</code></span>
           </div>
           <div class="stack-row">
             <span class="stack-category">Language</span>
-            <span class="stack-items"><code>TypeScript</code> · <code>JavaScript</code></span>
+            <span class="stack-items"><code class="stack-primary">TypeScript</code> · <code class="stack-primary">JavaScript</code></span>
           </div>
           <div class="stack-row">
             <span class="stack-category">Framework</span>
-            <span class="stack-items"><code>Express</code> · <code>Next.js (App Router)</code></span>
+            <span class="stack-items"><code class="stack-primary">Express</code> · <code class="stack-primary">Next.js (App Router)</code></span>
           </div>
           <div class="stack-row">
             <span class="stack-category">Database</span>
-            <span class="stack-items"><code>PostgreSQL</code> · <code>MongoDB</code> · <code>Redis</code></span>
+            <span class="stack-items"><code class="stack-primary">PostgreSQL</code> · <code class="stack-primary">Redis</code> · <code class="stack-secondary">MongoDB</code></span>
           </div>
           <div class="stack-row">
             <span class="stack-category">ORM</span>
-            <span class="stack-items"><code>Prisma</code> · <code>Mongoose</code></span>
+            <span class="stack-items"><code class="stack-primary">Prisma</code> · <code class="stack-secondary">Mongoose</code></span>
           </div>
           <div class="stack-row">
             <span class="stack-category">Queue</span>
-            <span class="stack-items"><code>BullMQ</code> · <code>Redis Streams</code></span>
+            <span class="stack-items"><code class="stack-primary">BullMQ</code> · <code class="stack-secondary">Redis Streams</code></span>
           </div>
           <div class="stack-row">
             <span class="stack-category">Auth</span>
-            <span class="stack-items"><code>Clerk</code> · <code>JWT</code> · <code>Passport</code></span>
+            <span class="stack-items"><code class="stack-primary">Clerk</code> · <code class="stack-primary">JWT</code> · <code class="stack-secondary">Passport</code></span>
           </div>
           <div class="stack-row">
             <span class="stack-category">AI / ML</span>
-            <span class="stack-items"><code>LangGraph.js</code> · <code>OpenAI SDK</code> · <code>pgvector</code></span>
+            <span class="stack-items"><code class="stack-primary">Groq SDK</code> · <code class="stack-primary">AI SDK</code> · <code class="stack-primary">LangGraph.js</code> · <code class="stack-primary">pgvector</code></span>
           </div>
           <div class="stack-row">
             <span class="stack-category">Infra</span>
-            <span class="stack-items"><code>Docker</code> · <code>AWS (EC2, S3)</code> · <code>Vercel</code> · <code>Railway</code></span>
+            <span class="stack-items"><code class="stack-primary">Docker</code> · <code class="stack-secondary">AWS (EC2, S3)</code> · <code class="stack-primary">Vercel</code> · <code class="stack-secondary">Railway</code></span>
           </div>
           <div class="stack-row">
             <span class="stack-category">Validation</span>
-            <span class="stack-items"><code>Zod</code> · <code>Joi</code></span>
+            <span class="stack-items"><code class="stack-primary">Zod</code> · <code class="stack-secondary">Joi</code></span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-category">Testing</span>
+            <span class="stack-items"><code class="stack-primary">Vitest</code> · <code class="stack-primary">Supertest</code> · <code class="stack-secondary">Jest</code></span>
           </div>
           <div class="stack-row">
             <span class="stack-category">Realtime</span>
-            <span class="stack-items"><code>Socket.io</code></span>
+            <span class="stack-items"><code class="stack-primary">Socket.io</code> · <code class="stack-secondary">Vonage Video</code></span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-category">Observability</span>
+            <span class="stack-items"><code class="stack-primary">Sentry</code> · <code class="stack-primary">Pino</code></span>
           </div>
           <div class="stack-row">
             <span class="stack-category">Tools</span>
-            <span class="stack-items"><code>Git</code> · <code>GitHub Actions</code> · <code>Postman</code> · <code>pgAdmin</code></span>
+            <span class="stack-items"><code class="stack-primary">Git</code> · <code class="stack-primary">GitHub Actions</code> · <code class="stack-secondary">Postman</code> · <code class="stack-secondary">pgAdmin</code></span>
           </div>
         </div>
 
@@ -339,10 +373,11 @@
           </div>
           <p class="experience-subtitle">Agentic AI & Backend Engineer</p>
           <ul class="experience-list">
-            <li>Built multi-step AI agent pipelines with LangGraph.js, pgvector retrieval, and BullMQ job queues — handling structured error recovery and cost tracking at each step</li>
+            <li>Built multi-step AI agent pipelines with Groq Llama models, pgvector retrieval, and BullMQ job queues — handling structured error recovery and cost tracking at each step</li>
             <li>Implemented Zod runtime validation on all LLM outputs to prevent untrusted model responses from crashing downstream services</li>
-            <li>Engineered localized token cost calculators with tiktoken WASM memory cleanup hooks for monitoring prompt costs</li>
+            <li>Engineered session-secure context injection to prevent prompt spoofing in production AI agents</li>
             <li>Practiced production backend patterns: graceful shutdowns, multi-tenant DB schemas, security headers, rate limiting, and clean service-layer separation</li>
+            <li>Documented a 60-day Agentic AI learning journey covering RAG, embeddings, vector DBs, agents, tools, and orchestration</li>
           </ul>
         </div>
 
@@ -357,10 +392,20 @@
           <h2 class="section-title">Get In Touch</h2>
         </div>
         <p class="contact-text">
-          Looking for backend engineering roles — internships, junior positions,
-          or remote startup work. I write clean TypeScript, build cost-efficient
-          AI pipelines, and I'm ready to ship production code.
+          I build production AI pipelines and backend systems. Currently looking for
+          backend engineering roles — internships, junior positions, or remote startup work
+          where I can ship production code from day one.
         </p>
+        <div class="contact-actions">
+          <a href="mailto:shubhambhattacharya107@gmail.com?subject=Backend%20Role%20Inquiry" class="contact-cta">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Email Me
+          </a>
+          <a href="resume/Shubham_Resume.pdf" class="contact-resume" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+            Download Resume
+          </a>
+        </div>
         <div class="contact-links">
           <a href="mailto:shubhambhattacharya107@gmail.com" class="contact-link">
             <span class="contact-link-label">Email</span>
@@ -391,9 +436,9 @@
     </div>
   </footer>
 
-  <!-- Font Awesome (icons for theme toggle only) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl0HPNiekB8VUQRT9XkiAfORFSYJjCZ6GpYGEuX4BoLfckEaHkY/v2M1I2m1O3P8q2h0T8f2W5J0A==" crossorigin="anonymous" referrerpolicy="no-referrer">
-
   <script src="script.js" defer></script>
 </body>
 </html>
+
+
+

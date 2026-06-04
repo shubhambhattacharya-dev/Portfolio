@@ -8,15 +8,21 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const html = document.documentElement;
-  const desktopBtn = document.getElementById('themeToggle');
-  const desktopIcon = document.getElementById('themeIcon');
-  const mobileBtn = document.getElementById('themeToggleMobile');
-  const mobileIcon = document.getElementById('themeIconMobile');
+
+  // SVG icon templates (replacing Font Awesome)
+  const ICONS = {
+    sun: `<svg class="icon icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>`,
+    moon: `<svg class="icon icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    bars: `<svg class="icon icon-bars" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>`,
+    close: `<svg class="icon icon-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>`
+  };
 
   function updateIcons(theme) {
-    const cls = theme === 'dark' ? 'fa-sun' : 'fa-moon';
-    if (desktopIcon) desktopIcon.className = 'fas ' + cls;
-    if (mobileIcon) mobileIcon.className = 'fas ' + cls;
+    const icon = theme === 'dark' ? ICONS.sun : ICONS.moon;
+    const desktopBtn = document.getElementById('themeToggle');
+    const mobileBtn = document.getElementById('themeToggleMobile');
+    if (desktopBtn) desktopBtn.innerHTML = icon;
+    if (mobileBtn) mobileBtn.innerHTML = icon;
   }
 
   function setTheme(theme) {
@@ -33,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setTheme(current === 'dark' ? 'light' : 'dark');
   }
 
+  const desktopBtn = document.getElementById('themeToggle');
+  const mobileBtn = document.getElementById('themeToggleMobile');
   if (desktopBtn) desktopBtn.addEventListener('click', toggle);
   if (mobileBtn) mobileBtn.addEventListener('click', toggle);
 
@@ -41,15 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==================== MOBILE NAV ====================
   const mobileToggle = document.getElementById('mobileToggle');
   const navLinks = document.getElementById('navLinks');
-  const mobileIconEl = document.getElementById('mobileIcon');
 
   if (mobileToggle && navLinks) {
     mobileToggle.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('open');
       mobileToggle.setAttribute('aria-expanded', isOpen);
-      if (mobileIconEl) {
-        mobileIconEl.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
-      }
+      mobileToggle.innerHTML = isOpen ? ICONS.close : ICONS.bars;
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
@@ -58,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
         mobileToggle.setAttribute('aria-expanded', 'false');
-        if (mobileIconEl) mobileIconEl.className = 'fas fa-bars';
+        mobileToggle.innerHTML = ICONS.bars;
         document.body.style.overflow = '';
       });
     });
@@ -68,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape' && navLinks.classList.contains('open')) {
         navLinks.classList.remove('open');
         mobileToggle.setAttribute('aria-expanded', 'false');
-        if (mobileIconEl) mobileIconEl.className = 'fas fa-bars';
+        mobileToggle.innerHTML = ICONS.bars;
         document.body.style.overflow = '';
       }
     });
@@ -95,5 +100,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     sections.forEach(s => observer.observe(s));
+  }
+
+  // ==================== SCROLL FADE-IN ANIMATION ====================
+  const fadeEls = document.querySelectorAll('.system-card, .section-header, .about-text, .experience-item, .contact-text');
+  if (fadeEls.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeEls.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      fadeObserver.observe(el);
+    });
   }
 });
