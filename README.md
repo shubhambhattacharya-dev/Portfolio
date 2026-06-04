@@ -2,88 +2,93 @@
 
 Personal portfolio showcasing backend development projects and skills.
 
+**Live:** [shubhambhattacharya.dev](https://shubhambhattacharya.dev)
+
 ## Tech Stack
 
 - HTML5
 - CSS3 (Grid, Flexbox, CSS Variables)
 - Vanilla JavaScript (ES6+)
-- Font Awesome 6.4
-- Google Fonts (Space Grotesk, Fira Code)
+- Google Fonts (IBM Plex Sans, JetBrains Mono)
+- Inline SVGs (no icon libraries)
 
 ## Features
 
-- Fully responsive design
-- Dark/light theme toggle with localStorage
-- Smooth scroll animations
-- Single page navigation
-- SEO optimized with meta tags and structured data
-- Accessibility compliant (WCAG 2.1)
+- Fully responsive design (mobile, tablet, desktop)
+- Dark/light theme toggle with localStorage persistence
+- Scroll-triggered reveal animations
+- Active section highlighting via IntersectionObserver
+- SEO optimized with Open Graph, Twitter Cards, JSON-LD structured data
+- Accessibility compliant (skip link, ARIA attributes, reduced motion support)
+- Easter egg terminal (Konami code)
+- Mobile CTA bar
 - Zero dependencies
 
 ## Quick Start
 
 ```bash
 # Clone the repo
-git clone https://github.com/shubhambhattacharya-dev/portfolio.git
+git clone https://github.com/shubhambhattacharya-dev/Portfolio.git
 
 # Open index.html in browser
 ```
 
 Or run a local server:
 ```bash
-python -m http.server 8000
-# Visit http://localhost:8000
+npx serve .
+# Visit http://localhost:3000
 ```
 
 ## File Structure
 
 ```
-portfolio/
-├── index.html          # Main HTML
-├── style.css           # Styles
-├── script.js           # JavaScript
-├── img/                # Images
-└── resume/             # Resume PDF
+Portfolio/
+├── index.html          # Main HTML (single page)
+├── style.css           # All styles (CSS variables, responsive)
+├── script.js           # Theme, nav, animations, easter egg
+├── robots.txt          # Crawler directives
+├── sitemap.xml         # Sitemap for search engines
+├── img/                # Images (profile, project previews)
+├── resume/             # Resume PDF
+└── .github/workflows/  # GitHub Pages deployment
 ```
 
 ## Customization
 
 **Update personal info** in `index.html`:
-- Meta tags (title, description)
-- Hero section (name, bio)
-- Projects
-- Contact email
+- Meta tags (title, description, OG image)
+- Hero section (name, tagline, status)
+- Projects, stack, journey sections
+- Contact email and social links
 
 **Change colors** in `style.css`:
 ```css
 :root {
-  --bg-primary-dark: #121212;
-  --accent-primary-dark: #FFFFFF;
+  --accent: #D4A853;
+  --accent-hover: #E0B96A;
+  --success: #3ECF8E;
 }
 ```
 
-**Modify typing text** in `script.js`:
-```javascript
-new TypingEffect($('#hero-subtitle-text'), [
-  'Your text here.',
-  'Another line.'
-]);
+**Change fonts** in `style.css`:
+```css
+:root {
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-heading: 'JetBrains Mono', ui-monospace, monospace;
+}
 ```
 
 ## Deployment
 
-**GitHub Pages:**
-1. Push code to GitHub
-2. Settings → Pages → Select branch → Save
+**GitHub Pages (auto-deploy):**
+Push to `main` branch — GitHub Actions deploys automatically.
 
-**Netlify:**
-1. Connect GitHub repo
-2. Deploy
+**Manual setup:**
+1. Settings → Pages → Source: GitHub Actions
+2. Push to `main` branch
 
-**Vercel:**
-```bash
-vercel --prod
-```
+**Netlify / Vercel:**
+Connect the GitHub repo and deploy.
 
 ## Browser Support
 
@@ -98,4 +103,4 @@ MIT License - feel free to use for your own portfolio.
 - Email: shubhambhattacharya107@gmail.com
 - GitHub: [shubhambhattacharya-dev](https://github.com/shubhambhattacharya-dev)
 - LinkedIn: [shubhambhattadev](https://www.linkedin.com/in/shubhambhattadev/)
-- Twitter: [@Shubham_level](https://x.com/Shubham_level)
+- X: [@Shubham_level](https://x.com/Shubham_level)

@@ -84,7 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('id');
           navLinkEls.forEach(link => {
-            link.style.color = link.getAttribute('href') === '#' + id ? 'var(--text-1)' : '';
+            const isActive = link.getAttribute('href') === '#' + id;
+            link.style.color = isActive ? 'var(--text-1)' : '';
+            if (isActive) {
+              link.setAttribute('aria-current', 'page');
+            } else {
+              link.removeAttribute('aria-current');
+            }
           });
         }
       });
