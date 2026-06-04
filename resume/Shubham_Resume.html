@@ -3,29 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shubham Bhattacharya — Resume</title>
+  <title>Shubham Bhattacharya — AI Agent Backend Engineer</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 11px; line-height: 1.4; color: #1a1a1a; max-width: 8.5in; margin: 0 auto; padding: 0.4in 0.5in; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      line-height: 1.5;
+      color: #1a1a1a;
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.4in 0.5in;
+    }
     h1 { font-size: 22px; font-weight: 700; margin-bottom: 2px; }
-    .subtitle { font-size: 13px; color: #444; margin-bottom: 6px; }
-    .contact { font-size: 10px; color: #555; margin-bottom: 12px; }
+    .subtitle { font-size: 12px; color: #333; margin-bottom: 4px; font-weight: 600; }
+    .contact { font-size: 10px; color: #444; margin-bottom: 14px; line-height: 1.7; }
     .contact a { color: #2563eb; text-decoration: none; }
-    h2 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1.5px solid #1a1a1a; padding-bottom: 2px; margin: 10px 0 6px; }
-    .project { margin-bottom: 8px; }
-    .project-header { display: flex; justify-content: space-between; align-items: baseline; }
-    .project-title { font-size: 12px; font-weight: 700; }
-    .project-tech { font-size: 9px; color: #666; }
-    .project-desc { font-size: 10px; color: #444; margin: 2px 0; }
+    h2 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      border-bottom: 1.5px solid #1a1a1a;
+      padding-bottom: 2px;
+      margin: 14px 0 6px;
+      color: #1a1a1a;
+    }
+    .summary { font-size: 10.5px; color: #333; margin-bottom: 10px; line-height: 1.55; }
+    .project { margin-bottom: 12px; }
+    .project-header { margin-bottom: 2px; }
+    .project-title { font-size: 11.5px; font-weight: 700; }
+    .project-meta { font-size: 9.5px; color: #555; margin-bottom: 3px; }
+    .project-link { font-size: 9px; color: #2563eb; margin-top: 2px; }
     ul { margin-left: 16px; margin-bottom: 4px; }
-    li { font-size: 10px; margin-bottom: 1px; }
-    .skills-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; }
-    .skill-category { font-size: 10px; }
-    .skill-label { font-weight: 600; }
+    li { font-size: 10px; margin-bottom: 2px; line-height: 1.45; }
+    .skill-category { margin-bottom: 4px; font-size: 10px; }
+    .skill-label { font-weight: 700; }
     .education { font-size: 10px; }
-    .edu-header { display: flex; justify-content: space-between; }
-    .edu-school { font-weight: 600; }
-    .edu-details { color: #444; }
+    .edu-header { margin-bottom: 2px; }
+    .edu-school { font-weight: 700; }
+    .edu-details { color: #444; margin-top: 1px; }
     @media print {
       body { padding: 0.3in 0.4in; }
       a { color: #2563eb; }
@@ -33,87 +50,86 @@
   </style>
 </head>
 <body>
+
   <h1>Shubham Bhattacharya</h1>
-  <div class="subtitle">Backend & AI Engineer — Node.js + TypeScript</div>
+  <div class="subtitle">AI Agent Backend Engineer — TypeScript, Node.js, LangGraph.js</div>
   <div class="contact">
-    <a href="mailto:shubhambhattacharya107@gmail.com">shubhambhattacharya107@gmail.com</a> | 
-    <a href="https://github.com/shubhambhattacharya-dev">github.com/shubhambhattacharya-dev</a> | 
-    <a href="https://www.linkedin.com/in/shubhambhattadev/">linkedin.com/in/shubhambhattadev</a> | 
-    <a href="https://shubhambhattacharya.dev">shubhambhattacharya.dev</a> | 
-    Vadodara, Gujarat
+    shubhambhattacharya107@gmail.com |
+    +91-9155252394 |
+    Vadodara, Gujarat, India
+    <br>
+    <a href="https://github.com/shubhambhattacharya-dev">github.com/shubhambhattacharya-dev</a> |
+    <a href="https://www.linkedin.com/in/shubhambhattadev/">linkedin.com/in/shubhambhattadev</a> |
+    <a href="https://shubhambhattacharya.dev">shubhambhattacharya.dev</a>
   </div>
 
   <h2>Summary</h2>
-  <p style="font-size: 10px; margin-bottom: 8px;">Backend engineer specializing in agentic AI systems, production SaaS, and intelligent automation. Built production-grade projects handling real users, real money, and real failure modes. Strong focus on system hardening, type safety, and robust runtime constraints.</p>
+  <p class="summary">AI Agent Backend Engineer specializing in production LLM systems, multi-agent orchestration, and intelligent automation with TypeScript and Node.js. Built agentic backends using LangGraph.js state machines with deterministic routing, Zod-validated outputs, and human-in-the-loop patterns for financial safety. Strong focus on zero-trust AI architecture where every LLM output is untrusted until validated. Seeking AI Agent Backend Developer roles building production-grade agent systems.</p>
 
   <h2>Technical Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-category"><span class="skill-label">Languages:</span> TypeScript, JavaScript, Python</div>
-    <div class="skill-category"><span class="skill-label">Backend:</span> Node.js, Express.js, Next.js, REST APIs</div>
-    <div class="skill-category"><span class="skill-label">AI/Agents:</span> Vercel AI SDK, Groq/Llama, Gemini 2.0</div>
-    <div class="skill-category"><span class="skill-label">Database:</span> PostgreSQL, Prisma, MongoDB, Redis</div>
-    <div class="skill-category"><span class="skill-label">Auth:</span> Clerk, JWT, bcrypt, HMAC</div>
-    <div class="skill-category"><span class="skill-label">DevOps:</span> Docker, GitHub Actions, Vercel</div>
-    <div class="skill-category"><span class="skill-label">Validation:</span> Zod, React Hook Form</div>
-    <div class="skill-category"><span class="skill-label">Testing:</span> Playwright, Lighthouse</div>
-    <div class="skill-category"><span class="skill-label">Realtime:</span> Socket.IO, WebRTC</div>
-  </div>
+  <div class="skill-category"><span class="skill-label">AI Agent Development:</span> LangGraph.js, Multi-Agent Orchestration, Tool Calling, Human-in-the-Loop, Prompt Engineering</div>
+  <div class="skill-category"><span class="skill-label">LLM Integration:</span> Multi-Provider LLM Orchestration, LLM Output Validation, tiktoken, Streaming (SSE)</div>
+  <div class="skill-category"><span class="skill-label">Retrieval & Embeddings:</span> pgvector, RAG Pipelines, Semantic Search, BM25, Vector Databases</div>
+  <div class="skill-category"><span class="skill-label">Languages:</span> TypeScript, JavaScript, SQL</div>
+  <div class="skill-category"><span class="skill-label">Backend & APIs:</span> Node.js, Express.js, Next.js, REST APIs, SSE, Socket.IO, WebSockets</div>
+  <div class="skill-category"><span class="skill-label">Database & Cache:</span> PostgreSQL, Prisma, Redis, BullMQ, MongoDB</div>
+  <div class="skill-category"><span class="skill-label">Validation & Auth:</span> Zod, Clerk, JWT, bcrypt, Helmet</div>
+  <div class="skill-category"><span class="skill-label">Observability:</span> Langfuse, OpenTelemetry, Sentry, Pino</div>
+  <div class="skill-category"><span class="skill-label">DevOps & Infra:</span> Docker, GitHub Actions, Vercel</div>
 
   <h2>Projects</h2>
 
   <div class="project">
     <div class="project-header">
-      <span class="project-title">Gigi AI Ops — Production Agentic AI Backend</span>
-      <span class="project-tech">TypeScript, Groq/Llama, PostgreSQL, BullMQ, Redis</span>
+      <span class="project-title">Gigi AI Ops — Production AI Agent Backend</span>
     </div>
+    <div class="project-meta">LangGraph.js, TypeScript, Zod, pgvector, PostgreSQL, BullMQ, Redis</div>
     <ul>
-      <li>Built enterprise D2C customer support AI agent with zero autonomous financial risk</li>
-      <li>Implemented session-secure context injection — prevents prompt spoofing attacks</li>
-      <li>Built hybrid RAG pipeline (BM25 + dense vectors) for zero-hallucination FAQs</li>
-      <li>Added LLMOps cost tracking — USD/INR per-request monitoring with tiktoken WASM</li>
-      <li>Human-in-the-loop for refunds >₹200 — no autonomous financial decisions</li>
-      <li>Zod runtime validation on all LLM outputs — crash rate reduced to 0%</li>
+      <li>Architected multi-step AI agent backend for e-commerce operations using LangGraph.js state machines — deterministic intent classification, tool calling, and graceful failure recovery with automatic retries</li>
+      <li>Built multi-provider LLM orchestration layer with automatic fallback across Groq, Gemini, and OpenRouter — per-persona routing with cost and latency tradeoffs</li>
+      <li>Implemented hybrid RAG pipeline combining BM25 keyword search and dense vector search via pgvector for zero-hallucination FAQ retrieval with ranked results</li>
+      <li>Enforced zero-crash reliability via Zod runtime validation on every LLM output — unstructured AI responses never reach the database or downstream systems</li>
+      <li>Integrated tiktoken WASM for per-request token usage tracking and cost calculation in USD/INR with memory-safe cleanup</li>
+      <li>Designed human-in-the-loop approval flow for financial operations — refunds above threshold require admin review, AI never moves money autonomously</li>
     </ul>
-    <div style="font-size: 9px; color: #2563eb;">github.com/shubhambhattacharya-dev/Agentic_Project</div>
+    <div class="project-link">github.com/shubhambhattacharya-dev/Agentic_Project | agentic-project-drab.vercel.app</div>
   </div>
 
   <div class="project">
     <div class="project-header">
-      <span class="project-title">Medo Copilot — AI Launch-Readiness Auditor</span>
-      <span class="project-tech">Next.js 16, TypeScript, Vercel AI SDK, Playwright, Clerk</span>
+      <span class="project-title">Medo Copilot — Multi-Provider AI Launch Auditor</span>
     </div>
+    <div class="project-meta">Next.js, TypeScript, Vercel AI SDK, Playwright, Clerk, Tailwind CSS</div>
     <ul>
-      <li>AI-powered auditor that bridges "it works" and "it converts" — audits UX, conversion friction, and trust signals</li>
-      <li>Hybrid scoring engine: 60% AI insights + 40% deterministic metrics (Lighthouse, static analysis)</li>
-      <li>Visual intelligence: Playwright captures desktop/mobile screenshots for AI visual review</li>
-      <li>Resilient multi-provider AI pipeline with waterfall fallback: Gemini 2.0 → Groq/Llama 4 Scout → OpenRouter/Claude</li>
-      <li>Static backend security audit: scans for hardcoded secrets, code quality issues</li>
+      <li>Built AI-powered launch auditor with multi-provider LLM waterfall fallback: Gemini 2.0, Groq/Llama 4 Scout, OpenRouter/Claude — zero downtime on provider failures</li>
+      <li>Designed hybrid scoring engine: 60% AI-generated insights + 40% deterministic metrics from Lighthouse performance audits and static code analysis</li>
+      <li>Implemented Playwright-based visual intelligence capturing desktop and mobile screenshots for multimodal AI review of UI/UX quality</li>
+      <li>Built static security analyzer scanning for hardcoded secrets, dependency vulnerabilities, and code quality issues with structured JSON output</li>
     </ul>
-    <div style="font-size: 9px; color: #2563eb;">github.com/shubhambhattacharya-dev/Medo_Copilot</div>
+    <div class="project-link">github.com/shubhambhattacharya-dev/Medo_Copilot | medo-copilot.shubhambhattacharya.dev</div>
   </div>
 
   <div class="project">
     <div class="project-header">
       <span class="project-title">DocNow — Telemedicine SaaS Platform</span>
-      <span class="project-tech">Next.js 16, Clerk, Prisma, PostgreSQL, Vonage, shadcn/ui</span>
     </div>
+    <div class="project-meta">Next.js, TypeScript, Clerk, Prisma, PostgreSQL, Vonage, shadcn/ui</div>
     <ul>
-      <li>Built full-stack telemedicine platform with video consultations and credit-based payments</li>
-      <li>Implemented WebRTC video calls via Vonage API — no downloads needed, works in browser</li>
-      <li>Designed credit system with full audit trail (purchases, deductions, refunds, earnings)</li>
-      <li>Built role-based dashboards for Patients, Doctors, and Admins with Clerk authentication</li>
-      <li>Doctor payout system with platform fee calculation and admin approval workflow</li>
+      <li>Built full-stack telemedicine platform with WebRTC video calls via Vonage API, role-based dashboards for Patients, Doctors, and Admins</li>
+      <li>Designed credit-based payment system with full audit trail: purchases, deductions, refunds, and earnings with transaction history</li>
+      <li>Implemented doctor payout system with platform fee calculation, withdrawal requests, and admin approval workflow</li>
     </ul>
-    <div style="font-size: 9px; color: #2563eb;">github.com/shubhambhattacharya-dev/health | docnow-zeta.vercel.app</div>
+    <div class="project-link">github.com/shubhambhattacharya-dev/health | docnow-zeta.vercel.app</div>
   </div>
 
   <h2>Education</h2>
   <div class="education">
     <div class="edu-header">
       <span class="edu-school">BCA — Parul University</span>
-      <span>2022 — 2025</span>
     </div>
-    <div class="edu-details">CGPA: 8.0/10 | Relevant Coursework: Data Structures & Algorithms, DBMS, Computer Networks, OS, Web Technologies</div>
+    <div class="edu-details">2022 — 2025 | CGPA: 8.0/10</div>
+    <div class="edu-details">Relevant Coursework: Data Structures & Algorithms, DBMS, Computer Networks, Operating Systems, Web Technologies</div>
   </div>
+
 </body>
 </html>

@@ -215,32 +215,33 @@ document.addEventListener('DOMContentLoaded', () => {
         ].join('\n');
       },
       whoami: function() {
-        return 'Shubham Bhattacharya\nBackend & AI Engineer — Vadodara, India\nBuilding autonomous agents and production APIs.';
+        return 'Shubham Bhattacharya\nAgentic AI & Backend Engineer — Vadodara, India\nBuilding autonomous agents, retrieval pipelines, and production APIs.';
       },
       skills: function() {
         return [
-          'Runtime      Node.js, Bun',
+          'Runtime      Node.js, Python',
           'Language     TypeScript, JavaScript',
-          'AI/Agents    LangGraph.js, pgvector, tiktoken',
+          'AI/Agents    LangGraph.js, Multi-Provider LLM, Tool Calling',
+          'Retrieval    pgvector, RAG, Semantic Search, Reranking',
           'Database     PostgreSQL, Redis, MongoDB',
           'Queue        BullMQ, Redis Streams',
+          'Observ.      Langfuse, OpenTelemetry, Sentry, Pino',
           'Auth         Clerk, JWT, Zod',
-          'Infra        Docker, AWS, Vercel',
-          'Observ.      Sentry, Pino'
+          'Infra        Docker, AWS, Vercel'
         ].join('\n');
       },
       projects: function() {
         return [
-          '1. Gigi AI Ops       — Agentic AI backend for e-commerce',
+          '1. Gigi AI Ops       — Production agentic AI backend (LangGraph.js)',
           '   github.com/shubhambhattacharya-dev/Agentic_Project',
           '',
-          '2. Medo Copilot      — AI medical assistant with RAG',
-          '3. Session-Secure    — HMAC-signed context injection middleware',
-          '4. Multi-Tenant Q    — BullMQ job queue with tenant isolation'
+          '2. Medo Copilot      — Multi-provider AI auditor with vision',
+          '3. DocNow            — Telemedicine platform with video & payments',
+          '4. Session-Secure    — HMAC-signed context injection middleware'
         ].join('\n');
       },
       philosophy: function() {
-        return '"Treat every AI output as untrusted input."\n\nValidation at boundaries. CPU safety. Budget guards. Human-in-the-loop.';
+        return '"Treat every AI output as untrusted input."\n\nDeterministic agent control. Multi-provider resilience.\nValidation at boundaries. CPU safety. Budget guards. Human-in-the-loop.';
       },
       contact: function() {
         return [

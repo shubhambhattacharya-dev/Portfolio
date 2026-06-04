@@ -194,6 +194,18 @@ ul, ol { list-style: none; }
 .philosophy-list strong { display: block; font-family: var(--font-heading); font-size: 0.8125rem; color: var(--text-1); margin-bottom: 0.25rem; }
 .philosophy-list p { font-size: 0.8125rem; color: var(--text-2); line-height: 1.5; }
 
+/* ==================== ARCHITECTURE ==================== */
+.arch-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+.arch-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: 1.75rem; transition: border-color 0.25s ease, transform 0.25s ease; position: relative; }
+.arch-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0; }
+.arch-card:hover { border-color: rgba(212, 168, 83, 0.25); transform: translateY(-2px); }
+.arch-card:hover::before { transform: scaleX(1); }
+.arch-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--accent-muted); border-radius: 8px; color: var(--accent); margin-bottom: 1rem; }
+.arch-title { font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600; color: var(--text-1); margin-bottom: 0.5rem; }
+.arch-desc { font-size: 0.8125rem; color: var(--text-2); line-height: 1.55; margin-bottom: 1rem; }
+.arch-tags { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+.arch-tag { font-family: var(--font-mono); font-size: 0.6875rem; padding: 0.25rem 0.5rem; background: var(--bg-raised); border: 1px solid var(--border-color); border-radius: 4px; color: var(--text-2); }
+
 /* ==================== PROJECTS ==================== */
 .projects-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
 .project-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); overflow: hidden; transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease; position: relative; }
@@ -295,6 +307,7 @@ ul, ol { list-style: none; }
   .hero-scroll-hint { display: none; }
   .hero-name { font-size: clamp(1.75rem, 8vw, 2.5rem); }
   .stack-grid { grid-template-columns: 1fr; }
+  .arch-grid { grid-template-columns: 1fr; }
   .project-card--featured { grid-template-columns: 1fr; }
   .project-card--featured .project-preview { border-right: none; border-bottom: 1px solid var(--border-color); }
   .project-content { padding: 1.25rem; }
