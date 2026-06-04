@@ -8,43 +8,42 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 11px;
-      line-height: 1.5;
+      font-size: 10px;
+      line-height: 1.45;
       color: #1a1a1a;
       max-width: 8.5in;
       margin: 0 auto;
-      padding: 0.4in 0.5in;
+      padding: 0.35in 0.5in;
     }
-    h1 { font-size: 22px; font-weight: 700; margin-bottom: 2px; }
-    .subtitle { font-size: 12px; color: #333; margin-bottom: 4px; font-weight: 600; }
-    .contact { font-size: 10px; color: #444; margin-bottom: 14px; line-height: 1.7; }
+    h1 { font-size: 20px; font-weight: 700; margin-bottom: 1px; }
+    .subtitle { font-size: 11.5px; color: #333; margin-bottom: 4px; font-weight: 600; }
+    .contact { font-size: 9.5px; color: #444; margin-bottom: 12px; line-height: 1.65; }
     .contact a { color: #2563eb; text-decoration: none; }
     h2 {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
-      border-bottom: 1.5px solid #1a1a1a;
-      padding-bottom: 2px;
-      margin: 14px 0 6px;
+      letter-spacing: 0.7px;
+      border-bottom: 1.2px solid #1a1a1a;
+      padding-bottom: 1px;
+      margin: 12px 0 5px;
       color: #1a1a1a;
     }
-    .summary { font-size: 10.5px; color: #333; margin-bottom: 10px; line-height: 1.55; }
-    .project { margin-bottom: 12px; }
+    .summary { font-size: 9.5px; color: #333; margin-bottom: 8px; line-height: 1.5; }
+    .project { margin-bottom: 10px; }
     .project-header { margin-bottom: 2px; }
-    .project-title { font-size: 11.5px; font-weight: 700; }
-    .project-meta { font-size: 9.5px; color: #555; margin-bottom: 3px; }
-    .project-link { font-size: 9px; color: #2563eb; margin-top: 2px; }
-    ul { margin-left: 16px; margin-bottom: 4px; }
-    li { font-size: 10px; margin-bottom: 2px; line-height: 1.45; }
-    .skill-category { margin-bottom: 4px; font-size: 10px; }
+    .project-title { font-size: 11px; font-weight: 700; }
+    .project-meta { font-size: 9px; color: #555; margin-bottom: 3px; }
+    ul { margin-left: 14px; margin-bottom: 2px; }
+    li { font-size: 9.5px; margin-bottom: 2px; line-height: 1.4; }
+    .skill-category { margin-bottom: 3px; font-size: 9.5px; }
     .skill-label { font-weight: 700; }
-    .education { font-size: 10px; }
-    .edu-header { margin-bottom: 2px; }
+    .education { font-size: 9.5px; line-height: 1.5; }
     .edu-school { font-weight: 700; }
-    .edu-details { color: #444; margin-top: 1px; }
+    .edu-details { color: #444; }
+    .project-link { font-size: 8.5px; color: #2563eb; margin-top: 2px; }
     @media print {
-      body { padding: 0.3in 0.4in; }
+      body { padding: 0.25in 0.35in; }
       a { color: #2563eb; }
     }
   </style>
@@ -64,7 +63,7 @@
   </div>
 
   <h2>Summary</h2>
-  <p class="summary">AI Agent Backend Engineer specializing in production LLM systems, multi-agent orchestration, and intelligent automation with TypeScript and Node.js. Built agentic backends using LangGraph.js state machines with deterministic routing, Zod-validated outputs, and human-in-the-loop patterns for financial safety. Strong focus on zero-trust AI architecture where every LLM output is untrusted until validated. Seeking AI Agent Backend Developer roles building production-grade agent systems.</p>
+  <p class="summary">AI Agent Backend Engineer specializing in production LLM systems, multi-agent orchestration, and intelligent automation with TypeScript and Node.js. Built agentic backends using LangGraph.js state machines with deterministic routing, Zod-validated outputs, and human-in-the-loop patterns. Strong focus on zero-trust AI architecture where every LLM output is untrusted until validated. Seeking AI Agent Backend Developer roles building production-grade agent systems.</p>
 
   <h2>Technical Skills</h2>
   <div class="skill-category"><span class="skill-label">AI Agent Development:</span> LangGraph.js, Multi-Agent Orchestration, Tool Calling, Human-in-the-Loop, Prompt Engineering</div>
@@ -85,12 +84,12 @@
     </div>
     <div class="project-meta">LangGraph.js, TypeScript, Zod, pgvector, PostgreSQL, BullMQ, Redis</div>
     <ul>
-      <li>Architected multi-step AI agent backend for e-commerce operations using LangGraph.js state machines — deterministic intent classification, tool calling, and graceful failure recovery with automatic retries</li>
+      <li>Architected multi-step AI agent backend for e-commerce operations using LangGraph.js state machines — deterministic intent classification, tool calling, and graceful failure recovery</li>
       <li>Built multi-provider LLM orchestration layer with automatic fallback across Groq, Gemini, and OpenRouter — per-persona routing with cost and latency tradeoffs</li>
-      <li>Implemented hybrid RAG pipeline combining BM25 keyword search and dense vector search via pgvector for zero-hallucination FAQ retrieval with ranked results</li>
-      <li>Enforced zero-crash reliability via Zod runtime validation on every LLM output — unstructured AI responses never reach the database or downstream systems</li>
-      <li>Integrated tiktoken WASM for per-request token usage tracking and cost calculation in USD/INR with memory-safe cleanup</li>
-      <li>Designed human-in-the-loop approval flow for financial operations — refunds above threshold require admin review, AI never moves money autonomously</li>
+      <li>Implemented hybrid RAG pipeline combining BM25 keyword search and dense vector search via pgvector for zero-hallucination FAQ retrieval</li>
+      <li>Enforced zero-crash reliability via Zod runtime validation on every LLM output — unstructured AI responses never reach the database</li>
+      <li>Integrated tiktoken WASM for per-request token usage tracking and cost calculation in USD/INR</li>
+      <li>Designed human-in-the-loop approval flow for financial operations — refunds above threshold require admin review</li>
     </ul>
     <div class="project-link">github.com/shubhambhattacharya-dev/Agentic_Project | agentic-project-drab.vercel.app</div>
   </div>
@@ -101,10 +100,10 @@
     </div>
     <div class="project-meta">Next.js, TypeScript, Vercel AI SDK, Playwright, Clerk, Tailwind CSS</div>
     <ul>
-      <li>Built AI-powered launch auditor with multi-provider LLM waterfall fallback: Gemini 2.0, Groq/Llama 4 Scout, OpenRouter/Claude — zero downtime on provider failures</li>
-      <li>Designed hybrid scoring engine: 60% AI-generated insights + 40% deterministic metrics from Lighthouse performance audits and static code analysis</li>
-      <li>Implemented Playwright-based visual intelligence capturing desktop and mobile screenshots for multimodal AI review of UI/UX quality</li>
-      <li>Built static security analyzer scanning for hardcoded secrets, dependency vulnerabilities, and code quality issues with structured JSON output</li>
+      <li>Built AI-powered launch auditor with multi-provider LLM waterfall fallback: Gemini 2.0, Groq/Llama 4 Scout, OpenRouter/Claude</li>
+      <li>Designed hybrid scoring engine: 60% AI insights + 40% deterministic metrics from Lighthouse and static code analysis</li>
+      <li>Implemented Playwright-based visual intelligence capturing desktop and mobile screenshots for multimodal AI review</li>
+      <li>Built static security analyzer scanning for hardcoded secrets and code quality issues with structured JSON output</li>
     </ul>
     <div class="project-link">github.com/shubhambhattacharya-dev/Medo_Copilot | medo-copilot.shubhambhattacharya.dev</div>
   </div>
@@ -115,20 +114,18 @@
     </div>
     <div class="project-meta">Next.js, TypeScript, Clerk, Prisma, PostgreSQL, Vonage, shadcn/ui</div>
     <ul>
-      <li>Built full-stack telemedicine platform with WebRTC video calls via Vonage API, role-based dashboards for Patients, Doctors, and Admins</li>
+      <li>Built full-stack telemedicine platform with WebRTC video calls via Vonage API, role-based dashboards, and credit-based payments</li>
       <li>Designed credit-based payment system with full audit trail: purchases, deductions, refunds, and earnings with transaction history</li>
-      <li>Implemented doctor payout system with platform fee calculation, withdrawal requests, and admin approval workflow</li>
+      <li>Implemented doctor payout system with platform fee calculation and admin approval workflow</li>
     </ul>
     <div class="project-link">github.com/shubhambhattacharya-dev/health | docnow-zeta.vercel.app</div>
   </div>
 
   <h2>Education</h2>
   <div class="education">
-    <div class="edu-header">
-      <span class="edu-school">BCA — Parul University</span>
-    </div>
-    <div class="edu-details">2022 — 2025 | CGPA: 8.0/10</div>
-    <div class="edu-details">Relevant Coursework: Data Structures & Algorithms, DBMS, Computer Networks, Operating Systems, Web Technologies</div>
+    <span class="edu-school">BCA — Parul University</span> | 2022 — 2025 | CGPA: 8.0/10
+    <br>
+    <span class="edu-details">Relevant Coursework: Data Structures & Algorithms, DBMS, Computer Networks, Operating Systems, Web Technologies</span>
   </div>
 
 </body>
