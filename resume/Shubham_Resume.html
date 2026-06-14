@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>~
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shubham Bhattacharya — AI Backend Engineer</title>
@@ -63,39 +63,38 @@
   </div>
 
   <h2>About</h2>
-  <p class="summary">Hey, I'm Shubham. AI Backend Engineer in Vadodara, India. I design and build agentic AI systems and production backends. I build multi-step LLM workflows that handle real money and recover gracefully. Every AI output is untrusted until validated. I spent two years deep in AI agents and production APIs. I learned by shipping and fixing real systems. Hire me to build production-grade agent systems.</p>
+  <p class="summary">I am an AI Backend Engineer specialized in architecting resilient agentic systems and production-grade backends. I focus on building autonomous ReAct loops, secure tool registries, and zero-trust AI integrations. My engineering philosophy centers on treating LLM outputs as untrusted API responses, enforcing strict schema validation and structured observability to deliver secure, scalable, and production-ready applications.</p>
 
-  <h2>Core Philosophy</h2>
+  <h2>Engineering Principles</h2>
   <div class="summary">
-    - 🔒 <strong>Validation at Boundaries:</strong> Every input and AI output passes Zod validation before touching the database. No raw data gets through.
+    - 🔒 <strong>Zero-Trust AI Validation:</strong> Mandatory Zod schema validation on every LLM output before action execution or database ingestion.
     <br>
-    - ⚡ <strong>System Safety:</strong> Custom ReAct loops ensure deterministic tool calling and graceful error recovery.
+    - ⚡ <strong>Asynchronous Resilience:</strong> Decoupling heavy AI reasoning cycles via Redis/BullMQ to maintain high API availability.
     <br>
-    - 💰 <strong>Budget Guards:</strong> Token usage is estimated before LLM calls. Every request tracks real-time costs in USD and INR.
+    - 💰 <strong>Granular Governance:</strong> Real-time token estimation and cost tracking (USD/INR) per request to prevent budget overruns.
   </div>
 
   <h2>Technical Stack</h2>
-  <div class="skill-category"><span class="skill-label">AI Engineering:</span> Custom ReAct Loops, Tool Registry Design, Tool Calling, Xenova Transformers, tiktoken, Groq SDK, Vercel AI SDK</div>
+  <div class="skill-category"><span class="skill-label">AI Engineering:</span> Custom ReAct Loops, Tool Registry Design, Tool Calling, Hybrid RAG, Xenova Transformers, tiktoken, Groq SDK</div>
   <div class="skill-category"><span class="skill-label">Backend & Architecture:</span> Node.js, TypeScript, Express.js, Next.js, Python (Learning)</div>
-  <div class="skill-category"><span class="skill-label">Database:</span> PostgreSQL, Prisma, MongoDB</div>
+  <div class="skill-category"><span class="skill-label">Database:</span> PostgreSQL, Prisma, Redis, MongoDB</div>
   <div class="skill-category"><span class="skill-label">Safety & Observability:</span> Zod, Sentry, Pino, Clerk, Injection Shield</div>
   <div class="skill-category"><span class="skill-label">Testing & Automation:</span> Vitest, Supertest, Playwright, GitHub Actions</div>
-  <div class="skill-category"><span class="skill-label">DevOps & Infra:</span> Docker, Vercel</div>
+  <div class="skill-category"><span class="skill-label">DevOps & Infra:</span> Docker, AWS, Vercel</div>
 
   <h2>Projects</h2>
 
   <div class="project">
     <div class="project-header">
-      <span class="project-title">Gigi AI Ops — Agentic Customer Support Backend</span>
+      <span class="project-title">Gigi AI Ops — Agentic E-commerce Automation</span>
     </div>
-    <div class="project-meta">Node.js, Express 5, TypeScript, Groq SDK, Zod, Xenova Transformers, PostgreSQL, Prisma, Clerk, Sentry, Vitest</div>
+    <div class="project-meta">Node.js, Express, TypeScript, Groq SDK, Zod, Xenova Transformers, PostgreSQL, Prisma, Sentry</div>
     <ul>
-      <li>Built custom ReAct (Reasoning + Action) loop from scratch — LLM autonomously handles order tracking, cancellations, and refunds across multi-step reasoning cycles without LangChain</li>
-      <li>Developed Zod-validated tool registry — AI executes only pre-approved backend functions with schema validation and ownership verification; zero unvalidated tool calls reach the database</li>
-      <li>Implemented model fallback routing: Llama 3.3-70B → Llama 3.1-8B on failure — ensures 100% agent availability under Groq API degradation</li>
-      <li>Built LLMOps tracking with tiktoken — logs prompt + completion tokens and calculates real-time session cost in USD/INR per conversation</li>
-      <li>Enforced prompt injection protection via strict system prompting and Trusted Backend Context pattern — prevents unauthorized data access and identity spoofing</li>
-      <li>Monitored agent performance with Sentry + Pino structured logging — database-level tracking of LLM latency and iteration count per session</li>
+      <li>Built custom ReAct loop from scratch — LLM autonomously handles order tracking and refunds across multi-step reasoning cycles without LangChain</li>
+      <li>Developed Zod-validated tool registry — AI executes only pre-approved functions with schema validation; zero unvalidated tool calls reach the database</li>
+      <li>Implemented model fallback routing: Llama 3.3-70B → Llama 3.1-8B fallback via Groq SDK ensures 100% agent availability</li>
+      <li>Built LLMOps tracking with tiktoken — logs tokens and calculates real-time session costs to prevent budget overruns</li>
+      <li>Enforced prompt injection protection via Trusted Backend Context pattern — prevents unauthorized data access and identity spoofing</li>
     </ul>
     <div class="project-link">github.com/shubhambhattacharya-dev/Agentic_Project | agentic-project-drab.vercel.app</div>
   </div>
@@ -106,9 +105,9 @@
     </div>
     <div class="project-meta">Next.js, TypeScript, Vercel AI SDK, Playwright, Clerk</div>
     <ul>
-      <li>Built multi-provider LLM waterfall fallback — Gemini 2.0 → Groq/Llama 4 Scout → OpenRouter/Claude — automatic failover with zero manual intervention</li>
-      <li>Designed hybrid scoring engine: 60% AI-generated insights + 40% deterministic Lighthouse and static analysis metrics — structured JSON output for every audit</li>
-      <li>Built static security analyzer scanning for hardcoded secrets and code quality issues — Playwright captures desktop + mobile screenshots for multimodal LLM review</li>
+      <li>Built multi-provider LLM waterfall fallback — Gemini 2.0 → Groq/Llama 4 Scout → OpenRouter/Claude — for 100% uptime</li>
+      <li>Designed hybrid scoring engine: 60% AI-generated insights + 40% deterministic Lighthouse and static analysis metrics</li>
+      <li>Built static security analyzer scanning for hardcoded secrets — Playwright captures desktop/mobile screenshots for visual review</li>
     </ul>
     <div class="project-link">github.com/shubhambhattacharya-dev/Medo_Copilot | medo-copilot.shubhambhattacharya.dev</div>
   </div>
@@ -119,7 +118,7 @@
     </div>
     <div class="project-meta">Next.js, TypeScript, Clerk, Prisma, PostgreSQL, Vonage</div>
     <ul>
-      <li>Built full-stack telemedicine platform with WebRTC video calls, role-based dashboards, and credit-based payment system with full audit trail</li>
+      <li>Built full-stack telemedicine platform with WebRTC video calls, role-based dashboards, and credit-based payment system</li>
       <li>Implemented doctor payout system with platform fee calculation and admin approval workflow</li>
     </ul>
     <div class="project-link">github.com/shubhambhattacharya-dev/health | docnow-zeta.vercel.app</div>
@@ -127,11 +126,9 @@
 
   <h2>Education</h2>
   <div class="education">
-    <span class="edu-school">BCA — Parul University</span> | 2022 — 2025 | CGPA: 8.0/10
+    <span class="edu-school">BCA — Parul University</span> | 2023 — 2026
     <br>
-    Capstone: Gigi AI Ops — production agentic backend with custom ReAct loop and LLMOps monitoring
-    <br>
-    <span class="edu-details">Relevant Coursework: Data Structures & Algorithms, DBMS, Computer Networks, Operating Systems, Web Technologies</span>
+    <span class="edu-details">Specialization in Computer Applications with a focus on Backend Architecture and AI Integration.</span>
   </div>
 
 </body>
