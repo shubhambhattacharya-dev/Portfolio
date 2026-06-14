@@ -1,4 +1,4 @@
-﻿// ==================== THEME ====================
+// ==================== THEME ====================
 (function initTheme() {
   let saved;
   try { saved = localStorage.getItem('theme'); } catch (e) {}
@@ -215,18 +215,17 @@ document.addEventListener('DOMContentLoaded', () => {
         ].join('\n');
       },
       whoami: function() {
-        return 'Shubham Bhattacharya\nAgentic AI & Backend Engineer — Vadodara, India\nBuilding autonomous agents, retrieval pipelines, and production APIs.';
+        return 'Shubham Bhattacharya\nAI Agent & Backend Engineer — Vadodara, India\nBuilding autonomous ReAct loops, tool registries, and zero-trust systems.';
       },
       skills: function() {
         return [
-          'Runtime      Node.js, Python',
-          'Language     TypeScript, JavaScript',
-          'AI/Agents    LangGraph.js, Multi-Provider LLM, Tool Calling',
-          'Retrieval    pgvector, RAG, Semantic Search, Reranking',
-          'Database     PostgreSQL, Redis, MongoDB',
-          'Queue        BullMQ, Redis Streams',
-          'Observ.      Langfuse, OpenTelemetry, Sentry, Pino',
-          'Auth         Clerk, JWT, Zod',
+          'AI/Agents    Custom ReAct Loop, Tool Registry, Tool Calling',
+          'LLMOps       tiktoken, Model Fallback (Groq), Output Validation',
+          'Backend      Node.js, TypeScript, Express.js, SSE, WebSockets',
+          'Database     PostgreSQL, Redis, Prisma, MongoDB',
+          'Validation   Zod, Injection Protection, Trusted Context',
+          'Observ.      Sentry, Pino, OpenTelemetry',
+          'Testing      Vitest, Supertest, Playwright',
           'Infra        Docker, AWS, Vercel'
         ].join('\n');
       },
@@ -307,10 +306,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Enter') {
         handleCommand(eeInput.value);
         eeInput.value = '';
-      }
-    });
-  }
-});';
       }
     });
   }
