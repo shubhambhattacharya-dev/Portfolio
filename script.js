@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ].join('\n');
       },
       whoami: function() {
-        return 'Shubham Bhattacharya\nAI Backend Engineer & Backend Engineer — Vadodara, India\nBuilding autonomous ReAct loops, tool registries, and zero-trust systems.';
+        return 'Shubham Bhattacharya\nAI Backend Engineer — Vadodara, India\nBuilding autonomous ReAct loops, tool registries, and zero-trust systems.';
       },
       skills: function() {
         return [
