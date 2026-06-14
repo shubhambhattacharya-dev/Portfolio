@@ -232,12 +232,12 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       projects: function() {
         return [
-          '1. Gigi AI Ops       — Production agentic AI backend (LangGraph.js)',
+          '1. Gigi AI Ops       — Production agentic backend (Custom ReAct Loop)',
           '   github.com/shubhambhattacharya-dev/Agentic_Project',
           '',
-          '2. Medo Copilot      — Multi-provider AI auditor with vision',
+          '2. Medo Copilot      — AI auditor with waterfall fallback',
           '3. DocNow            — Telemedicine platform with video & payments',
-          '4. Session-Secure    — HMAC-signed context injection middleware'
+          '4. Trusted Context   — Injection-shielding middleware for agents'
         ].join('\n');
       },
       philosophy: function() {
@@ -307,6 +307,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Enter') {
         handleCommand(eeInput.value);
         eeInput.value = '';
+      }
+    });
+  }
+});';
       }
     });
   }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>~
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shubham Bhattacharya — AI Agent Backend Engineer</title>
@@ -51,7 +51,7 @@
 <body>
 
   <h1>Shubham Bhattacharya</h1>
-  <div class="subtitle">AI Agent Backend Engineer — TypeScript, Node.js, LangGraph.js</div>
+  <div class="subtitle">AI Agent Backend Engineer — TypeScript, Node.js, Custom ReAct Loops</div>
   <div class="contact">
     shubhambhattacharya107@gmail.com |
     +91-9155252394 |
@@ -63,33 +63,32 @@
   </div>
 
   <h2>Summary</h2>
-  <p class="summary">AI Agent Backend Engineer specializing in production LLM systems, multi-agent orchestration, and intelligent automation with TypeScript and Node.js. Built agentic backends using LangGraph.js state machines with deterministic routing, Zod-validated outputs, and human-in-the-loop patterns. Strong focus on zero-trust AI architecture where every LLM output is untrusted until validated. Seeking AI Agent Backend Developer roles building production-grade agent systems.</p>
+  <p class="summary">AI Agent Backend Engineer specializing in production LLM systems, custom ReAct agent loops, and intelligent automation with TypeScript and Node.js. Built agentic backends using custom Zod-validated tool registries, multi-model fallback routing, and prompt injection protection — without LangChain abstractions. Strong focus on zero-trust AI architecture where every LLM output is validated before execution. Seeking AI Agent Backend Developer roles building production-grade agent systems.</p>
 
   <h2>Technical Skills</h2>
-  <div class="skill-category"><span class="skill-label">AI Agent Development:</span> LangGraph.js, Multi-Agent Orchestration, Tool Calling, Human-in-the-Loop, Prompt Engineering</div>
-  <div class="skill-category"><span class="skill-label">LLM Integration:</span> Multi-Provider LLM Orchestration, LLM Output Validation, tiktoken, Streaming (SSE)</div>
-  <div class="skill-category"><span class="skill-label">Retrieval & Embeddings:</span> pgvector, RAG Pipelines, Semantic Search, BM25, Vector Databases</div>
-  <div class="skill-category"><span class="skill-label">Languages:</span> TypeScript, JavaScript, SQL</div>
+  <div class="skill-category"><span class="skill-label">AI Agent Development:</span> Custom ReAct Loop, Tool Registry Design, Tool Calling, Prompt Injection Protection, Prompt Engineering</div>
+  <div class="skill-category"><span class="skill-label">LLM Integration:</span> Multi-Model Fallback (Groq SDK), LLM Output Validation, tiktoken, Streaming (SSE)</div>
+  <div class="skill-category"><span class="skill-label">Languages:</span> TypeScript, JavaScript, SQL, Python (learning)</div>
   <div class="skill-category"><span class="skill-label">Backend & APIs:</span> Node.js, Express.js, Next.js, REST APIs, SSE, Socket.IO, WebSockets</div>
-  <div class="skill-category"><span class="skill-label">Database & Cache:</span> PostgreSQL, Prisma, Redis, BullMQ, MongoDB</div>
-  <div class="skill-category"><span class="skill-label">Validation & Auth:</span> Zod, Clerk, JWT, bcrypt, Helmet</div>
-  <div class="skill-category"><span class="skill-label">Observability:</span> Langfuse, OpenTelemetry, Sentry, Pino</div>
-  <div class="skill-category"><span class="skill-label">DevOps & Infra:</span> Docker, GitHub Actions, Vercel</div>
+  <div class="skill-category"><span class="skill-label">Database & Cache:</span> PostgreSQL, Prisma, Redis, MongoDB</div>
+  <div class="skill-category"><span class="skill-label">Validation & Auth:</span> Zod, Clerk, Svix, JWT, bcrypt</div>
+  <div class="skill-category"><span class="skill-label">Testing:</span> Vitest, Supertest, React Testing Library</div>
+  <div class="skill-category"><span class="skill-label">Observability:</span> Sentry, OpenTelemetry, Pino</div>
 
   <h2>Projects</h2>
 
   <div class="project">
     <div class="project-header">
-      <span class="project-title">Gigi AI Ops — Production AI Agent Backend</span>
+      <span class="project-title">Gigi AI Ops — Agentic Customer Support Backend</span>
     </div>
-    <div class="project-meta">LangGraph.js, TypeScript, Zod, pgvector, PostgreSQL, BullMQ, Redis</div>
+    <div class="project-meta">Node.js, Express 5, TypeScript, Groq SDK, Zod, Xenova Transformers, PostgreSQL, Prisma, Clerk, Sentry, Vitest</div>
     <ul>
-      <li>Architected multi-step AI agent backend for e-commerce operations using LangGraph.js state machines — deterministic intent classification, tool calling, and graceful failure recovery</li>
-      <li>Built multi-provider LLM orchestration layer with automatic fallback across Groq, Gemini, and OpenRouter — per-persona routing with cost and latency tradeoffs</li>
-      <li>Implemented hybrid RAG pipeline combining BM25 keyword search and dense vector search via pgvector for zero-hallucination FAQ retrieval</li>
-      <li>Enforced zero-crash reliability via Zod runtime validation on every LLM output — unstructured AI responses never reach the database</li>
-      <li>Integrated tiktoken WASM for per-request token usage tracking and cost calculation in USD/INR</li>
-      <li>Designed human-in-the-loop approval flow for financial operations — refunds above threshold require admin review</li>
+      <li>Built custom ReAct (Reasoning + Action) loop from scratch — LLM autonomously handles order tracking, cancellations, and refunds across multi-step reasoning cycles without LangChain</li>
+      <li>Developed Zod-validated tool registry — AI executes only pre-approved backend functions with schema validation and ownership verification; zero unvalidated tool calls reach the database</li>
+      <li>Implemented model fallback routing: Llama 3.3-70B → Llama 3.1-8B on failure — ensures 100% agent availability under Groq API degradation</li>
+      <li>Built LLMOps tracking with tiktoken — logs prompt + completion tokens and calculates real-time session cost in USD/INR per conversation</li>
+      <li>Enforced prompt injection protection via strict system prompting and Trusted Backend Context pattern — prevents unauthorized data access and identity spoofing</li>
+      <li>Monitored agent performance with Sentry + Pino structured logging — database-level tracking of LLM latency and iteration count per session</li>
     </ul>
     <div class="project-link">github.com/shubhambhattacharya-dev/Agentic_Project | agentic-project-drab.vercel.app</div>
   </div>
@@ -98,12 +97,11 @@
     <div class="project-header">
       <span class="project-title">Medo Copilot — Multi-Provider AI Launch Auditor</span>
     </div>
-    <div class="project-meta">Next.js, TypeScript, Vercel AI SDK, Playwright, Clerk, Tailwind CSS</div>
+    <div class="project-meta">Next.js, TypeScript, Vercel AI SDK, Playwright, Clerk</div>
     <ul>
-      <li>Built AI-powered launch auditor with multi-provider LLM waterfall fallback: Gemini 2.0, Groq/Llama 4 Scout, OpenRouter/Claude</li>
-      <li>Designed hybrid scoring engine: 60% AI insights + 40% deterministic metrics from Lighthouse and static code analysis</li>
-      <li>Implemented Playwright-based visual intelligence capturing desktop and mobile screenshots for multimodal AI review</li>
-      <li>Built static security analyzer scanning for hardcoded secrets and code quality issues with structured JSON output</li>
+      <li>Built multi-provider LLM waterfall fallback — Gemini 2.0 → Groq/Llama 4 Scout → OpenRouter/Claude — automatic failover with zero manual intervention</li>
+      <li>Designed hybrid scoring engine: 60% AI-generated insights + 40% deterministic Lighthouse and static analysis metrics — structured JSON output for every audit</li>
+      <li>Built static security analyzer scanning for hardcoded secrets and code quality issues — Playwright captures desktop + mobile screenshots for multimodal LLM review</li>
     </ul>
     <div class="project-link">github.com/shubhambhattacharya-dev/Medo_Copilot | medo-copilot.shubhambhattacharya.dev</div>
   </div>
@@ -112,10 +110,9 @@
     <div class="project-header">
       <span class="project-title">DocNow — Telemedicine SaaS Platform</span>
     </div>
-    <div class="project-meta">Next.js, TypeScript, Clerk, Prisma, PostgreSQL, Vonage, shadcn/ui</div>
+    <div class="project-meta">Next.js, TypeScript, Clerk, Prisma, PostgreSQL, Vonage</div>
     <ul>
-      <li>Built full-stack telemedicine platform with WebRTC video calls via Vonage API, role-based dashboards, and credit-based payments</li>
-      <li>Designed credit-based payment system with full audit trail: purchases, deductions, refunds, and earnings with transaction history</li>
+      <li>Built full-stack telemedicine platform with WebRTC video calls, role-based dashboards, and credit-based payment system with full audit trail</li>
       <li>Implemented doctor payout system with platform fee calculation and admin approval workflow</li>
     </ul>
     <div class="project-link">github.com/shubhambhattacharya-dev/health | docnow-zeta.vercel.app</div>
@@ -124,6 +121,8 @@
   <h2>Education</h2>
   <div class="education">
     <span class="edu-school">BCA — Parul University</span> | 2022 — 2025 | CGPA: 8.0/10
+    <br>
+    Capstone: Gigi AI Ops — production agentic backend with custom ReAct loop and LLMOps monitoring
     <br>
     <span class="edu-details">Relevant Coursework: Data Structures & Algorithms, DBMS, Computer Networks, Operating Systems, Web Technologies</span>
   </div>
