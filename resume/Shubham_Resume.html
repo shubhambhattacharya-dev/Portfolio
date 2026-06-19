@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shubham Bhattacharya — AI Backend Engineer</title>
+  <title>Shubham Bhattacharya — Backend Developer</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -51,7 +51,7 @@
 <body>
 
   <h1>Shubham Bhattacharya</h1>
-  <div class="subtitle">AI Backend Engineer</div>
+  <div class="subtitle">Backend Developer (Node.js & TypeScript)</div>
   <div class="contact">
     shubhambhattacharya107@gmail.com | +91-9155252394 | Vadodara, Gujarat, India<br>
     <a href="https://github.com/shubhambhattacharya-dev">github.com/shubhambhattacharya-dev</a> |
@@ -61,13 +61,13 @@
 
   <h2>Summary</h2>
   <p class="summary">
-    AI Backend Engineer (BCA Final Year, Parul University) specializing in building production-grade LLM infrastructure — custom ReAct orchestration, multi-model fallback routing, Zod-validated tool registries, and prompt injection protection in TypeScript and Node.js. Proven track record of reducing inference costs by 30% and maintaining 99.9% API uptime through async queue design and model failover. Seeking an AI Backend Engineering internship where I can own agent infrastructure, optimize LLM serving costs, and ship reliable, observable systems.
+    BCA Final Year student at Parul University (CGPA 8.13) building backend systems and LLM infrastructure with Node.js, TypeScript, and PostgreSQL. Developed custom ReAct orchestration engines, multi-model fallback systems, and Zod-validated tool registries through self-directed projects. Seeking a backend developer internship where I can contribute to production systems and grow as an engineer.
   </p>
 
   <h2>Skills</h2>
   <div class="skills-grid">
     <div class="skill-line"><span class="skill-label">Languages:</span> TypeScript, JavaScript (Node.js), Python, SQL</div>
-    <div class="skill-line"><span class="skill-label">Backend & API:</span> Express.js, Next.js, FastAPI, REST API Design, Middleware Architecture, Rate Limiting, Auth (Clerk)</div>
+    <div class="skill-line"><span class="skill-label">Backend & API:</span> Express.js, Next.js, REST API Design, Middleware Architecture, Rate Limiting, Auth (Clerk)</div>
     <div class="skill-line"><span class="skill-label">AI & LLM Infrastructure:</span> Custom ReAct Loops, Tool Registry Design, Multi-Model Routing, Prompt Injection Protection, RAG, Vector Embeddings (pgvector, Xenova Transformers), tiktoken Cost Estimation, LLM Observability</div>
     <div class="skill-line"><span class="skill-label">Databases & Queues:</span> PostgreSQL, Prisma ORM, Redis, BullMQ, MongoDB, pgvector</div>
     <div class="skill-line"><span class="skill-label">Observability & Safety:</span> Zod Schema Validation, Sentry Error Tracking, Pino Structured Logging, OpenTelemetry</div>
@@ -81,12 +81,12 @@
     <div class="project-title">Gigi AI Ops — Agentic E-commerce Backend</div>
     <div class="project-meta">Node.js, TypeScript, Express, Groq SDK, PostgreSQL, Prisma, Redis, Zod, Sentry</div>
     <ul>
-      <li>Architected a custom ReAct orchestration engine (no LangChain) processing 12,000+ daily order-tracking and refund requests autonomously, reducing manual support time by 85%</li>
-      <li>Built a Zod-validated tool registry enforcing schema validation on every LLM output — 0 unvalidated tool calls reached the database across 10,000+ production executions</li>
-      <li>Implemented multi-model fallback routing (Llama 3.3-70B to Llama 3.1-8B) via Groq SDK, maintaining 99.9% API uptime during provider outages; validated with 500+ stress tests at 0% failure rate</li>
-      <li>Integrated tiktoken-based cost tracking; reduced average per-session LLM cost by 30% through intelligent model tiering (INR 0.04/session baseline)</li>
-      <li>Deployed database-level audit logging identifying 2 query bottlenecks; cut p95 latency from 2.4s to 1.7s (30% improvement)</li>
-      <li>Implemented Trusted Backend Context pattern for prompt injection protection — 200 adversarial test cases with 0% bypass rate</li>
+      <li>Built a custom ReAct orchestration engine (no LangChain) for autonomous order-tracking and refund processing across multi-step reasoning cycles</li>
+      <li>Designed a Zod-validated tool registry enforcing schema validation on every LLM output before database writes or API calls</li>
+      <li>Implemented multi-model fallback routing (Llama 3.3-70B to Llama 3.1-8B) via Groq SDK for resilience during provider outages</li>
+      <li>Integrated tiktoken-based cost tracking to monitor and optimize per-session LLM spending</li>
+      <li>Added database-level audit logging to identify query bottlenecks and improve response latency</li>
+      <li>Implemented Trusted Backend Context pattern for prompt injection protection</li>
     </ul>
     <div class="links"><a href="https://github.com/shubhambhattacharya-dev/Agentic_Project">github.com/shubhambhattacharya-dev/Agentic_Project</a> | <a href="https://agentic-project-drab.vercel.app">agentic-project-drab.vercel.app</a></div>
   </div>
@@ -95,9 +95,9 @@
     <div class="project-title">Medo Copilot — Multi-Provider AI Audit Platform</div>
     <div class="project-meta">Next.js, TypeScript, Vercel AI SDK, Playwright, Clerk, Gemini, Groq, OpenRouter</div>
     <ul>
-      <li>Designed a 3-tier LLM waterfall (Gemini 2.0 to Groq/Llama 4 Scout to OpenRouter/Claude) achieving 99.9% audit job completion rate with automatic provider failover</li>
-      <li>Built hybrid scoring engine combining 60% AI-generated analysis with 40% deterministic Lighthouse and static code metrics — improved audit accuracy from 78% to 93% across 1,200+ production launches</li>
-      <li>Developed automated static security scanner using Playwright visual regression, reducing false positive rate from 22% to 4%</li>
+      <li>Built a 3-tier LLM waterfall (Gemini 2.0 → Groq/Llama 4 Scout → OpenRouter/Claude) with automatic provider failover for high availability</li>
+      <li>Designed a hybrid scoring engine combining AI-generated analysis with deterministic Lighthouse and static code metrics</li>
+      <li>Developed an automated security scanner using Playwright for visual regression and code quality checks</li>
     </ul>
     <div class="links"><a href="https://github.com/shubhambhattacharya-dev/Medo_Copilot">github.com/shubhambhattacharya-dev/Medo_Copilot</a> | <a href="https://medo-copilot.shubhambhattacharya.dev">medo-copilot.shubhambhattacharya.dev</a></div>
   </div>
@@ -106,17 +106,18 @@
     <div class="project-title">DocNow — Telemedicine SaaS Platform</div>
     <div class="project-meta">Next.js, TypeScript, Clerk, Prisma, PostgreSQL, Vonage WebRTC</div>
     <ul>
-      <li>Built an AI symptom triage classifier that routes patients to correct specialists — reduced wrong-department bookings by 40% across 10,000+ appointments</li>
-      <li>Developed full-stack telemedicine platform with WebRTC video calls handling 10,000+ sessions at 99.5% connection success rate</li>
-      <li>Implemented multi-role payout engine (Patients, Doctors, Admins) with automated platform fee calculation, cutting manual reconciliation from 8 hours/week to 30 minutes/week</li>
+      <li>Built a symptom triage classifier to route patients to appropriate specialists based on reported symptoms</li>
+      <li>Developed full-stack telemedicine platform with WebRTC video calls for real-time doctor-patient consultations</li>
+      <li>Implemented multi-role payout engine (Patients, Doctors, Admins) with automated platform fee calculations</li>
     </ul>
     <div class="links"><a href="https://github.com/shubhambhattacharya-dev/health">github.com/shubhambhattacharya-dev/health</a> | <a href="https://docnow-zeta.vercel.app">docnow-zeta.vercel.app</a></div>
   </div>
 
   <h2>Education</h2>
   <div class="education">
-    <span class="edu-school">Bachelor of Computer Applications (BCA)</span> — Parul University, Vadodara | 2022 – 2026<br>
-    <span class="edu-details">Relevant Coursework: Data Structures & Algorithms, Database Management Systems, Computer Networks, Operating Systems, Object-Oriented Programming</span>
+    <span class="edu-school">Bachelor of Computer Applications (BCA)</span> — Parul University, Vadodara | 2023 – 2026<br>
+    <span class="edu-details">CGPA: 8.13 | SGPA: 8.45 | First Class with Distinction | Zero Backlogs</span><br>
+    <span class="edu-details">Relevant Coursework: Soft Computing (AI), Software Engineering, Data Structures & Algorithms, Database Management Systems, Computer Networks, Operating Systems, Object-Oriented Programming</span>
   </div>
 
 </body>
