@@ -1,5 +1,5 @@
-﻿/* ==========================================================================
-   PORTFOLIO v2 â€” 100/100 Target
+/* ==========================================================================
+   PORTFOLIO v2 — 100/100 Target
    ========================================================================== */
 
 /* ==================== DESIGN TOKENS ==================== */
@@ -175,6 +175,7 @@ ul, ol { list-style: none; }
 .terminal-output--accent { color: var(--accent); font-style: italic; }
 .terminal-line--active { margin-top: 0.5rem; }
 .terminal-cursor { color: var(--accent); animation: blink 1s step-end infinite; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 .hero-scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.35rem; font-family: var(--font-mono); font-size: 0.6875rem; color: var(--text-3); letter-spacing: 0.1em; text-transform: uppercase; animation: float-down 2s ease-in-out infinite; }
 @keyframes float-down { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
 

@@ -215,18 +215,18 @@ document.addEventListener('DOMContentLoaded', () => {
         ].join('\n');
       },
       whoami: function() {
-        return 'Shubham Bhattacharya\nAI Backend Engineer — Vadodara, India\nBuilding autonomous ReAct loops, tool registries, and zero-trust systems.';
+        return 'Shubham Bhattacharya\nBackend Developer — Vadodara, India\nBuilding scalable APIs, robust databases, and zero-trust systems.';
       },
       skills: function() {
         return [
           'AI/Agents    Custom ReAct Loop, Tool Registry, Tool Calling',
           'LLMOps       tiktoken, Model Fallback (Groq), Output Validation',
           'Backend      Node.js, TypeScript, Express.js, SSE, WebSockets',
-          'Database     PostgreSQL, Redis, Prisma, MongoDB',
+          'Database     PostgreSQL, Prisma',
           'Validation   Zod, Injection Protection, Trusted Context',
-          'Observ.      Sentry, Pino, OpenTelemetry',
-          'Testing      Vitest, Supertest, Playwright',
-          'Infra        Docker, AWS, Vercel'
+          'Observ.      Sentry, Pino',
+          'CI/CD        GitHub Actions',
+          'Infra        Docker, Vercel'
         ].join('\n');
       },
       projects: function() {
@@ -235,8 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
           '   github.com/shubhambhattacharya-dev/Agentic_Project',
           '',
           '2. Medo Copilot      — AI auditor with waterfall fallback',
-          '3. DocNow            — Telemedicine platform with video & payments',
-          '4. Trusted Context   — Injection-shielding middleware for agents'
+          '3. DocNow            — Telemedicine platform with video & payments'
         ].join('\n');
       },
       philosophy: function() {
