@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       projects: function() {
         return [
-          '1. Gigi AI Ops       — Agentic E-commerce Backend',
+          '1. AI Ops          — Agentic E-commerce Backend',
           '   Custom ReAct engine, Zod tool registry, multi-model fallback',
           '   github.com/shubhambhattacharya-dev/Agentic_Project',
           '',

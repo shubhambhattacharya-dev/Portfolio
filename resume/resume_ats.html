@@ -1,159 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Shubham Bhattacharya — Backend Engineer (Node.js/TypeScript)</title>
-<style>
-  @page { margin: 0.6in 0.5in; size: letter; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Arial', 'Helvetica', sans-serif;
-    font-size: 10.5pt;
-    line-height: 1.35;
-    color: #000;
-    max-width: 8.5in;
-    margin: 0 auto;
-    padding: 0;
-  }
-  h1 {
-    font-size: 18pt;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-    margin-bottom: 1px;
-  }
-  .title {
-    font-size: 12pt;
-    color: #333;
-    margin-bottom: 6px;
-    font-weight: 600;
-  }
-  .contact {
-    font-size: 9.5pt;
-    color: #444;
-    margin-bottom: 10px;
-    line-height: 1.6;
-  }
-  .contact a { color: #000; text-decoration: none; }
-  hr {
-    border: none;
-    border-top: 1.5px solid #000;
-    margin: 6px 0;
-  }
-  .section-title {
-    font-size: 11pt;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-top: 10px;
-    margin-bottom: 4px;
-    border-bottom: 0.5px solid #999;
-    padding-bottom: 2px;
-  }
-  .skill-line {
-    margin-bottom: 2px;
-    font-size: 10pt;
-  }
-  .skill-cat { font-weight: 700; }
-  .project {
-    margin-bottom: 10px;
-  }
-  .project-name {
-    font-size: 11pt;
-    font-weight: 700;
-  }
-  .project-stack {
-    font-size: 9pt;
-    color: #444;
-    margin-bottom: 2px;
-  }
-  .project-links {
-    font-size: 9pt;
-    margin-bottom: 2px;
-  }
-  .project-links a { color: #000; text-decoration: none; }
-  ul { padding-left: 16px; margin-bottom: 2px; }
-  li { margin-bottom: 1px; }
-  .edu-item { margin-bottom: 6px; }
-  .edu-header { display: flex; justify-content: space-between; align-items: baseline; }
-  .edu-title { font-weight: 700; font-size: 11pt; }
-  .edu-date { font-size: 10pt; color: #444; }
-  .edu-school { font-size: 10pt; font-style: italic; }
-  .edu-detail { font-size: 9.5pt; color: #444; }
-  .edu-course { font-size: 9.5pt; color: #444; }
-</style>
+  <meta charset="UTF-8">
+  <title>Shubham Bhattacharya — Backend Engineer (Node.js/TypeScript)</title>
+  <style>
+    @page {
+      margin: 0.5in 0.5in;
+      size: letter;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 10pt;
+      line-height: 1.3;
+      color: #000;
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    /* Centered Header Style */
+    .header {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 18pt;
+      font-weight: bold;
+      margin-bottom: 2px;
+      letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+      font-size: 11pt;
+      font-style: italic;
+      margin-bottom: 4px;
+      color: #222;
+    }
+
+    .contact {
+      font-size: 9.5pt;
+      color: #000;
+      margin-bottom: 6px;
+    }
+
+    .contact a {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #000;
+      margin: 6px 0 12px 0;
+    }
+
+    /* Centered Uppercase Section Headings */
+    .section-title {
+      font-size: 11pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 1px;
+      margin-top: 12px;
+      margin-bottom: 8px;
+    }
+
+    /* Projects Layout */
+    .project {
+      margin-bottom: 10px;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .project-title-group {
+      font-size: 10.5pt;
+    }
+
+    .project-name {
+      font-weight: bold;
+    }
+
+    .project-stack {
+      font-style: italic;
+      color: #333;
+    }
+
+    .project-links {
+      font-size: 9.5pt;
+    }
+
+    .project-links a {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin-top: 3px;
+      margin-bottom: 4px;
+    }
+
+    li {
+      margin-bottom: 3px;
+      font-size: 10pt;
+    }
+
+    /* Skills Layout */
+    .skills-block {
+      margin-bottom: 10px;
+    }
+
+    .skill-line {
+      margin-bottom: 3px;
+      font-size: 10pt;
+    }
+
+    .skill-cat {
+      font-weight: bold;
+      display: inline-block;
+      min-width: 150px;
+    }
+
+    .skill-val {
+      display: inline;
+    }
+
+    /* Education Layout */
+    .edu-item {
+      margin-bottom: 6px;
+    }
+
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .edu-title {
+      font-weight: bold;
+      font-size: 10.5pt;
+    }
+
+    .edu-date {
+      font-size: 10pt;
+    }
+
+    .edu-school {
+      font-size: 10pt;
+      font-style: italic;
+    }
+
+    .edu-detail {
+      font-size: 9.5pt;
+      margin-top: 2px;
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>Shubham Bhattacharya</h1>
-<div class="title">Backend Engineer (Node.js / TypeScript)</div>
-<div class="contact">
-  shubhambhattacharya107@gmail.com | +91-9155252394 | Vadodara, Gujarat, India<br>
-  github.com/shubhambhattacharya-dev | linkedin.com/in/shubhambhattadev | shubhambhattacharya.dev
-</div>
-<hr>
-
-<h2 class="section-title">Summary</h2>
-<p>BCA final year student at Parul University (CGPA 8.13) with production-level backend experience in Node.js, TypeScript, and PostgreSQL. Built and deployed 3 production-grade backends featuring REST API design, database architecture, and LLM integration. Open to Backend Engineer Internship roles starting January 2027.</p>
-
-<h2 class="section-title">Technical Skills</h2>
-
-<div class="skill-line"><span class="skill-cat">Languages:</span> TypeScript, JavaScript (Node.js), SQL</div>
-<div class="skill-line"><span class="skill-cat">Backend &amp; API:</span> Express.js, Next.js, REST API Design, Middleware, JWT Auth, Rate Limiting, SSE / WebSockets</div>
-<div class="skill-line"><span class="skill-cat">Databases:</span> PostgreSQL, Prisma ORM, Redis</div>
-<div class="skill-line"><span class="skill-cat">AI &amp; LLM:</span> Custom ReAct Loops, Multi-Model Routing, Zod Validation, Prompt Injection Protection, tiktoken Cost Estimation</div>
-<div class="skill-line"><span class="skill-cat">DevOps &amp; Tools:</span> GitHub Actions, Docker Compose, Vercel, Render</div>
-<div class="skill-line"><span class="skill-cat">Observability:</span> Sentry Error Tracking, Pino Structured Logging</div>
-
-<h2 class="section-title">Projects</h2>
-
-<div class="project">
-  <div class="project-name">Gigi AI Ops — Backend LLM Gateway</div>
-  <div class="project-stack">Node.js · TypeScript · Express · Groq SDK · PostgreSQL · Prisma · Zod · Sentry</div>
-  <div class="project-links">github.com/shubhambhattacharya-dev/Agentic_Project | agentic-project-drab.vercel.app</div>
-  <ul>
-    <li>Built a custom ReAct orchestration engine for autonomous order-tracking across 5+ step reasoning cycles — no LangChain dependencies</li>
-    <li>Designed a Zod-validated tool registry enforcing schema validation on every LLM output before database writes, preventing data corruption</li>
-    <li>Implemented Llama 3.3-70B → Llama 3.1-8B multi-model fallback via Groq SDK, maintaining uptime during provider rate limits</li>
-    <li>Integrated Sentry + Pino logging with tiktoken-based token cost tracking for production observability</li>
-    <li>Frontend deployed on Vercel, backend on Render with CI/CD pipeline via GitHub Actions (59 commits, Vitest test suite)</li>
-  </ul>
-</div>
-
-<div class="project">
-  <div class="project-name">Medo Copilot — Multi-Provider AI Audit Platform</div>
-  <div class="project-stack">Next.js · TypeScript · Vercel AI SDK · Clerk · Gemini · Groq · OpenRouter</div>
-  <div class="project-links">github.com/shubhambhattacharya-dev/Medo_Copilot | medo-copilot.shubhambhattacharya.dev</div>
-  <ul>
-    <li>Built a 3-tier LLM waterfall (Gemini 2.0 → Groq/Llama 4 Scout → OpenRouter/Claude) with automatic provider failover</li>
-    <li>Designed hybrid scoring engine combining AI analysis with Lighthouse metrics and static code security scans</li>
-    <li>Developed automated Playwright screenshot capture for multimodal LLM visual review</li>
-    <li>Built static security analyzer detecting hardcoded secrets, code quality issues, and deployment risks</li>
-  </ul>
-</div>
-
-<div class="project">
-  <div class="project-name">DocNow — Telemedicine SaaS Platform</div>
-  <div class="project-stack">Next.js · TypeScript · Clerk · Prisma · PostgreSQL · Vonage WebRTC</div>
-  <div class="project-links">github.com/shubhambhattacharya-dev/health | docnow-zeta.vercel.app</div>
-  <ul>
-    <li>Built symptom triage classifier routing patients to specialists based on reported symptoms</li>
-    <li>Developed WebRTC video consultations via Vonage API — browser-based, no downloads</li>
-    <li>Implemented credit system with full PostgreSQL audit trail: purchases, deductions, refunds, transaction history</li>
-    <li>Built multi-role dashboards (Patients, Doctors, Admins) with automated payout engine</li>
-  </ul>
-</div>
-
-<h2 class="section-title">Education</h2>
-
-<div class="edu-item">
-  <div class="edu-header">
-    <span class="edu-title">Bachelor of Computer Applications (BCA)</span>
-    <span class="edu-date">Expected December 2026</span>
+  <div class="header">
+    <h1>Shubham Bhattacharya</h1>
+    <div class="subtitle">Backend Engineer (Node.js / TypeScript)</div>
+    <div class="contact">
+      shubhambhattacharya107@gmail.com | +91-9155252394 | Vadodara, Gujarat, India<br>
+      <a href="https://github.com/shubhambhattacharya-dev">github.com/shubhambhattacharya-dev</a> |
+      <a href="https://linkedin.com/in/shubhambhattadev">linkedin.com/in/shubhambhattadev</a> |
+      <a href="https://shubhambhattacharya.dev">shubhambhattacharya.dev</a>
+    </div>
   </div>
-  <div class="edu-school">Parul University, Vadodara, Gujarat</div>
-  <div class="edu-detail">CGPA: 8.13 | SGPA: 8.45 | First Class with Distinction | Zero Backlogs</div>
-  <div class="edu-course"><strong>Coursework:</strong> Soft Computing (AI), Software Engineering, Data Structures &amp; Algorithms, Database Management Systems, Computer Networks, Operating Systems, Object-Oriented Programming</div>
-</div>
+
+  <hr>
+
+  <h2 class="section-title">SKILLS</h2>
+
+  <div class="skills-block">
+    <div class="skill-line"><span class="skill-cat">Languages:</span> <span class="skill-val">TypeScript, JavaScript (Node.js), SQL</span></div>
+    <div class="skill-line"><span class="skill-cat">Backend &amp; API:</span> <span class="skill-val">Express.js, Next.js, REST API Design, Middleware, JWT Auth, Rate Limiting, WebSockets</span></div>
+    <div class="skill-line"><span class="skill-cat">Databases:</span> <span class="skill-val">PostgreSQL, Prisma ORM, Redis</span></div>
+    <div class="skill-line"><span class="skill-cat">AI &amp; LLM Integration:</span> <span class="skill-val">Custom ReAct Loops, Multi-Model Routing, Zod Validation, Prompt Injection Protection, tiktoken Cost Estimation</span></div>
+    <div class="skill-line"><span class="skill-cat">DevOps &amp; Tools:</span> <span class="skill-val">GitHub Actions, Docker Compose, Vercel, Render</span></div>
+    <div class="skill-line"><span class="skill-cat">Observability:</span> <span class="skill-val">Sentry Error Tracking, Pino Structured Logging</span></div>
+  </div>
+
+  <h2 class="section-title">PROJECTS</h2>
+
+  <div class="project">
+    <div class="project-header">
+      <div class="project-title-group">
+        <span class="project-name">AI Ops — Enterprise AI Tools</span>
+        <span class="project-stack">(Node.js, TypeScript, Express, Groq SDK, PostgreSQL, Prisma, Zod, Sentry)</span>
+      </div>
+    </div>
+    <div class="project-links">
+      <a href="https://github.com/shubhambhattacharya-dev/Agentic_Project">github.com/shubhambhattacharya-dev/Agentic_Project</a> |
+      <a href="https://agentic-project-drab.vercel.app">Live Demo</a>
+    </div>
+    <ul>
+      <li>Built a <b>custom ReAct orchestration engine</b> for autonomous order-tracking across multi-step reasoning cycles without relying on LangChain.</li>
+      <li>Designed a <b>Zod-validated tool registry</b> enforcing strict schema validation on every LLM output prior to database operations.</li>
+      <li>Implemented multi-model fallback routing (<i>Llama 3.3-70B → Llama 3.1-8B</i>) via Groq SDK to maintain uptime during provider rate limits.</li>
+      <li>Integrated Sentry error tracking and Pino structured logging with <b>tiktoken-based cost accounting</b> for backend observability.</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <div class="project-title-group">
+        <span class="project-name">Medo Copilot — Multi-Provider AI Audit Platform</span>
+        <span class="project-stack">(Next.js, TypeScript, Vercel AI SDK, Clerk, Gemini, Groq, OpenRouter)</span>
+      </div>
+    </div>
+    <div class="project-links">
+      <a href="https://github.com/shubhambhattacharya-dev/Medo_Copilot">github.com/shubhambhattacharya-dev/Medo_Copilot</a> |
+      <a href="https://medo-copilot.shubhambhattacharya.dev">medo-copilot.shubhambhattacharya.dev</a>
+    </div>
+    <ul>
+      <li>Engineered a <b>3-tier LLM waterfall system</b> (<i>Gemini 2.0 → Groq/Llama 4 Scout → OpenRouter/Claude</i>) with automated provider failover.</li>
+      <li>Designed a hybrid scoring engine combining AI code analysis with Lighthouse performance metrics and static security scans.</li>
+      <li>Developed automated Playwright screenshot capture for <b>multimodal LLM visual inspection</b>.</li>
+      <li>Built a static security analyzer to detect hardcoded secrets, code vulnerabilities, and deployment risks.</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <div class="project-title-group">
+        <span class="project-name">DocNow — Telemedicine SaaS Platform</span>
+        <span class="project-stack">(Next.js, TypeScript, Clerk, Prisma, PostgreSQL, Vonage WebRTC)</span>
+      </div>
+    </div>
+    <div class="project-links">
+      <a href="https://github.com/shubhambhattacharya-dev/health">github.com/shubhambhattacharya-dev/health</a> |
+      <a href="https://docnow-zeta.vercel.app">docnow-zeta.vercel.app</a>
+    </div>
+    <ul>
+      <li>Built an intelligent symptom triage classifier routing patients to medical specialists based on reported symptoms.</li>
+      <li>Developed browser-based WebRTC video consultation streams via Vonage API with zero client installation required.</li>
+      <li>Architected a credit wallet system with an <b>atomic PostgreSQL audit trail</b> for purchases, deductions, and transaction history.</li>
+      <li>Designed multi-role access control dashboards (<i>Patient, Doctor, Admin</i>) paired with an automated payout engine.</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title">EDUCATION</h2>
+
+  <div class="edu-item">
+    <div class="edu-header">
+      <span class="edu-title">Bachelor of Computer Applications (BCA)</span>
+      <span class="edu-date">Expected Dec 2026</span>
+    </div>
+    <div class="edu-school">Parul University, Vadodara, Gujarat</div>
+    <div class="edu-detail">
+      <b>CGPA: 8.13</b> | SGPA: 8.45 | First Class with Distinction<br>
+      <b>Relevant Coursework:</b> Soft Computing (AI), Software Engineering, Data Structures &amp; Algorithms, Database Management Systems, Operating Systems, Computer Networks.
+    </div>
+  </div>
 
 </body>
+
 </html>
