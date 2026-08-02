@@ -19,14 +19,13 @@
     body {
       font-family: 'Times New Roman', Times, Georgia, serif;
       font-size: 10pt;
-      line-height: 1.3;
+      line-height: 1.35;
       color: #000;
       max-width: 8.5in;
       margin: 0 auto;
       padding: 0;
     }
 
-    /* Centered Header Style */
     .header {
       text-align: center;
       margin-bottom: 8px;
@@ -47,7 +46,7 @@
     }
 
     .contact {
-      font-size: 9.5pt;
+      font-size: 9pt;
       color: #000;
       margin-bottom: 6px;
     }
@@ -63,7 +62,6 @@
       margin: 6px 0 12px 0;
     }
 
-    /* Centered Uppercase Section Headings */
     .section-title {
       font-size: 11pt;
       font-weight: bold;
@@ -74,15 +72,11 @@
       margin-bottom: 8px;
     }
 
-    /* Projects Layout */
     .project {
       margin-bottom: 10px;
     }
 
     .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
       margin-bottom: 2px;
     }
 
@@ -97,10 +91,12 @@
     .project-stack {
       font-style: italic;
       color: #333;
+      font-size: 9.5pt;
     }
 
     .project-links {
-      font-size: 9.5pt;
+      font-size: 9pt;
+      margin-bottom: 2px;
     }
 
     .project-links a {
@@ -119,27 +115,21 @@
       font-size: 10pt;
     }
 
-    /* Skills Layout */
-    .skills-block {
-      margin-bottom: 10px;
-    }
-
     .skill-line {
       margin-bottom: 3px;
-      font-size: 10pt;
+      font-size: 9.5pt;
     }
 
     .skill-cat {
       font-weight: bold;
+      min-width: 120px;
       display: inline-block;
-      min-width: 150px;
     }
 
     .skill-val {
       display: inline;
     }
 
-    /* Education Layout */
     .edu-item {
       margin-bottom: 6px;
     }
@@ -165,7 +155,7 @@
     }
 
     .edu-detail {
-      font-size: 9.5pt;
+      font-size: 9pt;
       margin-top: 2px;
     }
   </style>
@@ -188,22 +178,19 @@
 
   <h2 class="section-title">SKILLS</h2>
 
-  <div class="skills-block">
-    <div class="skill-line"><span class="skill-cat">Languages:</span> <span class="skill-val">TypeScript, JavaScript (Node.js), SQL</span></div>
-    <div class="skill-line"><span class="skill-cat">Backend &amp; API:</span> <span class="skill-val">Express.js, Next.js, REST API Design, Middleware, JWT Auth, Rate Limiting, WebSockets</span></div>
-    <div class="skill-line"><span class="skill-cat">Databases:</span> <span class="skill-val">PostgreSQL, Prisma ORM, Redis</span></div>
-    <div class="skill-line"><span class="skill-cat">AI &amp; LLM Integration:</span> <span class="skill-val">Custom ReAct Loops, Multi-Model Routing, Zod Validation, Prompt Injection Protection, tiktoken Cost Estimation</span></div>
-    <div class="skill-line"><span class="skill-cat">DevOps &amp; Tools:</span> <span class="skill-val">GitHub Actions, Docker Compose, Vercel, Render</span></div>
-    <div class="skill-line"><span class="skill-cat">Observability:</span> <span class="skill-val">Sentry Error Tracking, Pino Structured Logging</span></div>
-  </div>
+  <div class="skill-line"><span class="skill-cat">Languages:</span> TypeScript, JavaScript (Node.js, Bun), SQL</div>
+  <div class="skill-line"><span class="skill-cat">Backend:</span> Express.js, Fastify, REST API Design, WebSockets, SSE</div>
+  <div class="skill-line"><span class="skill-cat">Databases:</span> PostgreSQL, Prisma ORM, Redis</div>
+  <div class="skill-line"><span class="skill-cat">AI &amp; LLMs:</span> RAG, LLM Failover Routing, Schema Validation, Prompt Injection Protection</div>
+  <div class="skill-line"><span class="skill-cat">DevOps:</span> GitHub Actions, CI/CD, Docker Compose, Vercel, Render</div>
 
   <h2 class="section-title">PROJECTS</h2>
 
   <div class="project">
     <div class="project-header">
       <div class="project-title-group">
-        <span class="project-name">AI Ops — Enterprise AI Tools</span>
-        <span class="project-stack">(Node.js, TypeScript, Express, Groq SDK, PostgreSQL, Prisma, Zod, Sentry)</span>
+        <span class="project-name">AI Ops — Enterprise AI Customer Support</span>
+        <span class="project-stack">(Node.js, TypeScript, Express, Groq, PostgreSQL, Prisma, Zod, Sentry)</span>
       </div>
     </div>
     <div class="project-links">
@@ -211,29 +198,26 @@
       <a href="https://agentic-project-drab.vercel.app">Live Demo</a>
     </div>
     <ul>
-      <li>Built a <b>custom ReAct orchestration engine</b> for autonomous order-tracking across multi-step reasoning cycles without relying on LangChain.</li>
-      <li>Designed a <b>Zod-validated tool registry</b> enforcing strict schema validation on every LLM output prior to database operations.</li>
-      <li>Implemented multi-model fallback routing (<i>Llama 3.3-70B → Llama 3.1-8B</i>) via Groq SDK to maintain uptime during provider rate limits.</li>
-      <li>Integrated Sentry error tracking and Pino structured logging with <b>tiktoken-based cost accounting</b> for backend observability.</li>
+      <li>Built a custom AI agent that autonomously tracks orders and processes refunds through multi-step reasoning, without using LangChain or any agent framework.</li>
+      <li>Designed a Zod-validated tool registry that validates every LLM response against strict schemas before any database write or external API call — preventing prompt injection and hallucinated actions.</li>
+      <li>Implemented failover routing across LLM providers (Llama 3.3-70B → Llama 3.1-8B) so the system keeps working even when the primary provider hits rate limits.</li>
     </ul>
   </div>
 
   <div class="project">
     <div class="project-header">
       <div class="project-title-group">
-        <span class="project-name">Medo Copilot — Multi-Provider AI Audit Platform</span>
-        <span class="project-stack">(Next.js, TypeScript, Vercel AI SDK, Clerk, Gemini, Groq, OpenRouter)</span>
+        <span class="project-name">RagChatBot — RAG Document Intelligence</span>
+        <span class="project-stack">(Bun, Fastify, TypeScript, pgvector, Gemini, Groq, SSE)</span>
       </div>
     </div>
     <div class="project-links">
-      <a href="https://github.com/shubhambhattacharya-dev/Medo_Copilot">github.com/shubhambhattacharya-dev/Medo_Copilot</a> |
-      <a href="https://medo-copilot.shubhambhattacharya.dev">medo-copilot.shubhambhattacharya.dev</a>
+      <a href="https://github.com/shubhambhattacharya-dev/RagChatBot">github.com/shubhambhattacharya-dev/RagChatBot</a> |
+      <a href="https://ragchatbot-1-wtzd.onrender.com/">Live Demo</a>
     </div>
     <ul>
-      <li>Engineered a <b>3-tier LLM waterfall system</b> (<i>Gemini 2.0 → Groq/Llama 4 Scout → OpenRouter/Claude</i>) with automated provider failover.</li>
-      <li>Designed a hybrid scoring engine combining AI code analysis with Lighthouse performance metrics and static security scans.</li>
-      <li>Developed automated Playwright screenshot capture for <b>multimodal LLM visual inspection</b>.</li>
-      <li>Built a static security analyzer to detect hardcoded secrets, code vulnerabilities, and deployment risks.</li>
+      <li>Built a RAG chatbot that answers questions over PDF documents using hybrid retrieval (vector + keyword search) with an anti-hallucination guard — it refuses to answer when it can't find reliable evidence in the documents.</li>
+      <li>Implemented real-time streaming via Server-Sent Events so answers appear token-by-token, and a zero-cost infrastructure stack (Render + Supabase + Upstash + Groq + Gemini free tiers).</li>
     </ul>
   </div>
 
@@ -241,18 +225,16 @@
     <div class="project-header">
       <div class="project-title-group">
         <span class="project-name">DocNow — Telemedicine SaaS Platform</span>
-        <span class="project-stack">(Next.js, TypeScript, Clerk, Prisma, PostgreSQL, Vonage WebRTC)</span>
+        <span class="project-stack">(TypeScript, Prisma, PostgreSQL, Vonage WebRTC)</span>
       </div>
     </div>
     <div class="project-links">
       <a href="https://github.com/shubhambhattacharya-dev/health">github.com/shubhambhattacharya-dev/health</a> |
-      <a href="https://docnow-zeta.vercel.app">docnow-zeta.vercel.app</a>
+      <a href="https://docnow-zeta.vercel.app">Live Demo</a>
     </div>
     <ul>
-      <li>Built an intelligent symptom triage classifier routing patients to medical specialists based on reported symptoms.</li>
-      <li>Developed browser-based WebRTC video consultation streams via Vonage API with zero client installation required.</li>
-      <li>Architected a credit wallet system with an <b>atomic PostgreSQL audit trail</b> for purchases, deductions, and transaction history.</li>
-      <li>Designed multi-role access control dashboards (<i>Patient, Doctor, Admin</i>) paired with an automated payout engine.</li>
+      <li>Built a symptom triage system that routes patients to the right medical specialist based on reported symptoms.</li>
+      <li>Developed browser-based video consultations using Vonage WebRTC with no app download required, and a credit wallet system with full audit trails for purchases and refunds.</li>
     </ul>
   </div>
 
@@ -261,12 +243,11 @@
   <div class="edu-item">
     <div class="edu-header">
       <span class="edu-title">Bachelor of Computer Applications (BCA)</span>
-      <span class="edu-date">Expected Dec 2026</span>
+      <span class="edu-date">Parul University · Expected Dec 2026</span>
     </div>
-    <div class="edu-school">Parul University, Vadodara, Gujarat</div>
+    <div class="edu-school">Vadodara, Gujarat</div>
     <div class="edu-detail">
-      <b>CGPA: 8.13</b> | SGPA: 8.45 | First Class with Distinction<br>
-      <b>Relevant Coursework:</b> Soft Computing (AI), Software Engineering, Data Structures &amp; Algorithms, Database Management Systems, Operating Systems, Computer Networks.
+      <b>CGPA: 8.13</b> | First Class with Distinction
     </div>
   </div>
 

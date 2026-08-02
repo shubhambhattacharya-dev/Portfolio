@@ -238,7 +238,11 @@ document.addEventListener('DOMContentLoaded', () => {
           '   3-tier LLM waterfall, hybrid scoring, visual intelligence',
           '   github.com/shubhambhattacharya-dev/Medo_Copilot',
           '',
-          '3. DocNow            — Telemedicine SaaS Platform',
+          '3. RagChatBot      — Production RAG Document Intelligence',
+          '   Hybrid retrieval, anti-hallucination grounding, SSE streaming',
+          '   github.com/shubhambhattacharya-dev/RagChatBot',
+          '',
+          '4. DocNow            — Telemedicine SaaS Platform',
           '   WebRTC consultations, credit system, multi-role dashboards',
           '   github.com/shubhambhattacharya-dev/health'
         ].join('\n');
