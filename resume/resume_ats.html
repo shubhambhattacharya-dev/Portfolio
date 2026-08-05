@@ -182,14 +182,14 @@
   <div class="skill-line"><span class="skill-cat">Backend:</span> Express.js, Fastify, REST API Design, WebSockets, SSE</div>
   <div class="skill-line"><span class="skill-cat">Databases:</span> PostgreSQL, Prisma ORM, Redis</div>
   <div class="skill-line"><span class="skill-cat">AI &amp; LLMs:</span> RAG, LLM Failover Routing, Schema Validation, Prompt Injection Protection</div>
-  <div class="skill-line"><span class="skill-cat">DevOps:</span> GitHub Actions, CI/CD, Docker Compose, Vercel, Render</div>
+  <div class="skill-line"><span class="skill-cat">DevOps:</span> GitHub Actions CI/CD, Docker Compose, Vercel, Render</div>
 
   <h2 class="section-title">PROJECTS</h2>
 
   <div class="project">
     <div class="project-header">
       <div class="project-title-group">
-        <span class="project-name">AI Ops — Enterprise AI Customer Support</span>
+        <span class="project-name">AI Ops — AI Customer Support Backend</span>
         <span class="project-stack">(Node.js, TypeScript, Express, Groq, PostgreSQL, Prisma, Zod, Sentry)</span>
       </div>
     </div>
@@ -198,9 +198,26 @@
       <a href="https://agentic-project-drab.vercel.app">Live Demo</a>
     </div>
     <ul>
-      <li>Built a custom AI agent that autonomously tracks orders and processes refunds through multi-step reasoning, without using LangChain or any agent framework.</li>
+      <li>Built a custom AI agent for automated order-tracking and refund draft processing through multi-step reasoning, without using LangChain or any agent framework.</li>
       <li>Designed a Zod-validated tool registry that validates every LLM response against strict schemas before any database write or external API call — preventing prompt injection and hallucinated actions.</li>
-      <li>Implemented failover routing across LLM providers (Llama 3.3-70B → Llama 3.1-8B) so the system keeps working even when the primary provider hits rate limits.</li>
+      <li>Implemented failover routing across LLM providers (Llama 3.3-70B → Llama 3.1-8B) with GitHub Actions CI/CD automated testing for high system reliability.</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <div class="project-title-group">
+        <span class="project-name">Medo Copilot — AI Launch-Readiness Auditor</span>
+        <span class="project-stack">(Next.js, TypeScript, Vercel AI SDK, Clerk, Gemini, Groq, OpenRouter)</span>
+      </div>
+    </div>
+    <div class="project-links">
+      <a href="https://github.com/shubhambhattacharya-dev/Medo_Copilot">github.com/shubhambhattacharya-dev/Medo_Copilot</a> |
+      <a href="https://medo-copilot.shubhambhattacharya.dev/">Live Demo</a>
+    </div>
+    <ul>
+      <li>Built a 3-tier LLM waterfall (Gemini 2.0 → Groq/Llama 4 Scout → OpenRouter/Claude) with automatic provider failover for high availability.</li>
+      <li>Designed a hybrid scoring engine combining AI-generated analysis with deterministic Lighthouse and static code metrics.</li>
     </ul>
   </div>
 
@@ -217,7 +234,7 @@
     </div>
     <ul>
       <li>Built a RAG chatbot that answers questions over PDF documents using hybrid retrieval (vector + keyword search) with an anti-hallucination guard — it refuses to answer when it can't find reliable evidence in the documents.</li>
-      <li>Implemented real-time streaming via Server-Sent Events so answers appear token-by-token, and a zero-cost infrastructure stack (Render + Supabase + Upstash + Groq + Gemini free tiers).</li>
+      <li>Implemented real-time streaming via Server-Sent Events so answers appear token-by-token, using a zero-cost stack (free tiers: Render + Supabase + Upstash + Groq + Gemini).</li>
     </ul>
   </div>
 

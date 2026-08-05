@@ -21,16 +21,19 @@
   <meta name="twitter:description" content="Building APIs, database architecture, and LLM-powered backends with Node.js, TypeScript, and PostgreSQL.">
   <meta name="twitter:creator" content="@Shubham_level">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Shubham Bhattacharya","url":"https://shubhambhattacharya.dev","jobTitle":"Backend Engineer","address":{"@type":"PostalAddress","addressLocality":"Vadodara","addressRegion":"Gujarat","addressCountry":"IN"},"sameAs":["https://github.com/shubhambhattacharya-dev","https://www.linkedin.com/in/shubhambhattadev/","https://x.com/Shubham_level"],"knowsAbout":["Node.js","TypeScript","PostgreSQL","Express","Prisma","Zod","REST APIs","Redis"]}</script>
-  <meta name="theme-color" content="#0A0A0B">
+  <meta name="theme-color" content="#0f0f0f">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a href="#main" class="sr-only skip-link">Skip to content</a>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="#home" class="nav-logo" aria-label="Home">sb.dev</a>
@@ -59,278 +62,405 @@
       </div>
     </div>
   </nav>
+
   <main class="main" id="main">
+    <!-- HERO SECTION -->
     <section class="hero" id="home">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-content">
-            <div class="hero-status"><span class="hero-status-dot" aria-hidden="true"></span>Backend Engineer (Node.js/TypeScript)</div>
-            <h1 class="hero-name">Shubham<br>Bhattacharya</h1>
-            <p class="hero-title"><span class="hero-title-prefix">$</span> Backend Engineer (Node.js/TypeScript)</p>
-            <p class="hero-tagline">Building APIs, database architecture, and LLM-powered backends.</p>
-            <div class="hero-ctas">
-              <a href="#projects" class="btn btn-primary">View My Work <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
-              <a href="resume/resume_ats.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg> Resume</a>
-              <a href="mailto:shubhambhattacharya107@gmail.com" class="btn btn-outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Contact</a>
-            </div>
-            <div class="hero-quick-links">
-              <a href="https://github.com/shubhambhattacharya-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="hero-social"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
-              <a href="https://www.linkedin.com/in/shubhambhattadev/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="hero-social"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-              <a href="https://x.com/Shubham_level" target="_blank" rel="noopener noreferrer" aria-label="X" class="hero-social"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-            </div>
+      <div class="container container--wide">
+        <div class="hero-content reveal">
+          <div class="hero-badge"><span class="hero-status-dot" aria-hidden="true"></span>Available for Backend Internship Roles</div>
+          <h1 class="hero-name">Shubham Bhattacharya</h1>
+          <p class="hero-title"><span class="hero-prompt">$</span> <span id="heroTyped"></span><span class="typing-cursor">|</span></p>
+          <p class="hero-tagline">Building APIs, database architecture, and LLM-powered backends.</p>
+          <div class="hero-ctas">
+            <a href="#projects" class="btn btn-primary btn-magnetic">View Projects <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
+            <a href="#contact" class="btn btn-outline btn-magnetic">Contact Me</a>
           </div>
-          <div class="hero-visual">
-            <div class="hero-terminal" aria-hidden="true">
-              <div class="terminal-bar">
-                <span class="terminal-dot terminal-dot--red"></span>
-                <span class="terminal-dot terminal-dot--yellow"></span>
-                <span class="terminal-dot terminal-dot--green"></span>
-                <span class="terminal-title">~/shubham</span>
-              </div>
-              <div class="terminal-body">
-                <div class="terminal-line"><span class="terminal-prompt">~</span> <span class="terminal-cmd">whoami</span></div>
-                <div class="terminal-output">Backend Engineer — Vadodara, IN</div>
-                <div class="terminal-line"><span class="terminal-prompt">~</span> <span class="terminal-cmd">cat stack.txt</span></div>
-                <div class="terminal-output">Node.js — TypeScript — PostgreSQL — Express<br>Prisma — Zod — REST APIs — Docker</div>
-                <div class="terminal-line"><span class="terminal-prompt">~</span> <span class="terminal-cmd">echo $PHILOSOPHY</span></div>
-                <div class="terminal-output terminal-output--accent">"Ship clean APIs. Validate everything. Log everything."</div>
-                <div class="terminal-line terminal-line--active"><span class="terminal-prompt">~</span> <span class="terminal-cursor">&#9608;</span></div>
-              </div>
-            </div>
+          <div class="hero-quick-links">
+            <a href="https://github.com/shubhambhattacharya-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="hero-social"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+            <a href="https://www.linkedin.com/in/shubhambhattadev/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="hero-social"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="https://x.com/Shubham_level" target="_blank" rel="noopener noreferrer" aria-label="X" class="hero-social"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
           </div>
         </div>
       </div>
-      <div class="hero-scroll-hint" aria-hidden="true"><span>scroll</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></div>
     </section>
+
+    <!-- ABOUT SECTION -->
     <section class="section" id="about">
-      <div class="container">
-        <div class="section-header reveal"><span class="section-number">01</span><h2 class="section-title">About</h2></div>
-        <div class="about-grid">
-          <div class="about-main reveal">
-            <picture class="about-photo-wrap"><img src="img/profile.jpg" alt="Shubham Bhattacharya" class="about-photo" width="96" height="96" loading="eager" fetchpriority="high"></picture>
-            <div class="about-text">
-              <p>BCA Final Year student at Parul University (CGPA 8.13) building backend systems with Node.js, TypeScript, and PostgreSQL. I focus on API design, database architecture, and integrating LLMs into production backends.</p>
-              <p>Open to <strong>Backend Engineer Internship</strong> roles where I can ship production code. My engineering philosophy: data integrity, structured logging, and designing for graceful failure.</p>
+      <div class="container container--wide">
+        <div class="section-header reveal">
+          <span class="section-number">01 / About</span>
+          <h2 class="section-title">Engineering Background</h2>
+        </div>
+        <div class="about-grid reveal">
+          <div class="about-photo-wrap">
+            <img src="img/profile.jpg" alt="Shubham Bhattacharya" class="about-photo" width="180" height="180" loading="eager" fetchpriority="high">
+          </div>
+          <div class="about-text">
+            <p>BCA graduate (Dec 2026) at Parul University (CGPA 8.13) building backend systems with Node.js, TypeScript, and PostgreSQL. I focus on API design, database architecture, and integrating LLMs into production backends. Based in Vadodara, Gujarat.</p>
+            <p>Open to <strong>Backend Engineer Internship</strong> roles where I can ship production code. My engineering philosophy: data integrity, structured logging, and designing for graceful failure.</p>
+            
+            <div class="about-highlights">
+              <div class="about-card">
+                <div class="about-card-title">Zero-Trust Validation</div>
+                <div class="about-card-desc">Zod schema validation on every API input and LLM output before database writes.</div>
+              </div>
+              <div class="about-card">
+                <div class="about-card-title">Multi-Model Resilience</div>
+                <div class="about-card-desc">Automatic failover routing across LLM providers for zero downtime during outages.</div>
+              </div>
+              <div class="about-card">
+                <div class="about-card-title">Observability First</div>
+                <div class="about-card-desc">Pino structured logging with Sentry error tracking for end-to-end request tracing.</div>
+              </div>
+              <div class="about-card">
+                <div class="about-card-title">API-First Design</div>
+                <div class="about-card-desc">Typed REST APIs with explicit error handling and clear boundary separation.</div>
+              </div>
             </div>
           </div>
-          <aside class="about-philosophy reveal">
-            <h3 class="philosophy-title">Engineering Principles</h3>
-            <ul class="philosophy-list">
-              <li><div><strong>Zero-Trust Validation</strong><p>Zod schema validation on every API input and LLM output before database writes — no unvalidated data reaches production.</p></div></li>
-              <li><div><strong>Multi-Model Resilience</strong><p>Automatic fallback routing across providers (Llama 3.3-70B → Llama 3.1-8B) via Groq SDK for zero downtime during outages.</p></div></li>
-              <li><div><strong>Observability First</strong><p>Pino structured logging with Sentry error tracking for full request tracing from API to database.</p></div></li>
-              <li><div><strong>API-First Design</strong><p>REST APIs with typed responses, proper error handling, and clear separation of concerns.</p></div></li>
-            </ul>
-          </aside>
         </div>
       </div>
     </section>
+
+    <!-- ARCHITECTURE SECTION -->
     <section class="section" id="architecture">
-      <div class="container">
-        <div class="section-header reveal"><span class="section-number">02</span><h2 class="section-title">Backend Architecture</h2><p class="section-subtitle">Patterns I use to build reliable, observable systems.</p></div>
+      <div class="container container--wide">
+        <div class="section-header reveal">
+          <span class="section-number">02 / Architecture</span>
+          <h2 class="section-title">Backend Architecture Patterns</h2>
+          <p class="section-subtitle">Patterns I use to build reliable, observable systems.</p>
+        </div>
         <div class="arch-grid">
-          <div class="arch-card reveal">
-            <div class="arch-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></div>
+          <div class="arch-card tilt-card reveal">
+            <div class="arch-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></div>
             <h3 class="arch-title">Model Fallback Routing</h3>
-            <p class="arch-desc">Resilient orchestration via Groq SDK. If the primary model (Llama 3.3-70B) fails or hits rate limits, the system automatically falls back to smaller models (8B) to ensure zero downtime.</p>
+            <p class="arch-desc">Resilient orchestration via Groq SDK. If primary models hit rate limits or fail, automatic failover routes traffic to secondary models to maintain uptime.</p>
             <div class="arch-tags"><span class="arch-tag">Groq SDK</span><span class="arch-tag">Llama 3.3</span><span class="arch-tag">Failover</span></div>
           </div>
-          <div class="arch-card reveal">
-            <div class="arch-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <div class="arch-card tilt-card reveal">
+            <div class="arch-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg></div>
             <h3 class="arch-title">Zod Schema Validation</h3>
-            <p class="arch-desc">Every API request and LLM output goes through Zod validation. Invalid data is caught before reaching the database or external APIs, ensuring type safety across the stack.</p>
+            <p class="arch-desc">Every API request and LLM output is validated against strict Zod schemas. Malformed data is rejected before hitting database logic.</p>
             <div class="arch-tags"><span class="arch-tag">Zod</span><span class="arch-tag">Validation</span><span class="arch-tag">Type Safety</span></div>
           </div>
-          <div class="arch-card reveal">
-            <div class="arch-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
+          <div class="arch-card tilt-card reveal">
+            <div class="arch-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
             <h3 class="arch-title">Prisma + PostgreSQL</h3>
-            <p class="arch-desc">Type-safe database access with Prisma ORM. PostgreSQL with migrations, relations, and atomic transactions. Audit logging for every data mutation.</p>
+            <p class="arch-desc">Type-safe queries with Prisma ORM. Relational PostgreSQL schema with migrations, explicit indices, and atomic database transactions.</p>
             <div class="arch-tags"><span class="arch-tag">Prisma</span><span class="arch-tag">PostgreSQL</span><span class="arch-tag">Transactions</span></div>
           </div>
-          <div class="arch-card reveal">
-            <div class="arch-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
-            <h3 class="arch-title">Observability</h3>
-            <p class="arch-desc">Sentry error tracking and Pino structured logging. Every request is traceable from API entry to database query for production debugging.</p>
+          <div class="arch-card tilt-card reveal">
+            <div class="arch-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h3 class="arch-title">Observability Stack</h3>
+            <p class="arch-desc">Structured logging with Pino coupled with Sentry exception tracking for end-to-end request tracing and debugging.</p>
             <div class="arch-tags"><span class="arch-tag">Sentry</span><span class="arch-tag">Pino</span><span class="arch-tag">Logging</span></div>
           </div>
-          <div class="arch-card reveal">
-            <div class="arch-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
+          <div class="arch-card tilt-card reveal">
+            <div class="arch-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div>
             <h3 class="arch-title">Session Security</h3>
-            <p class="arch-desc">Trusted Backend Context pattern for prompt injection protection. Sensitive data is injected outside LLM reach, keeping actions within authorized boundaries.</p>
+            <p class="arch-desc">Trusted Backend Context isolation pattern preventing prompt injection vulnerability and locking executions into authorized boundaries.</p>
             <div class="arch-tags"><span class="arch-tag">Security</span><span class="arch-tag">Auth</span><span class="arch-tag">Injection Shield</span></div>
           </div>
-          <div class="arch-card reveal">
-            <div class="arch-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
-            <h3 class="arch-title">CI/CD Pipeline</h3>
-            <p class="arch-desc">GitHub Actions for automated testing and linting. Fly.io deployment with zero-downtime deploys. Vercel for frontend hosting.</p>
-            <div class="arch-tags"><span class="arch-tag">GitHub Actions</span><span class="arch-tag">Fly.io</span><span class="arch-tag">Vercel</span></div>
+          <div class="arch-card tilt-card reveal">
+            <div class="arch-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v1"/><path d="M18 8l4 4-4 4"/></svg></div>
+            <h3 class="arch-title">CI/CD & Infrastructure</h3>
+            <p class="arch-desc">Automated testing pipelines using GitHub Actions, containerized deployments via Docker, and production hosting on Vercel and Render.</p>
+            <div class="arch-tags"><span class="arch-tag">GitHub Actions</span><span class="arch-tag">Docker</span><span class="arch-tag">Vercel</span></div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- PROJECTS SECTION (FEATURED ALTERNATING LAYOUT) -->
     <section class="section section--wide" id="projects">
       <div class="container container--wide">
-        <div class="section-header reveal"><span class="section-number">03</span><h2 class="section-title">Projects</h2><p class="section-subtitle">Production-grade systems I've built, not tutorial follow-alongs.</p></div>
+        <div class="section-header reveal">
+          <span class="section-number">03 / Projects</span>
+          <h2 class="section-title">Featured Work</h2>
+          <p class="section-subtitle">Backend systems I've built, not tutorial follow-alongs.</p>
+        </div>
         <div class="projects-grid">
-          <article class="project-card reveal">
-            <div class="project-preview"><img src="img/gigibot.png" alt="AI Ops project preview" loading="lazy" width="640" height="360"></div>
-            <div class="project-content">
-              <div class="project-header"><h3 class="project-title">AI Ops — Enterprise AI Tools</h3><span class="project-type">Backend · AI Integration</span></div>
-            <p class="project-desc">Enterprise AI tools that enhance customer support workflows, built with a custom ReAct orchestration engine (no LangChain) for autonomous order‑tracking and refund processing across multi‑step reasoning cycles.</p>
-              <ul class="project-highlights">
-                <li><span class="highlight-label">Custom ReAct Engine</span><span class="highlight-value">Built a custom ReAct orchestration engine (no LangChain) for autonomous order-tracking across multi-step reasoning cycles</span></li>
-                <li><span class="highlight-label">Zod Tool Registry</span><span class="highlight-value">Designed a Zod-validated tool registry enforcing schema validation on every LLM output before database writes or API calls</span></li>
-                <li><span class="highlight-label">Multi-Model Fallback</span><span class="highlight-value">Implemented Llama 3.3-70B → Llama 3.1-8B fallback routing via Groq SDK for resilience during provider outages</span></li>
-                <li><span class="highlight-label">Full Observability</span><span class="highlight-value">Integrated Sentry + Pino structured logging with tiktoken-based cost tracking and database-level audit logging</span></li>
-                <li><span class="highlight-label">Injection Shield</span><span class="highlight-value">Implemented Trusted Backend Context pattern for prompt injection protection</span></li>
-              </ul>
-              <div class="project-tech-stack"><span class="tech-tag">Node.js</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Express</span><span class="tech-tag">Groq SDK</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Prisma</span><span class="tech-tag">Zod</span><span class="tech-tag">Sentry</span></div>
-              <div class="project-links"><a href="https://github.com/shubhambhattacharya-dev/Agentic_Project" target="_blank" rel="noopener noreferrer" class="project-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Source Code</a><a href="https://agentic-project-drab.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo</a></div>
+          <!-- CARD 1: IMAGE LEFT, CONTENT RIGHT -->
+          <article class="project-card tilt-card reveal">
+            <div class="project-inner">
+              <div class="project-preview">
+                <img src="img/gigibot.png" alt="AI Ops project preview" loading="lazy" width="640" height="360">
+              </div>
+              <div class="project-content">
+                <div class="project-header">
+                  <span class="project-type">Backend · AI Integration</span>
+                  <h3 class="project-title">AI Ops — AI Customer Support Backend</h3>
+                </div>
+                <p class="project-desc">AI customer support backend that enhances support workflows, built with a custom ReAct orchestration engine (no LangChain) for automated order‑tracking and refund draft processing across multi‑step reasoning cycles.</p>
+                <ul class="project-highlights">
+                  <li><span class="highlight-label">ReAct Engine</span><span>Built a custom ReAct orchestration engine (no LangChain) for automated order-tracking across multi-step reasoning cycles</span></li>
+                  <li><span class="highlight-label">Tool Registry</span><span>Designed Zod-validated tool registry enforcing schema validation on every LLM output before database writes</span></li>
+                  <li><span class="highlight-label">Fallback Routing</span><span>Implemented Llama 3.3-70B → Llama 3.1-8B fallback routing via Groq SDK for resilience during provider outages</span></li>
+                </ul>
+                <div class="project-tech-stack">
+                  <span class="tech-tag">Node.js</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Express</span><span class="tech-tag">Groq SDK</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Prisma</span><span class="tech-tag">Zod</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/shubhambhattacharya-dev/Agentic_Project" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Source Code
+                  </a>
+                  <a href="https://agentic-project-drab.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo
+                  </a>
+                </div>
+              </div>
             </div>
           </article>
-          <article class="project-card reveal">
-            <div class="project-preview"><img src="img/medo.png" alt="Medo Copilot project preview" loading="lazy" width="640" height="360"></div>
-            <div class="project-content">
-              <div class="project-header"><h3 class="project-title">Medo Copilot</h3><span class="project-type">Full Stack · AI</span></div>
-              <p class="project-desc">AI-powered launch-readiness auditor — built a 3-tier LLM waterfall (Gemini 2.0 → Groq/Llama 4 Scout → OpenRouter/Claude) with automatic provider failover for high availability.</p>
-              <ul class="project-highlights">
-                <li><span class="highlight-label">Waterfall Fallback</span><span class="highlight-value">Built a 3-tier LLM waterfall (Gemini 2.0 → Groq/Llama 4 Scout → OpenRouter/Claude) with automatic provider failover for high availability</span></li>
-                <li><span class="highlight-label">Hybrid Scoring</span><span class="highlight-value">Designed hybrid scoring engine combining AI-generated analysis with deterministic Lighthouse and static code metrics</span></li>
-                <li><span class="highlight-label">Visual Intelligence</span><span class="highlight-value">Developed automated screenshot capture for multimodal LLM visual review and regression testing</span></li>
-                <li><span class="highlight-label">Security Audit</span><span class="highlight-value">Built static security analyzer scanning for hardcoded secrets, code quality issues, and deployment risks</span></li>
-              </ul>
-              <div class="project-tech-stack"><span class="tech-tag">Next.js</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Vercel AI SDK</span><span class="tech-tag">Clerk</span><span class="tech-tag">Gemini</span><span class="tech-tag">Groq</span><span class="tech-tag">OpenRouter</span></div>
-              <div class="project-links"><a href="https://github.com/shubhambhattacharya-dev/Medo_Copilot" target="_blank" rel="noopener noreferrer" class="project-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Source Code</a><a href="https://medo-copilot.shubhambhattacharya.dev/" target="_blank" rel="noopener noreferrer" class="project-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo</a></div>
+
+          <!-- CARD 2: CONTENT LEFT, IMAGE RIGHT -->
+          <article class="project-card tilt-card reveal">
+            <div class="project-inner">
+              <div class="project-preview">
+                <img src="img/medo.png" alt="Medo Copilot project preview" loading="lazy" width="640" height="360">
+              </div>
+              <div class="project-content">
+                <div class="project-header">
+                  <span class="project-type">Full Stack · AI Auditor</span>
+                  <h3 class="project-title">Medo Copilot</h3>
+                </div>
+                <p class="project-desc">AI-powered launch-readiness auditor — built a 3-tier LLM waterfall (Gemini 2.0 → Groq/Llama 4 Scout → OpenRouter/Claude) with automatic provider failover for high availability.</p>
+                <ul class="project-highlights">
+                  <li><span class="highlight-label">Waterfall Fallback</span><span>3-tier LLM waterfall with automatic provider failover for high availability</span></li>
+                  <li><span class="highlight-label">Hybrid Scoring</span><span>Combines AI analysis with deterministic Lighthouse & static code metrics</span></li>
+                  <li><span class="highlight-label">Security Audit</span><span>Static security analyzer scanning for hardcoded secrets and deployment risks</span></li>
+                </ul>
+                <div class="project-tech-stack">
+                  <span class="tech-tag">Next.js</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Vercel AI SDK</span><span class="tech-tag">Clerk</span><span class="tech-tag">Gemini</span><span class="tech-tag">Groq</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/shubhambhattacharya-dev/Medo_Copilot" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Source Code
+                  </a>
+                  <a href="https://medo-copilot.shubhambhattacharya.dev/" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo
+                  </a>
+                </div>
+              </div>
             </div>
           </article>
-          <article class="project-card reveal">
-            <div class="project-preview"><img src="img/docnow.png" alt="DocNow project preview" loading="lazy" width="640" height="360"></div>
-            <div class="project-content">
-              <div class="project-header"><h3 class="project-title">DocNow</h3><span class="project-type">Full Stack SaaS — Telemedicine</span></div>
-              <p class="project-desc">Full-stack telemedicine SaaS platform with symptom triage classifiers, WebRTC consultations, and transaction billing structures.</p>
-              <ul class="project-highlights">
-                <li><span class="highlight-label">Symptom Triage</span><span class="highlight-value">Built a symptom triage classifier to route patients to appropriate specialists based on reported symptoms</span></li>
-                <li><span class="highlight-label">Video Consultations</span><span class="highlight-value">Developed WebRTC video consultations via Vonage API — browser-based, no downloads required</span></li>
-                <li><span class="highlight-label">Credit System</span><span class="highlight-value">Implemented credit system with full audit trail: purchases, deductions, refunds, and transaction history</span></li>
-                <li><span class="highlight-label">Multi-Role Dashboards</span><span class="highlight-value">Built multi-role dashboards (Patients, Doctors, Admins) with automated payout engine and platform fee calculations</span></li>
-              </ul>
-              <div class="project-tech-stack"><span class="tech-tag">Next.js</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Clerk</span><span class="tech-tag">Prisma</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Vonage</span><span class="tech-tag">shadcn/ui</span></div>
-              <div class="project-links"><a href="https://github.com/shubhambhattacharya-dev/health" target="_blank" rel="noopener noreferrer" class="project-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Source Code</a><a href="https://docnow-zeta.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo</a></div>
+
+          <!-- CARD 3: IMAGE LEFT, CONTENT RIGHT -->
+          <article class="project-card tilt-card reveal">
+            <div class="project-inner">
+              <div class="project-preview">
+                <img src="img/docnow.png" alt="DocNow project preview" loading="lazy" width="640" height="360">
+              </div>
+              <div class="project-content">
+                <div class="project-header">
+                  <span class="project-type">Full Stack SaaS · Telemedicine</span>
+                  <h3 class="project-title">DocNow</h3>
+                </div>
+                <p class="project-desc">Full-stack telemedicine SaaS platform with symptom triage classifiers, WebRTC consultations, and transaction billing structures.</p>
+                <ul class="project-highlights">
+                  <li><span class="highlight-label">Symptom Triage</span><span>Symptom triage classifier routing patients to appropriate specialists</span></li>
+                  <li><span class="highlight-label">Video Calls</span><span>Browser-based WebRTC video consultations via Vonage API</span></li>
+                  <li><span class="highlight-label">Credit System</span><span>Credit wallet engine with audit trails for purchases, deductions, and refunds</span></li>
+                </ul>
+                <div class="project-tech-stack">
+                  <span class="tech-tag">Next.js</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Clerk</span><span class="tech-tag">Prisma</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Vonage</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/shubhambhattacharya-dev/health" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Source Code
+                  </a>
+                  <a href="https://docnow-zeta.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo
+                  </a>
+                </div>
+              </div>
             </div>
           </article>
-          <article class="project-card reveal">
-            <div class="project-preview"><img src="img/ChatGPT Image Jul 31, 2026, 08_12_16 PM.png" alt="RagChatBot chat interface preview" loading="lazy" width="640" height="360"></div>
-            <div class="project-content">
-              <div class="project-header"><h3 class="project-title">RagChatBot — Production RAG Document Intelligence</h3><span class="project-type">Backend · AI Infrastructure</span></div>
-            <p class="project-desc">A production-grade Retrieval-Augmented Generation system over PDF documents with hybrid search, anti-hallucination grounding, and real-time token streaming via Server-Sent Events.</p>
-              <ul class="project-highlights">
-                <li><span class="highlight-label">Hybrid Retrieval</span><span class="highlight-value">Combines vector search (pgvector cosine similarity) with lexical full-text search (to_tsvector) and metadata filtering, delivering 3× better recall on exact-value queries than vector-only search</span></li>
-                <li><span class="highlight-label">Anti-Hallucination</span><span class="highlight-value">Distance gate (MAX_DISTANCE ≤ 0.5) ensures only well-grounded chunks reach the LLM; the system refuses to answer when no evidence passes the threshold instead of guessing</span></li>
-                <li><span class="highlight-label">Query Expansion</span><span class="highlight-value">Automatically rewrites weak exact-value queries (e.g. "email" → "email address contact details") to maximize embedding recall without prompt injection risk</span></li>
-                <li><span class="highlight-label">Real-Time Streaming</span><span class="highlight-value">Token-by-token responses streamed to the browser via Server-Sent Events, with source document attribution in the final SSE frame</span></li>
-                <li><span class="highlight-label">Recursive Chunking</span><span class="highlight-value">Splits documents at the largest meaningful boundary first (paragraph → line → word → character) with 512-token chunks and 20-word overlap for context continuity</span></li>
-              </ul>
-              <div class="project-tech-stack"><span class="tech-tag">Bun</span><span class="tech-tag">Fastify</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Prisma</span><span class="tech-tag">pgvector</span><span class="tech-tag">Gemini</span><span class="tech-tag">Groq</span><span class="tech-tag">SSE</span><span class="tech-tag">Zod</span><span class="tech-tag">BullMQ</span></div>
-              <div class="project-links"><a href="https://github.com/shubhambhattacharya-dev/RagChatBot" target="_blank" rel="noopener noreferrer" class="project-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Source Code</a><a href="https://ragchatbot-1-wtzd.onrender.com/" target="_blank" rel="noopener noreferrer" class="project-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo</a></div>
+
+          <!-- CARD 4: CONTENT LEFT, IMAGE RIGHT -->
+          <article class="project-card tilt-card reveal">
+            <div class="project-inner">
+              <div class="project-preview">
+                <img src="img/ChatGPT Image Jul 31, 2026, 08_12_16 PM.png" alt="RagChatBot chat interface preview" loading="lazy" width="640" height="360">
+              </div>
+              <div class="project-content">
+                <div class="project-header">
+                  <span class="project-type">Backend · AI Infrastructure</span>
+                  <h3 class="project-title">RagChatBot — RAG Document Intelligence</h3>
+                </div>
+                <p class="project-desc">RAG Document Intelligence — Retrieval‑Augmented Generation over PDF documents with hybrid search, anti‑hallucination grounding, and real‑time streaming. Live Demo: ragchatbot-1-wtzd.onrender.com.</p>
+                <ul class="project-highlights">
+                  <li><span class="highlight-label">Hybrid Search</span><span>Combines vector search (pgvector) with lexical text search (to_tsvector)</span></li>
+                  <li><span class="highlight-label">Anti-Hallucin</span><span>Distance gate (MAX_DISTANCE ≤ 0.5) ensuring refusal when context is missing</span></li>
+                  <li><span class="highlight-label">Token Streaming</span><span>Token-by-token SSE streaming responses with document attribution</span></li>
+                </ul>
+                <div class="project-tech-stack">
+                  <span class="tech-tag">Bun</span><span class="tech-tag">Fastify</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Prisma</span><span class="tech-tag">pgvector</span><span class="tech-tag">Gemini</span><span class="tech-tag">Groq</span><span class="tech-tag">SSE</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/shubhambhattacharya-dev/RagChatBot" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Source Code
+                  </a>
+                  <a href="https://ragchatbot-1-wtzd.onrender.com/" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo
+                  </a>
+                </div>
+              </div>
             </div>
           </article>
+        </div>
       </div>
     </section>
+
+    <!-- TECH STACK SECTION -->
     <section class="section" id="stack">
-      <div class="container">
-        <div class="section-header reveal"><span class="section-number">04</span><h2 class="section-title">Stack</h2><p class="section-subtitle">Technologies I use to ship production systems.</p></div>
+      <div class="container container--wide">
+        <div class="section-header reveal">
+          <span class="section-number">04 / Stack</span>
+          <h2 class="section-title">Technical Skills & Technologies</h2>
+          <p class="section-subtitle">Technologies I use to ship production systems.</p>
+        </div>
         <div class="stack-grid reveal">
-          <div class="stack-category"><h3 class="stack-category-title">Languages</h3><div class="stack-items"><span class="stack-item stack-item--primary">TypeScript</span><span class="stack-item stack-item--primary">JavaScript (Node.js)</span><span class="stack-item stack-item--primary">SQL</span></div></div>
-          <div class="stack-category"><h3 class="stack-category-title">Backend & API</h3><div class="stack-items"><span class="stack-item stack-item--primary">Express.js</span><span class="stack-item stack-item--primary">Fastify</span><span class="stack-item stack-item--primary">Bun</span><span class="stack-item stack-item--primary">REST API Design</span><span class="stack-item stack-item--primary">Middleware Architecture</span><span class="stack-item stack-item--secondary">SSE / WebSockets</span><span class="stack-item stack-item--secondary">Rate Limiting</span><span class="stack-item stack-item--secondary">Auth (Clerk)</span></div></div>
-          <div class="stack-category"><h3 class="stack-category-title">AI & LLM Infrastructure</h3><div class="stack-items"><span class="stack-item stack-item--primary">Custom ReAct Loops</span><span class="stack-item stack-item--primary">Tool Registry Design</span><span class="stack-item stack-item--primary">Multi-Model Routing</span><span class="stack-item stack-item--primary">Prompt Injection Protection</span><span class="stack-item stack-item--primary">tiktoken Cost Estimation</span><span class="stack-item stack-item--primary">LLM Observability</span></div></div>
-          <div class="stack-category"><h3 class="stack-category-title">Databases</h3><div class="stack-items"><span class="stack-item stack-item--primary">PostgreSQL</span><span class="stack-item stack-item--primary">Prisma ORM</span></div></div>
-          <div class="stack-category"><h3 class="stack-category-title">Observability & Safety</h3><div class="stack-items"><span class="stack-item stack-item--primary">Zod Schema Validation</span><span class="stack-item stack-item--primary">Sentry Error Tracking</span><span class="stack-item stack-item--primary">Pino Structured Logging</span></div></div>
-          <div class="stack-category"><h3 class="stack-category-title">CI/CD & Infra</h3><div class="stack-items"><span class="stack-item stack-item--primary">GitHub Actions</span><span class="stack-item stack-item--secondary">Docker Compose</span><span class="stack-item stack-item--secondary">Vercel</span></div></div>
-        </div>
-      </div>
-    </section>
-    <section class="section" id="experience">
-      <div class="container">
-        <div class="section-header reveal"><span class="section-number">05</span><h2 class="section-title">Journey</h2></div>
-        <div class="timeline">
-          <div class="timeline-item reveal"><div class="timeline-marker" aria-hidden="true"></div><div class="timeline-content">
-            <div class="timeline-header"><h3 class="timeline-title">BCA — Parul University, Vadodara</h3><span class="timeline-date">2023 — 2026</span></div>
-            <p class="timeline-subtitle">Bachelor of Computer Applications · CGPA 8.13 · SGPA 8.45 · First Class with Distinction · Zero Backlogs</p>
-            <ul class="timeline-list">
-              <li><strong>Relevant Coursework:</strong> Soft Computing (AI), Software Engineering, Data Structures & Algorithms, Database Management Systems, Computer Networks, Operating Systems, Object-Oriented Programming</li>
-            </ul>
-          </div></div>
-          <div class="timeline-item reveal"><div class="timeline-marker" aria-hidden="true"></div><div class="timeline-content">
-            <div class="timeline-header"><h3 class="timeline-title">Independent Backend & AI Projects</h3><span class="timeline-date">2024 — Present</span></div>
-            <p class="timeline-subtitle">Self-directed engineering & research</p>
-            <ul class="timeline-list">
-              <li>Built custom ReAct orchestration engine (no LangChain) for autonomous order-tracking and refund processing</li>
-              <li>Designed Zod-validated tool registry enforcing schema validation on every LLM output before execution</li>
-              <li>Implemented multi-model fallback routing (Llama 3.3-70B → Llama 3.1-8B) via Groq SDK for resilience during outages</li>
-              <li>Developed Trusted Backend Context pattern for prompt injection protection</li>
-            </ul>
-          </div></div>
-        </div>
-      </div>
-    </section>
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="section-header reveal"><span class="section-number">06</span><h2 class="section-title">Get In Touch</h2></div>
-        <div class="contact-grid">
-          <div class="contact-main reveal">
-            <p class="contact-text">Open to <strong>Backend Engineer Internship</strong> roles. Reach out through any channel below or view my resume for the full picture.</p>
-            <div class="contact-ctas">
-              <a href="mailto:shubhambhattacharya107@gmail.com" class="btn btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Email Me</a>
-              <a href="resume/resume_ats.html" class="btn btn-outline" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg> View Resume</a>
+          <div class="stack-category">
+            <h3 class="stack-category-title">Languages</h3>
+            <div class="stack-items">
+              <span class="stack-item">TypeScript</span>
+              <span class="stack-item">JavaScript (Node.js)</span>
+              <span class="stack-item">SQL</span>
             </div>
           </div>
-          <div class="contact-links reveal">
-            <a href="mailto:shubhambhattacharya107@gmail.com" class="contact-link"><span class="contact-link-label">Email</span><span class="contact-link-value">shubhambhattacharya107@gmail.com</span></a>
-            <a href="tel:+919155252394" class="contact-link"><span class="contact-link-label">Phone</span><span class="contact-link-value">+91-9155252394</span></a>
-            <a href="https://github.com/shubhambhattacharya-dev" target="_blank" rel="noopener noreferrer" class="contact-link"><span class="contact-link-label">GitHub</span><span class="contact-link-value">github.com/shubhambhattacharya-dev</span></a>
-            <a href="https://www.linkedin.com/in/shubhambhattadev/" target="_blank" rel="noopener noreferrer" class="contact-link"><span class="contact-link-label">LinkedIn</span><span class="contact-link-value">linkedin.com/in/shubhambhattadev</span></a>
+          <div class="stack-category">
+            <h3 class="stack-category-title">Backend & API</h3>
+            <div class="stack-items">
+              <span class="stack-item">Express.js</span>
+              <span class="stack-item">Fastify</span>
+              <span class="stack-item">Bun</span>
+              <span class="stack-item">REST API Design</span>
+              <span class="stack-item stack-item--secondary">Middleware Architecture</span>
+              <span class="stack-item stack-item--secondary">SSE / WebSockets</span>
+              <span class="stack-item stack-item--secondary">Auth (Clerk)</span>
+            </div>
+          </div>
+          <div class="stack-category">
+            <h3 class="stack-category-title">AI & LLM Infrastructure</h3>
+            <div class="stack-items">
+              <span class="stack-item">Custom ReAct Loops</span>
+              <span class="stack-item">Tool Registry Design</span>
+              <span class="stack-item">Multi-Model Routing</span>
+              <span class="stack-item">Prompt Injection Protection</span>
+              <span class="stack-item">tiktoken Cost Tracking</span>
+            </div>
+          </div>
+          <div class="stack-category">
+            <h3 class="stack-category-title">Databases</h3>
+            <div class="stack-items">
+              <span class="stack-item">PostgreSQL</span>
+              <span class="stack-item">Redis</span>
+              <span class="stack-item">Prisma ORM</span>
+            </div>
+          </div>
+          <div class="stack-category">
+            <h3 class="stack-category-title">Observability & Safety</h3>
+            <div class="stack-items">
+              <span class="stack-item">Zod Schema Validation</span>
+              <span class="stack-item">Sentry Error Tracking</span>
+              <span class="stack-item">Pino Structured Logging</span>
+            </div>
+          </div>
+          <div class="stack-category">
+            <h3 class="stack-category-title">CI/CD & Infrastructure</h3>
+            <div class="stack-items">
+              <span class="stack-item">GitHub Actions</span>
+              <span class="stack-item stack-item--secondary">Docker Compose</span>
+              <span class="stack-item stack-item--secondary">Vercel</span>
+              <span class="stack-item stack-item--secondary">Render</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <div class="easter-egg-overlay" id="easterEggOverlay" aria-hidden="true">
-      <div class="easter-egg-terminal">
-        <div class="terminal-bar">
-          <span class="terminal-dot terminal-dot--red"></span>
-          <span class="terminal-dot terminal-dot--yellow"></span>
-          <span class="terminal-dot terminal-dot--green"></span>
-          <span class="terminal-title">~/secret-terminal</span>
-          <button class="easter-egg-close" id="easterEggClose" aria-label="Close terminal">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-          </button>
+
+    <!-- JOURNEY SECTION -->
+    <section class="section" id="experience">
+      <div class="container container--wide">
+        <div class="section-header reveal">
+          <span class="section-number">05 / Journey</span>
+          <h2 class="section-title">Education & Projects Timeline</h2>
         </div>
-        <div class="easter-egg-body" id="easterEggBody">
-          <div class="easter-egg-output">Welcome to the secret terminal. Type <span class="ee-accent">help</span> for commands.</div>
-        </div>
-        <div class="easter-egg-input-line">
-          <span class="ee-prompt">visitor@shubham:~$</span>
-          <input type="text" class="easter-egg-input" id="easterEggInput" autocomplete="off" spellcheck="false" aria-label="Terminal input">
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3 class="timeline-title">BCA — Parul University, Vadodara</h3>
+                <span class="timeline-date">2023 — Dec 2026</span>
+              </div>
+              <p class="timeline-subtitle">Bachelor of Computer Applications · CGPA 8.13 · SGPA 8.45 · First Class with Distinction</p>
+              <ul class="timeline-list">
+                <li>Relevant Coursework: Soft Computing (AI), Software Engineering, Data Structures & Algorithms, Database Management Systems, Computer Networks, Operating Systems, Object-Oriented Programming</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3 class="timeline-title">Independent Backend & AI Engineering</h3>
+                <span class="timeline-date">2024 — Present</span>
+              </div>
+              <p class="timeline-subtitle">Self-directed system architecture & LLM integration research</p>
+              <ul class="timeline-list">
+                <li>Built custom ReAct orchestration engine (no LangChain) for automated order-tracking and refund draft processing</li>
+                <li>Designed Zod-validated tool registry enforcing schema validation on every LLM output before execution</li>
+                <li>Implemented multi-model fallback routing (Llama 3.3-70B → Llama 3.1-8B) via Groq SDK for resilience during outages</li>
+                <li>Developed Trusted Backend Context pattern for prompt injection protection</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="mobile-cta-bar" id="mobileCtaBar">
-      <a href="mailto:shubhambhattacharya107@gmail.com" class="mobile-cta-btn mobile-cta-primary">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        Email Me
-      </a>
-      <a href="resume/resume_ats.html" class="mobile-cta-btn mobile-cta-secondary" target="_blank" rel="noopener noreferrer">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
-        Resume
-      </a>
-    </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact">
+      <div class="container container--wide">
+        <div class="contact-container reveal">
+          <div class="section-header" style="margin-bottom: 2rem;">
+            <span class="section-number">06 / Contact</span>
+            <h2 class="section-title">Get In Touch</h2>
+          </div>
+          <p class="contact-text">Open to <strong>Backend Engineer Internship</strong> roles. Feel free to reach out through any channel below.</p>
+          <div class="contact-links">
+            <a href="mailto:shubhambhattacharya107@gmail.com" class="contact-link">
+              <span class="contact-link-label">Email</span>
+              <span class="contact-link-value">shubhambhattacharya107@gmail.com</span>
+            </a>
+            <a href="tel:+919155252394" class="contact-link">
+              <span class="contact-link-label">Phone</span>
+              <span class="contact-link-value">+91-9155252394</span>
+            </a>
+            <a href="https://github.com/shubhambhattacharya-dev" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span class="contact-link-label">GitHub</span>
+              <span class="contact-link-value">github.com/shubhambhattacharya-dev</span>
+            </a>
+            <a href="https://www.linkedin.com/in/shubhambhattadev/" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span class="contact-link-label">LinkedIn</span>
+              <span class="contact-link-value">linkedin.com/in/shubhambhattadev</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
   <footer class="footer">
     <div class="container">
-      <span>Built with plain HTML, CSS, and JS. No frameworks, no build tools, no npm install.</span>
+      <span>Built with plain HTML, CSS, and JS. Zero frameworks, zero build tools.</span>
       <span class="footer-divider">—</span>
       <span>&copy; 2026 Shubham Bhattacharya</span>
     </div>
   </footer>
+
   <script src="script.js" defer></script>
 </body>
 </html>
