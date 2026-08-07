@@ -68,10 +68,11 @@
     <section class="hero" id="home">
       <div class="container container--wide">
         <div class="hero-content reveal">
-          <div class="hero-badge"><span class="hero-status-dot" aria-hidden="true"></span>Available for Backend Engineer Roles</div>
+          <div class="hero-badge"><span class="hero-status-dot" aria-hidden="true"></span>Backend Engineer — AI/LLM Systems | Open to full-time &amp; internship roles</div>
           <h1 class="hero-name">Shubham Bhattacharya</h1>
           <p class="hero-title"><span class="hero-prompt">$</span> <span id="heroTyped"></span><span class="typing-cursor">|</span></p>
           <p class="hero-tagline">Backend Engineer building production APIs, database systems, and AI infrastructure.</p>
+          <p class="hero-tech-stack">Node.js · TypeScript · PostgreSQL · LLM Orchestration · Production APIs</p>
           <div class="hero-ctas">
             <a href="#projects" class="btn btn-primary btn-magnetic">View Projects <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
             <a href="#contact" class="btn btn-outline btn-magnetic">Contact Me</a>
@@ -274,6 +275,32 @@
               </div>
             </div>
           </article>
+        
+          <!-- CARD 4: CONTENT LEFT, IMAGE RIGHT -->
+          <article class="project-card tilt-card reveal">
+            <div class="project-inner">
+              <div class="project-content">
+                <div class="project-header">
+                  <span class="project-type">Backend · Real-Time Systems</span>
+                  <h3 class="project-title">JustChat — Real-Time Messaging Backend</h3>
+                </div>
+                <p class="project-desc">Real-time messaging backend with WebSocket rooms, JWT authentication, and Docker containerization. No AI — pure backend engineering.</p>
+                <ul class="project-highlights">
+                  <li><span class="highlight-label">WebSocket Rooms</span><span>Socket.io real-time messaging with room-based architecture and event-driven communication</span></li>
+                  <li><span class="highlight-label">JWT Auth</span><span>HTTP-only cookie authentication with bcrypt hashing and CSRF protection</span></li>
+                  <li><span class="highlight-label">Docker</span><span>Multi-stage Docker build with docker-compose for production deployment</span></li>
+                </ul>
+                <div class="project-tech-stack">
+                  <span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">Socket.io</span><span class="tech-tag">MongoDB</span><span class="tech-tag">Docker</span><span class="tech-tag">JWT</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/shubhambhattacharya-dev/chatApp" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Source Code
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>    <!-- TECH STACK SECTION -->
     <section class="section" id="stack">
       <div class="container container--wide">
@@ -327,6 +354,7 @@
               <span class="stack-item">Zod Schema Validation</span>
               <span class="stack-item">Sentry Error Tracking</span>
               <span class="stack-item">Pino Structured Logging</span>
+              <span class="stack-item">Correlation ID Tracing</span>
             </div>
           </div>
           <div class="stack-category">
@@ -336,6 +364,8 @@
               <span class="stack-item stack-item--secondary">Docker Compose</span>
               <span class="stack-item stack-item--secondary">Vercel</span>
               <span class="stack-item stack-item--secondary">Render</span>
+              <span class="stack-item stack-item--secondary">Health Check Endpoints</span>
+              <span class="stack-item stack-item--secondary">Graceful Shutdown</span>
             </div>
           </div>
         </div>
@@ -370,13 +400,13 @@
                 <h3 class="timeline-title">Independent Backend & AI Engineering</h3>
                 <span class="timeline-date">2024 — Present</span>
               </div>
-              <p class="timeline-subtitle">Self-directed system architecture & LLM integration research</p>
+              <p class="timeline-subtitle">Independent Backend Engineering — AI Infrastructure</p>
               <ul class="timeline-list">
-                <li>Built custom ReAct orchestration engine (no LangChain) for automated order-tracking and refund draft processing</li>
-                <li>Designed Zod-validated tool registry enforcing schema validation on every LLM output before execution</li>
-                <li>Implemented multi-model fallback routing (Llama 3.3-70B → Llama 3.1-8B) via Groq SDK for resilience during outages</li>
-                <li>Developed Trusted Backend Context pattern for prompt injection protection</li>
+                <li>Built production-ready AI agent backend with custom ReAct engine (no LangChain), multi-model failover routing, and Zod output validation</li>
+                <li>Designed prompt injection protection and cost-tracking infrastructure for LLM-powered applications</li>
+                <li>Developed database architecture with PostgreSQL, Prisma ORM, and atomic transactions for financial and medical data</li>
               </ul>
+              <p class="timeline-stack" style="margin-top: 0.75rem; font-size: 0.85rem; opacity: 0.7;">Stack: Node.js · TypeScript · Express · Fastify · PostgreSQL · Prisma · Redis · Docker · Groq · Gemini</p>
             </div>
           </div>
         </div>
