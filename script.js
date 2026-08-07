@@ -19,10 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateIcons(theme) {
     const icon = theme === 'dark' ? ICONS.sun : ICONS.moon;
+    const targetLabel = theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
     const desktopBtn = document.getElementById('themeToggle');
     const mobileBtn = document.getElementById('themeToggleMobile');
-    if (desktopBtn) desktopBtn.innerHTML = icon;
-    if (mobileBtn) mobileBtn.innerHTML = icon;
+    if (desktopBtn) {
+      desktopBtn.innerHTML = icon;
+      desktopBtn.setAttribute('aria-label', targetLabel);
+    }
+    if (mobileBtn) {
+      mobileBtn.innerHTML = icon;
+      mobileBtn.setAttribute('aria-label', targetLabel);
+    }
   }
 
   function setTheme(theme) {
@@ -65,6 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.getElementById('navLinks');
 
   if (mobileToggle && navLinks) {
+    const closeMobileNav = () => {
+      navLinks.classList.remove('open');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      mobileToggle.innerHTML = ICONS.bars;
+      document.body.style.overflow = '';
+    };
+
     mobileToggle.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('open');
       mobileToggle.setAttribute('aria-expanded', isOpen);
@@ -73,12 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     navLinks.querySelectorAll('.nav-link, .nav-resume').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        mobileToggle.setAttribute('aria-expanded', 'false');
-        mobileToggle.innerHTML = ICONS.bars;
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeMobileNav);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        closeMobileNav();
+      }
     });
   }
 
@@ -127,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        card.style.transform = '';
       });
     });
   }
