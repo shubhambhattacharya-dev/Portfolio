@@ -17,9 +17,9 @@
     }
 
     body {
-      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-family: Calibri, 'Segoe UI', Arial, Helvetica, sans-serif;
       font-size: 10pt;
-      line-height: 1.35;
+      line-height: 1.38;
       color: #000;
       max-width: 8.5in;
       margin: 0 auto;
@@ -165,7 +165,7 @@
 
   <div class="header">
     <h1>Shubham Bhattacharya</h1>
-    <div class="subtitle">Backend Engineer (Node.js / TypeScript)</div>
+    <div class="subtitle">Applied AI Engineer — AI Backend / LLM Applications (Node.js/TypeScript)</div>
     <div class="contact">
       shubhambhattacharya107@gmail.com | +91-9155252394 | Vadodara, Gujarat, India<br>
       <a href="https://github.com/shubhambhattacharya-dev">github.com/shubhambhattacharya-dev</a> |
@@ -178,11 +178,11 @@
 
   <h2 class="section-title">SKILLS</h2>
 
-  <div class="skill-line"><span class="skill-cat">Languages:</span> TypeScript, JavaScript (Node.js, Bun), SQL</div>
-  <div class="skill-line"><span class="skill-cat">Backend:</span> Express.js, Fastify, REST API Design, WebSockets, SSE</div>
-  <div class="skill-line"><span class="skill-cat">Databases:</span> PostgreSQL, Prisma ORM, Redis</div>
-  <div class="skill-line"><span class="skill-cat">AI &amp; LLMs:</span> RAG, LLM Failover Routing, Schema Validation, Prompt Injection Protection</div>
-  <div class="skill-line"><span class="skill-cat">DevOps:</span> GitHub Actions CI/CD, Docker Compose, Vercel, Render</div>
+  <div class="skill-line"><span class="skill-cat">Languages:</span> TypeScript, JavaScript (Node.js, Bun), SQL, Python (eval tooling port in progress)</div>
+  <div class="skill-line"><span class="skill-cat">Backend:</span> Express.js, Fastify, REST API Design, WebSockets, SSE Streaming</div>
+  <div class="skill-line"><span class="skill-cat">Databases:</span> PostgreSQL, pgvector, Prisma ORM, Redis</div>
+  <div class="skill-line"><span class="skill-cat">AI &amp; LLMs:</span> RAG (hybrid retrieval, chunking, grounded generation), AI Evaluation (golden sets, grounding tests), LLM Failover Routing, Zod Schema Validation, Prompt Injection Protection, MCP (building)</div>
+  <div class="skill-line"><span class="skill-cat">DevOps:</span> GitHub Actions CI/CD, Docker Compose, Vercel, Render, Sentry, Pino Logging</div>
 
   <h2 class="section-title">PROJECTS</h2>
 
@@ -198,8 +198,9 @@
       <a href="https://ragchatbot-61jh.onrender.com/">Live Demo</a>
     </div>
     <ul>
-      <li>Built a RAG chatbot that answers questions over PDF documents using hybrid retrieval (vector + keyword search) with an anti-hallucination guard — it refuses to answer when it can't find reliable evidence in the documents.</li>
-      <li>Implemented real-time streaming via Server-Sent Events so answers appear token-by-token, using a zero-cost stack (free tiers: Render + Supabase + Upstash + Groq + Gemini).</li>
+      <li><b>Hybrid RAG retrieval</b> — metadata + lexical + cosine-gated pgvector (<b>distance 0.5</b>): weak evidence never reaches the LLM; the system <b>refuses instead of hallucinating</b>.</li>
+      <li><b>Evaluation harness</b> — 14-case golden set vs live deployment: <b>100% accuracy · 100% grounding · 100% source attribution</b>, incl. a trap case the model knows but the corpus doesn't.</li>
+      <li><b>SSE streaming at 500+ concurrent connections</b>; async ingestion (BullMQ + Redis) keeps 10–30s extraction off the request path. Zero-cost production stack.</li>
     </ul>
   </div>
 
@@ -215,8 +216,8 @@
       <a href="https://medo-copilot.shubhambhattacharya.dev/">Live Demo</a>
     </div>
     <ul>
-      <li>Built a 3-tier LLM waterfall (Gemini 2.0 → Groq/Llama 4 Scout → OpenRouter/Claude) with automatic provider failover for high availability.</li>
-      <li>Designed a hybrid scoring engine combining AI-generated analysis with deterministic Lighthouse and static code metrics.</li>
+      <li><b>3-tier LLM failover waterfall</b> (Gemini → Groq → OpenRouter) — automatic provider failover for high availability.</li>
+      <li><b>Hybrid scoring engine</b> — AI analysis + deterministic Lighthouse/static metrics: measured scores, not vibes.</li>
     </ul>
   </div>
 
@@ -232,8 +233,8 @@
       <a href="https://docnow-zeta.vercel.app">Live Demo</a>
     </div>
     <ul>
-      <li>Built a symptom triage system that routes patients to the right medical specialist based on reported symptoms.</li>
-      <li>Developed browser-based video consultations using Vonage WebRTC with no app download required, and a credit wallet system with full audit trails for purchases and refunds.</li>
+      <li><b>Symptom triage engine</b> routing patients to the right specialist based on reported symptoms.</li>
+      <li><b>Browser-based video consults</b> (Vonage WebRTC, no app download) + credit wallet with <b>full audit trails</b> for purchases and refunds.</li>
     </ul>
   </div>
 
@@ -245,13 +246,13 @@
       </div>
     </div>
     <div class="project-links">
-      <a href="https://github.com/shubhambhattacharya-dev/Agentic_Project">github.com/shubhambhattacharya-dev/Agentic_Project</a> |
+      <a href="https://github.com/shubhambhattacharya-dev/AI-Ops">github.com/shubhambhattacharya-dev/AI-Ops</a> |
       <a href="https://agentic-project-drab.vercel.app">Live Demo</a>
     </div>
     <ul>
-      <li>Built a custom AI agent for automated order-tracking and refund draft processing through multi-step reasoning, without using LangChain or any agent framework.</li>
-      <li>Designed a Zod-validated tool registry that validates every LLM response against strict schemas before any database write or external API call — preventing prompt injection and hallucinated actions.</li>
-      <li>Implemented failover routing across LLM providers (Llama 3.3-70B → Llama 3.1-8B) with GitHub Actions CI/CD automated testing for high system reliability.</li>
+      <li><b>Custom ReAct agent</b> (no LangChain) — order-tracking + refund drafts via auditable multi-step reasoning.</li>
+      <li><b>Zod-validated tool registry</b> — every LLM response schema-checked before any DB write or API call: blocks prompt-injection and hallucinated actions.</li>
+      <li><b>LLM failover routing</b> (Llama 70B → 8B) — <b>1200ms measured recovery</b>, CI-tested on every push.</li>
     </ul>
   </div>
 

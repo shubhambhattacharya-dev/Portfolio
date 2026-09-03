@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==================== 3. HERO TYPING EFFECT ====================
   const typedEl = document.getElementById('heroTyped');
   if (typedEl) {
-    const fullText = "Backend Engineer (Node.js / TypeScript)";
+    const fullText = "Applied AI Engineer (AI Backend / LLM Applications)";
     let charIndex = 0;
 
     function typeChar() {
