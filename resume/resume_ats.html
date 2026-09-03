@@ -189,18 +189,17 @@
   <div class="project">
     <div class="project-header">
       <div class="project-title-group">
-        <span class="project-name">AI Ops — AI Customer Support Backend</span>
-        <span class="project-stack">(Node.js, TypeScript, Express, Groq, PostgreSQL, Prisma, Zod, Sentry)</span>
+        <span class="project-name">RAG Chat — Grounded Document Intelligence</span>
+        <span class="project-stack">(Bun, Fastify, TypeScript, pgvector, Gemini, Groq, SSE)</span>
       </div>
     </div>
     <div class="project-links">
-      <a href="https://github.com/shubhambhattacharya-dev/Agentic_Project">github.com/shubhambhattacharya-dev/Agentic_Project</a> |
-      <a href="https://agentic-project-drab.vercel.app">Live Demo</a>
+      <a href="https://github.com/shubhambhattacharya-dev/RagChatBot">github.com/shubhambhattacharya-dev/RagChatBot</a> |
+      <a href="https://ragchatbot-61jh.onrender.com/">Live Demo</a>
     </div>
     <ul>
-      <li>Built a custom AI agent for automated order-tracking and refund draft processing through multi-step reasoning, without using LangChain or any agent framework.</li>
-      <li>Designed a Zod-validated tool registry that validates every LLM response against strict schemas before any database write or external API call — preventing prompt injection and hallucinated actions.</li>
-      <li>Implemented failover routing across LLM providers (Llama 3.3-70B → Llama 3.1-8B) with GitHub Actions CI/CD automated testing for high system reliability.</li>
+      <li>Built a RAG chatbot that answers questions over PDF documents using hybrid retrieval (vector + keyword search) with an anti-hallucination guard — it refuses to answer when it can't find reliable evidence in the documents.</li>
+      <li>Implemented real-time streaming via Server-Sent Events so answers appear token-by-token, using a zero-cost stack (free tiers: Render + Supabase + Upstash + Groq + Gemini).</li>
     </ul>
   </div>
 
@@ -224,23 +223,6 @@
   <div class="project">
     <div class="project-header">
       <div class="project-title-group">
-        <span class="project-name">RagChatBot — RAG Document Intelligence</span>
-        <span class="project-stack">(Bun, Fastify, TypeScript, pgvector, Gemini, Groq, SSE)</span>
-      </div>
-    </div>
-    <div class="project-links">
-      <a href="https://github.com/shubhambhattacharya-dev/RagChatBot">github.com/shubhambhattacharya-dev/RagChatBot</a> |
-      <a href="https://ragchatbot-1-wtzd.onrender.com/">Live Demo</a>
-    </div>
-    <ul>
-      <li>Built a RAG chatbot that answers questions over PDF documents using hybrid retrieval (vector + keyword search) with an anti-hallucination guard — it refuses to answer when it can't find reliable evidence in the documents.</li>
-      <li>Implemented real-time streaming via Server-Sent Events so answers appear token-by-token, using a zero-cost stack (free tiers: Render + Supabase + Upstash + Groq + Gemini).</li>
-    </ul>
-  </div>
-
-  <div class="project">
-    <div class="project-header">
-      <div class="project-title-group">
         <span class="project-name">DocNow — Telemedicine SaaS Platform</span>
         <span class="project-stack">(TypeScript, Prisma, PostgreSQL, Vonage WebRTC)</span>
       </div>
@@ -252,6 +234,24 @@
     <ul>
       <li>Built a symptom triage system that routes patients to the right medical specialist based on reported symptoms.</li>
       <li>Developed browser-based video consultations using Vonage WebRTC with no app download required, and a credit wallet system with full audit trails for purchases and refunds.</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <div class="project-title-group">
+        <span class="project-name">AI Ops — AI Customer Support Backend</span>
+        <span class="project-stack">(Node.js, TypeScript, Express, Groq, PostgreSQL, Prisma, Zod, Sentry)</span>
+      </div>
+    </div>
+    <div class="project-links">
+      <a href="https://github.com/shubhambhattacharya-dev/Agentic_Project">github.com/shubhambhattacharya-dev/Agentic_Project</a> |
+      <a href="https://agentic-project-drab.vercel.app">Live Demo</a>
+    </div>
+    <ul>
+      <li>Built a custom AI agent for automated order-tracking and refund draft processing through multi-step reasoning, without using LangChain or any agent framework.</li>
+      <li>Designed a Zod-validated tool registry that validates every LLM response against strict schemas before any database write or external API call — preventing prompt injection and hallucinated actions.</li>
+      <li>Implemented failover routing across LLM providers (Llama 3.3-70B → Llama 3.1-8B) with GitHub Actions CI/CD automated testing for high system reliability.</li>
     </ul>
   </div>
 
