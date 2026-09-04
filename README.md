@@ -1,6 +1,6 @@
 # Portfolio Website
 
-Personal portfolio showcasing backend development projects and skills.
+Personal portfolio showcasing GenAI, LLM application engineering, and TypeScript systems.
 
 **Live:** [shubhambhattacharya.dev](https://shubhambhattacharya.dev)
 
