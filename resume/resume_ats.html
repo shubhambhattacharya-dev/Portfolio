@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shubham_Bhattacharya_SDE_GenAI_Resume</title>
+  <title>Shubham_Bhattacharya_SWE_GenAI</title>
   <style>
     @page {
-      margin: 0.34in 0.46in;
+      margin: 0.45in 0.5in;
       size: letter;
     }
 
@@ -18,39 +18,35 @@
     }
 
     body {
-      font-family: Calibri, 'Segoe UI', Arial, Helvetica, sans-serif;
-      font-size: 9.75pt;
-      line-height: 1.32;
-      color: #111;
+      font-family: Calibri, 'Segoe UI', Arial, sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.35;
+      color: #000;
       max-width: 8.5in;
       margin: 0 auto;
-      padding: 0;
     }
 
     .header {
       text-align: center;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
 
     h1 {
-      font-size: 17.5pt;
-      font-weight: 700;
-      margin-bottom: 1px;
-      letter-spacing: 0.2px;
-      color: #000;
+      font-size: 19pt;
+      font-weight: bold;
+      margin-bottom: 2px;
+      letter-spacing: 0.3px;
     }
 
     .subtitle {
-      font-size: 10.25pt;
+      font-size: 10.5pt;
       font-weight: 600;
-      margin-bottom: 2px;
-      color: #222;
+      margin-bottom: 3px;
     }
 
     .contact {
-      font-size: 8.75pt;
-      color: #222;
-      line-height: 1.32;
+      font-size: 8.8pt;
+      line-height: 1.4;
     }
 
     .contact a {
@@ -59,89 +55,51 @@
     }
 
     .availability {
-      font-weight: 600;
-      color: #111;
+      font-weight: 700;
       display: inline-block;
-      margin-top: 1px;
+      margin-top: 2px;
     }
 
     hr {
       border: none;
-      border-top: 1px solid #222;
-      margin: 5px 0 6px 0;
+      border-top: 1px solid #000;
+      margin: 8px 0 9px 0;
     }
 
     .section-title {
-      font-size: 10pt;
-      font-weight: 700;
+      font-size: 10.2pt;
+      font-weight: bold;
       text-transform: uppercase;
-      letter-spacing: 0.6px;
-      margin-top: 6px;
-      margin-bottom: 3px;
-      border-bottom: 1px solid #333;
-      padding-bottom: 1px;
-      color: #000;
-    }
-
-    .summary-text {
-      font-size: 9.25pt;
-      line-height: 1.34;
-      text-align: justify;
-      margin-bottom: 3px;
-      color: #1a1a1a;
-    }
-
-    .skill-line {
-      margin-bottom: 2px;
-      font-size: 9.2pt;
-      line-height: 1.3;
-    }
-
-    .skill-cat {
-      font-weight: 700;
-      color: #000;
-      min-width: 145px;
-      display: inline-block;
+      text-align: center;
+      letter-spacing: 0.8px;
+      margin-top: 10px;
+      margin-bottom: 6px;
     }
 
     .project {
-      margin-bottom: 5px;
-    }
-
-    .project-header {
-      margin-bottom: 1px;
-    }
-
-    .project-title-group {
-      font-size: 9.75pt;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
+      margin-bottom: 11px;
     }
 
     .project-name {
-      font-weight: 700;
-      color: #000;
+      font-weight: bold;
+      font-size: 9.6pt;
     }
 
     .project-stack {
       font-style: italic;
-      color: #333;
-      font-size: 8.75pt;
-      margin-left: 4px;
+      color: #222;
+      font-size: 8.7pt;
     }
 
     .project-meta {
-      font-size: 8.75pt;
+      font-size: 8.7pt;
       color: #333;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .project-links {
-      font-size: 8.5pt;
-      margin-bottom: 2px;
-      color: #222;
+      font-size: 8.7pt;
+      margin-bottom: 3px;
     }
 
     .project-links a {
@@ -150,181 +108,148 @@
     }
 
     ul {
-      padding-left: 17px;
-      margin-top: 1px;
-      margin-bottom: 1px;
+      padding-left: 18px;
+      margin-top: 2px;
     }
 
     li {
-      margin-bottom: 2.2px;
-      font-size: 9.1pt;
-      line-height: 1.31;
-      color: #1a1a1a;
+      margin-bottom: 3.5px;
+      font-size: 9.2pt;
+      line-height: 1.34;
     }
 
-    li b {
-      font-weight: 700;
-      color: #000;
+    .skill-line {
+      margin-bottom: 3px;
+      font-size: 9pt;
     }
 
-    .edu-item {
-      margin-bottom: 2px;
+    .skill-cat {
+      font-weight: bold;
+      min-width: 105px;
+      display: inline-block;
+    }
+
+    .other-builds {
+      font-size: 9.0pt;
+      line-height: 1.35;
+      text-align: justify;
+      margin-top: 4px;
     }
 
     .edu-header {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
     }
 
     .edu-title {
-      font-weight: 700;
-      font-size: 9.5pt;
-      color: #000;
+      font-weight: bold;
+      font-size: 9.6pt;
     }
 
-    .edu-date {
-      font-size: 8.75pt;
-      font-weight: 600;
-      color: #333;
-    }
-
-    .edu-school {
-      font-size: 8.75pt;
-      font-style: italic;
-      color: #333;
-    }
-
-    .edu-detail {
-      font-size: 9pt;
-      margin-top: 1px;
-      line-height: 1.3;
-      color: #1a1a1a;
-    }
-
-    @media screen and (max-width: 680px) {
+    @media print {
       body {
-        font-size: 14px;
-        padding: 18px;
-        max-width: 100%;
-        word-break: break-word;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
-      h1 { font-size: 22px; }
-      .subtitle { font-size: 15px; }
-      .contact, .skill-line, li { font-size: 13.5px; }
-      .edu-header, .project-title-group { flex-direction: column; gap: 2px; }
+
+      .project {
+        page-break-inside: avoid;
+      }
     }
   </style>
 </head>
 
 <body>
-
   <div class="header">
     <h1>Shubham Bhattacharya</h1>
-    <div class="subtitle">Software Engineer — Backend Systems (TypeScript, Node.js, PostgreSQL) · GenAI &amp; RAG</div>
+    <div class="subtitle">Software Engineer — GenAI / LLM Applications (TypeScript)</div>
     <div class="contact">
       shubhambhattacharya107@gmail.com | +91-9155252394 | Vadodara, Gujarat, India<br>
       <a href="https://github.com/shubhambhattacharya-dev">github.com/shubhambhattacharya-dev</a> |
       <a href="https://linkedin.com/in/shubhambhattadev">linkedin.com/in/shubhambhattadev</a> |
       <a href="https://shubhambhattacharya.dev">shubhambhattacharya.dev</a><br>
-      <span class="availability">Available: Internship now · Full-time Dec 2026 · Open to relocate / remote</span>
+      <span class="availability">Available: Internship Now · Full-time Dec 2026 · Open to Relocate / Remote</span>
     </div>
   </div>
-
   <hr>
-
-  <h2 class="section-title">SUMMARY</h2>
-  <div class="summary-text">
-    Backend-focused software engineer with a GenAI/RAG specialization, working in <b>TypeScript (Strict)</b>, <b>Node.js</b>, <b>Express</b>, <b>Fastify</b>, and <b>PostgreSQL</b>. Designed, built, and deployed <b>3 solo personal projects</b>—an agentic contract analyser, a grounded RAG document service, and an autonomous support-agent backend—gated by <b>560+ automated tests</b> (318 + 249 across two repos) in GitHub Actions CI.
+  <h2 class="section-title">Skills</h2>
+  <div class="skill-line"><span class="skill-cat">Languages:</span> TypeScript, JavaScript (Node.js / Bun), SQL</div>
+  <div class="skill-line"><span class="skill-cat">Backend:</span> Express.js, Fastify, REST API Design, SSE Streaming,
+    Zod Validation</div>
+  <div class="skill-line"><span class="skill-cat">Databases:</span> PostgreSQL, pgvector, Prisma ORM, Redis (BullMQ)
+  </div>
+  <div class="skill-line"><span class="skill-cat">AI & LLMs:</span> Hybrid RAG, Custom ReAct Agents (No LangChain),
+    Evals (Golden Sets), Grounding & Attribution, Prompt-Injection Mitigation</div>
+  <div class="skill-line"><span class="skill-cat">Infra & Observability:</span> Docker Compose, GitHub Actions CI/CD,
+    Vercel, Render, Sentry, Pino Logging, Multi-Provider Failover (Gemini/Groq/OpenRouter)</div>
+  <div class="skill-line"><span class="skill-cat">Fundamentals:</span> Data Structures & Algorithms, DBMS, OS, Networks
   </div>
 
-  <h2 class="section-title">TECHNICAL SKILLS</h2>
+  <h2 class="section-title">Projects</h2>
 
-  <div class="skill-line"><span class="skill-cat">Languages &amp; Backend:</span> TypeScript (Strict), JavaScript (Node.js, Bun), Express 5, Fastify, Next.js, REST APIs, SSE Streaming</div>
-  <div class="skill-line"><span class="skill-cat">Databases &amp; Caching:</span> PostgreSQL, pgvector, Redis (Upstash REST &amp; ioredis), BullMQ Job Queues, Prisma ORM, SQL</div>
-  <div class="skill-line"><span class="skill-cat">GenAI &amp; Retrieval:</span> Deterministic Quote Verification, Hybrid Search (BM25 + Dense Vectors), ReAct Agents, Tool Calling, Multi-Model Failover, Evals &amp; Benchmarking, Langfuse Tracing</div>
-  <div class="skill-line"><span class="skill-cat">DevOps &amp; Testing:</span> 560+ Automated Tests (Unit, Integration) + Adversarial Golden-Set Evals, GitHub Actions CI/CD, Docker Compose, Sentry, Pino, Vercel, Render</div>
-  <div class="skill-line"><span class="skill-cat">AI-Assisted Dev:</span> Claude Code, Cursor (Autonomous Workflows, Spec-to-Code Generation)</div>
-
-  <h2 class="section-title">FEATURED PROJECTS</h2>
-
-  <!-- PROJECT 1: CONTRACTLENS -->
   <div class="project">
     <div class="project-header">
-      <div class="project-title-group">
-        <div>
-          <span class="project-name">ContractLens — Agentic Legal Contract Analyser</span>
-          <span class="project-stack">| Next.js 14, TypeScript (Strict), Express 5, Redis, BM25, Gemini, Groq, Langfuse, SSE</span>
-        </div>
-        <span class="project-meta">Oct 2026 · Personal Project (Solo)</span>
-      </div>
+      <span class="project-name">RAG Chat — Grounded Document Intelligence</span>
+      <span class="project-stack">(Bun, Fastify, TypeScript, pgvector, Gemini, Groq, SSE, BullMQ)</span>
+      <span class="project-meta">— Solo · Jul–Sep 2025</span>
     </div>
     <div class="project-links">
-      Live: <a href="https://agentic-contract-analyser-xbni.vercel.app/">agentic-contract-analyser-xbni.vercel.app</a> | Code: <a href="https://github.com/shubhambhattacharya-dev/agentic-contract-analyser">github.com/shubhambhattacharya-dev/agentic-contract-analyser</a>
+      <a href="https://github.com/shubhambhattacharya-dev/RagChatBot">github.com/shubhambhattacharya-dev/RagChatBot</a>
+      | <a href="https://ragchatbot-61jh.onrender.com/">Live Demo</a>
     </div>
     <ul>
-      <li><b>Blocks displayed-citation hallucinations by construction</b> with a deterministic quote-verification engine that resolves every model answer to source byte offsets and page coordinates before render — unverified text cannot reach the UI, and every displayed quote is click-to-highlight auditable.</li>
-      <li><b>Accelerated contract research across up to 5 documents simultaneously</b> by designing an autonomous ReAct research agent loop with a <b>hard 4-round cap</b> and server-side trusted tool execution.</li>
-      <li><b>Automated financial risk detection in contract amendments</b>, creating clause-level comparison logic that flags high-risk numeric shifts (e.g., liability cap changing <b>$100,000 &rarr; $1,000,000 as CRITICAL</b>) regardless of identical phrasing.</li>
-      <li><b>Ship-gated by 318 automated tests (301 backend + 17 frontend)</b> running on every push in GitHub Actions (CI green as of Oct 2026); async <b>202 Accepted</b> ingestion with Redis-backed rate limiting absorbs burst traffic without dropping jobs.</li>
+      <li><b>Architecture:</b> Fastify + BullMQ ingestion → chunking → pgvector → hybrid retrieval → gated LLM → SSE
+        stream. Async ingestion keeps 10-30s extraction off request path.</li>
+      <li><b>Hallucination control via cosine-gating (0.5):</b> Hybrid retrieval (metadata + BM25 + pgvector) with hard
+        distance threshold; weak evidence is discarded and system <b>refuses instead of hallucinating</b>.</li>
+      <li><b>Evaluation harness — 14/14 passed:</b> Built golden-set with grounding/attribution tests including 1
+        adversarial trap (model knows, corpus doesn't) to verify gating works.</li>
+      <li><b>Production reliability:</b> SSE streaming for token-level response, multi-provider failover (Gemini →
+        Groq), and Pino + Sentry logging for debuggability.</li>
     </ul>
   </div>
 
-  <!-- PROJECT 2: RAG CHAT -->
   <div class="project">
     <div class="project-header">
-      <div class="project-title-group">
-        <div>
-          <span class="project-name">RAG Chat — Grounded Document Intelligence</span>
-          <span class="project-stack">| Fastify, TypeScript, Bun, PostgreSQL, pgvector, Redis, BullMQ, SSE Streaming, Gemini, Groq</span>
-        </div>
-        <span class="project-meta">Jul–Sep 2026 · Personal Project (Solo)</span>
-      </div>
+      <span class="project-name">ContractLens — Agentic Legal Contract Analyser</span>
+      <span class="project-stack">(Next.js 14, TypeScript, Express, Redis, BM25, Gemini, Groq, Langfuse, SSE)</span>
+      <span class="project-meta">— Solo · Sep–Oct 2025</span>
     </div>
     <div class="project-links">
-      Live: <a href="https://ragchatbot-61jh.onrender.com/">ragchatbot-61jh.onrender.com</a> | Code: <a href="https://github.com/shubhambhattacharya-dev/RagChatBot">github.com/shubhambhattacharya-dev/RagChatBot</a>
+      <a
+        href="https://github.com/shubhambhattacharya-dev/agentic-contract-analyser">github.com/shubhambhattacharya-dev/agentic-contract-analyser</a>
+      | <a href="https://agentic-contract-analyser-xbni.vercel.app/">Live Demo</a>
     </div>
     <ul>
-      <li><b>Refuses out-of-scope queries instead of hallucinating</b> via strict distance-gated retrieval (<b>&le; 0.5</b>); <b>14/14 golden-set eval cases passed (Sep 3, 2026 committed run)</b>, including adversarial trap prompts that catch parametric-memory leakage — every eval run is committed as JSON in-repo, so results are dated and auditable rather than standing guarantees; <b>249 automated tests gate every merge</b>.</li>
-      <li><b>Offloaded 10–30s document parsing &amp; embedding operations</b> from the main HTTP thread using an asynchronous BullMQ and Redis background queue worker.</li>
-      <li><b>Streams responses token-by-token over Server-Sent Events (SSE)</b>, paired with multi-provider waterfall failover (Groq &rarr; Gemini) so the service keeps working through provider outages and rate limits.</li>
+      <li><b>Architecture:</b> Next.js frontend → Express ReAct agent (4-round cap) → server-side trusted tools →
+        deterministic verification → SSE render. No LangChain, full control on loop.</li>
+      <li><b>Deterministic citation verification:</b> Verifies every extracted quote against canonical document byte
+        offsets & PDF coordinates, <b>dropping unverified passages before render</b> for click-to-highlight
+        auditability.</li>
+      <li><b>Multi-document ReAct agent:</b> Cross-analyzes up to 5 documents concurrently with hard 4-round execution
+        cap and Zod-validated tool registry to block malformed/hallucinated tool calls before DB writes.</li>
+      <li><b>Clause-level risk engine:</b> Flags numeric shifts in amendments (e.g., liability $100k → $1M as CRITICAL)
+        with CI-gated unit + integration tests and Langfuse tracing, deployed on Vercel.</li>
     </ul>
   </div>
 
-  <!-- PROJECT 3: AI OPS -->
-  <div class="project">
-    <div class="project-header">
-      <div class="project-title-group">
-        <div>
-          <span class="project-name">AI Ops — Autonomous Customer Support Backend</span>
-          <span class="project-stack">| Node.js, TypeScript, Express.js, PostgreSQL, Prisma ORM, Zod Validation, Groq, Sentry</span>
-        </div>
-        <span class="project-meta">May–Aug 2026 · Personal Project (Solo)</span>
-      </div>
-    </div>
-    <div class="project-links">
-      Live: <a href="https://agentic-project-drab.vercel.app">agentic-project-drab.vercel.app</a> | Code: <a href="https://github.com/shubhambhattacharya-dev/AI-Ops">github.com/shubhambhattacharya-dev/AI-Ops</a>
-    </div>
-    <ul>
-      <li><b>Automated multi-step customer support workflows</b> (order tracking, ticket escalation, refund drafts) using a custom ReAct agent loop built in pure TypeScript with zero heavy framework bloat.</li>
-      <li><b>Runtime Zod schema validation on every LLM argument</b> blocks malformed and hallucinated tool calls before any Prisma write lands — <b>0 invalid writes across the CI suite</b>.</li>
-      <li><b>Sustained agent availability through provider rate-limits and outages</b> with automated model failover routing (Llama 70B &rarr; 8B) and structured Pino + Sentry error telemetry.</li>
-    </ul>
+  <h2 class="section-title">Highlights</h2>
+  <div class="other-builds">
+    <b>No LangChain - Custom ReAct & Retrieval:</b> Built ReAct loop and hybrid retrieval from scratch for full control and debuggability over agent/tool calls.<br>
+    <b>Eval-Driven, Not Demo-Driven:</b> Ships with golden-set + adversarial trap tests; retrieval gated at cosine distance 0.5 to refuse instead of hallucinate.<br>
+    <b>Production Habits:</b> TypeScript strict, Zod validation on every tool, Pino + Sentry logging, BullMQ async jobs, CI-gated tests, Docker Compose. Portfolio with all builds: shubhambhattacharya.dev
   </div>
 
-  <h2 class="section-title">EDUCATION</h2>
-
+  <h2 class="section-title">Education</h2>
   <div class="edu-item">
     <div class="edu-header">
       <span class="edu-title">Bachelor of Computer Applications (BCA)</span>
-      <span class="edu-date">Parul University · Expected Dec 2026</span>
+      <span>Parul University · Expected Dec 2026</span>
     </div>
-    <div class="edu-school">Vadodara, Gujarat, India</div>
-    <div class="edu-detail">
-      <b>CGPA: 8.13</b> (First Class with Distinction) · Relevant Coursework: Database Management Systems (DBMS), Operating Systems, Computer Networks, Data Structures &amp; Algorithms, Software Engineering
-    </div>
+    <div style="font-style: italic; font-size: 9pt;">Vadodara, Gujarat</div>
+    <div style="margin-top: 3px;"><b>CGPA: 8.13</b> | First Class with Distinction · Relevant: DBMS, OS, Networks,
+      Software Engineering</div>
   </div>
-
 </body>
 
 </html>
