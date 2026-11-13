@@ -1,433 +1,113 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="7qE3jWGNJcs0p0BZvh2z07ErRM_OcDxnHNrzNUQGy9Y" />
-  <title>Shubham Bhattacharya — Software Engineer (Backend, Full-Stack &amp; GenAI · TypeScript)</title>
-  <meta name="description" content="Software Engineer specializing in Backend, Full-Stack SaaS, and GenAI/LLM application development. Building grounded RAG pipelines, agentic workflows, deterministic quote-verification engines, full-stack Next.js platforms, and evaluation harnesses with TypeScript, Node.js, PostgreSQL, and Redis.">
-  <meta name="keywords" content="Software Engineer, Full-Stack Engineer, Backend Engineer, GenAI, LLM Applications, TypeScript, Node.js, Next.js, React, RAG, pgvector, BM25, Reciprocal Rank Fusion, ReAct Agents, Langfuse, AI Evaluation, Fastify, Express, PostgreSQL, Prisma, Zod, Redis, Shubham Bhattacharya">
-  <meta name="author" content="Shubham Bhattacharya">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://shubhambhattacharya.dev">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://shubhambhattacharya.dev">
-  <meta property="og:title" content="Shubham Bhattacharya — Software Engineer (Backend, Full-Stack &amp; GenAI · TypeScript)">
-  <meta property="og:description" content="Engineering grounded RAG pipelines, agentic workflows, deterministic quote verification, and full-stack SaaS systems with TypeScript, Next.js, Node.js, PostgreSQL, and Redis.">
-  <meta property="og:image" content="https://shubhambhattacharya.dev/img/profile.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://shubhambhattacharya.dev/img/profile.jpg">
-  <meta name="twitter:title" content="Shubham Bhattacharya — Software Engineer (Backend, Full-Stack &amp; GenAI · TypeScript)">
-  <meta name="twitter:description" content="Engineering grounded RAG pipelines, agentic workflows, deterministic quote verification, and full-stack SaaS systems with TypeScript, Next.js, Node.js, PostgreSQL, and Redis.">
-  <meta name="twitter:creator" content="@Shubham_level">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="alternate icon" href="favicon.svg">
-  <link rel="apple-touch-icon" href="favicon.svg">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Shubham Bhattacharya","url":"https://shubhambhattacharya.dev","jobTitle":"Software Engineer — Backend, Full-Stack & GenAI Systems","address":{"@type":"PostalAddress","addressLocality":"Vadodara","addressRegion":"Gujarat","addressCountry":"IN"},"sameAs":["https://github.com/shubhambhattacharya-dev","https://www.linkedin.com/in/shubhambhattadev/","https://x.com/Shubham_level"],"knowsAbout":["TypeScript","JavaScript","SQL","Next.js","React","GenAI","LLM Applications","RAG","BM25","Reciprocal Rank Fusion","pgvector","ReAct Agents","Deterministic Verification","AI Evaluation","Node.js","Bun","Fastify","Express","PostgreSQL","Prisma","Zod","Redis","Langfuse"]}</script>
-  <meta name="theme-color" content="#0f0f0f">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f2ed">
+  <meta name="description" content="Shubham Bhattacharya builds reliable backend and GenAI systems with TypeScript, Node.js, PostgreSQL and pgvector.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>Shubham Bhattacharya — Software Engineer (Backend &amp; Applied GenAI)</title>
+  <style>
+    :root{--paper:#f3f2ed;--ink:#172019;--muted:#657069;--line:#d5d8d0;--green:#c8f169;--green-dark:#294315;--blue:#4968e8;--white:#fffefa;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--max:1200px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit}button{font:inherit}::selection{background:var(--green)}.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}.skip{position:absolute;left:-999px;top:8px;background:var(--green);padding:10px;z-index:20}.skip:focus{left:8px}.topbar{height:70px;border-bottom:1px solid var(--line);display:flex;align-items:center}.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:750;letter-spacing:-.04em}.brand-mark{display:grid;place-items:center;width:31px;height:31px;background:var(--ink);color:var(--green);border-radius:50%;font:700 12px var(--mono)}.links{display:flex;align-items:center;gap:28px;font-size:13px;color:#4d5850}.links a{text-decoration:none}.links a:hover,.text-link:hover{color:var(--blue)}.availability{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:8px}.dot{width:8px;height:8px;border-radius:100%;background:#63a63a;box-shadow:0 0 0 4px #63a63a20}
+    .hero{padding:72px 0 54px;border-bottom:1px solid var(--line)}.hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(330px,.8fr);align-items:center;gap:64px}.eyebrow,.section-kicker{font:11px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}.eyebrow{display:flex;gap:10px;align-items:center}.eyebrow:before{content:"";height:1px;width:25px;background:var(--blue)}h1{font-size:clamp(46px,6vw,78px);line-height:.98;letter-spacing:-.075em;margin:22px 0 20px;font-weight:680;max-width:700px}.hero-line{display:block}.hero-accent{color:#658421}.lede{max-width:620px;font-size:18px;line-height:1.58;color:#4c5850;margin:0}.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.pill{border:1px solid var(--line);border-radius:999px;padding:6px 11px;font:11px var(--mono);color:#47524b;background:#f8f7f2}.actions{display:flex;gap:11px;align-items:center;margin-top:30px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--ink);border-radius:3px;padding:12px 16px;background:var(--ink);color:white;text-decoration:none;font-weight:650;font-size:13px;cursor:pointer;transition:transform .16s,background .16s}.btn:hover{transform:translateY(-2px);background:#2b382d}.btn.secondary{background:transparent;color:var(--ink);border-color:var(--line)}.btn.secondary:hover{border-color:var(--ink)}.arrow{font-size:17px;line-height:12px}
+    .system-panel{position:relative;background:#202a22;color:#e8eee2;padding:25px 24px 22px;border-radius:4px;min-height:300px;overflow:hidden}.system-panel:after{content:"";position:absolute;right:-65px;top:-100px;width:245px;height:245px;border:1px solid #9ed44c22;border-radius:50%;box-shadow:0 0 0 28px #9ed44c0b,0 0 0 58px #9ed44c08}.panel-head{display:flex;justify-content:space-between;position:relative;z-index:1;color:#a7b3a8;font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase}.panel-state{color:var(--green);display:flex;align-items:center;gap:7px}.panel-title{font-size:21px;letter-spacing:-.04em;margin:22px 0 19px;position:relative;z-index:1}.flow{position:relative;z-index:1;display:grid;grid-template-columns:1fr 26px 1fr 26px 1fr;align-items:center;gap:3px}.flow-node{min-height:69px;border:1px solid #647264;padding:10px 9px;display:flex;flex-direction:column;justify-content:space-between}.flow-node b{font-size:11px;font-weight:650}.flow-node small{font:9px var(--mono);color:#b8c4b4}.flow-arrow{text-align:center;color:var(--green);font-size:16px}.trace{display:grid;grid-template-columns:16px 1fr;gap:10px;margin-top:17px;color:#b7c4b2;font:10px/1.55 var(--mono);position:relative;z-index:1}.trace-mark{color:var(--green)}.panel-foot{border-top:1px solid #435044;padding-top:12px;margin-top:16px;color:#98a598;font:9px var(--mono);position:relative;z-index:1}
+    .lens-bar{padding:22px 0 18px;border-bottom:1px solid var(--line)}.lens-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}.lens-label{font:11px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.1em}.switcher{display:flex;gap:5px;background:#e7e8e1;padding:4px;border-radius:4px}.switcher button{border:0;background:transparent;color:#566057;padding:9px 13px;border-radius:3px;font-size:12px;font-weight:650;cursor:pointer}.switcher button[aria-pressed="true"]{background:var(--white);color:var(--ink);box-shadow:0 1px 4px #17201912}.lens-note{font-size:12px;color:var(--muted);text-align:right}
+    .section{padding:76px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:28px}.section-head h2{font-size:clamp(31px,4vw,46px);line-height:1.05;letter-spacing:-.06em;margin:8px 0 0;font-weight:650}.section-desc{max-width:405px;color:var(--muted);font-size:14px;margin:0}.projects{display:grid;grid-template-columns:repeat(12,1fr);gap:13px}.project{background:var(--white);border:1px solid var(--line);padding:23px 23px 19px;min-height:264px;display:flex;flex-direction:column;grid-column:span 4;transition:border-color .18s,transform .18s}.project:first-child{grid-column:span 6}.project:nth-child(2){grid-column:span 6}.project:nth-child(3){grid-column:span 12}.project:hover{border-color:#909b8b;transform:translateY(-3px)}.project-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.project-index{color:#7c887e;font:10px var(--mono)}.status{font:9px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:#537336;background:#eaf3da;border-radius:999px;padding:5px 8px}.project h3{font-size:23px;line-height:1.15;letter-spacing:-.045em;margin:22px 0 8px}.project-type{font:10px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}.project p{font-size:13px;color:#59645b;line-height:1.6;margin:12px 0 16px;max-width:680px}.signal{border-left:2px solid var(--green);padding-left:10px;color:var(--ink);font-size:12px;margin-top:auto}.project-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid #e5e7e0;margin-top:19px;padding-top:13px}.stack{font:9px var(--mono);color:#69756b;line-height:1.7}.project-actions{display:flex;gap:12px;font-size:11px;font-weight:650;white-space:nowrap}.project-actions a{text-decoration:none;border-bottom:1px solid #a7b09f}.project-actions a:hover{border-color:var(--blue);color:var(--blue)}
+    .proof{background:#e8e9e2;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:55px 0}.proof-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:34px}.proof-item{border-left:1px solid #c4c9be;padding-left:17px}.proof-item strong{display:block;font-size:21px;letter-spacing:-.04em}.proof-item span{font-size:12px;color:var(--muted)}
+    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}.about-grid h2{font-size:40px;line-height:1.03;letter-spacing:-.06em;margin:9px 0}.about-copy{max-width:670px}.about-copy>p{font-size:16px;color:#4f5a51;margin:0 0 24px}.principles{display:grid;grid-template-columns:1fr 1fr;gap:10px}.principle{background:var(--white);border:1px solid var(--line);padding:15px}.principle b{display:block;font-size:13px;margin-bottom:5px}.principle span{font-size:11px;line-height:1.5;color:var(--muted)}
+    .quick{background:var(--ink);color:#f4f5ef;padding:54px 0}.quick-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start}.quick h2{font-size:36px;letter-spacing:-.06em;line-height:1.05;margin:9px 0}.quick-intro{color:#aeb8ae;font-size:13px;max-width:300px}.quick-list{display:grid;gap:0}.quick-row{display:grid;grid-template-columns:38px 1fr;gap:13px;padding:14px 0;border-bottom:1px solid #3a473b}.quick-row:first-child{border-top:1px solid #3a473b}.quick-num{font:10px var(--mono);color:var(--green);padding-top:3px}.quick-row strong{display:block;font-size:13px}.quick-row span{font-size:11px;color:#aeb8ae;line-height:1.5}.quick .btn{background:var(--green);color:var(--ink);border-color:var(--green)}.quick .btn:hover{background:#d7f68c}.quick .btn.secondary{background:transparent;color:#f4f5ef;border-color:#4b5a4d}.quick .btn.secondary:hover{border-color:#aeb8ae}
+    .footer{padding:36px 0}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer p{font-size:12px;color:var(--muted);margin:0}.footer-links{display:flex;gap:17px;font-size:12px}.footer-links a{text-decoration:none}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,16px);background:var(--ink);color:white;padding:11px 16px;border-radius:4px;font-size:12px;opacity:0;pointer-events:none;transition:.2s;z-index:30}.toast.show{opacity:1;transform:translate(-50%,0)}
+    dialog{width:min(690px,calc(100% - 28px));max-height:min(82vh,760px);border:1px solid var(--line);padding:0;background:var(--white);color:var(--ink);box-shadow:0 25px 90px #10171040}
+    dialog:modal{overscroll-behavior:contain}
+    dialog::backdrop{background:#111a15a8;backdrop-filter:blur(3px);overflow:hidden;overscroll-behavior:contain}
+    .modal-head{display:flex;justify-content:space-between;gap:20px;align-items:start;padding:22px 24px 16px;border-bottom:1px solid var(--line)}.modal-head h2{font-size:25px;letter-spacing:-.05em;margin:6px 0 0}.close{width:34px;height:34px;border:1px solid var(--line);background:transparent;border-radius:3px;cursor:pointer;font-size:19px}.modal-body{padding:21px 24px 25px;overflow:auto}.modal-body p{color:#59645b;font-size:14px}.modal-body h3{font-size:14px;margin:23px 0 8px}.modal-body ul{padding-left:19px;color:#59645b;font-size:13px}.modal-body li+li{margin-top:7px}.modal-shot{width:100%;height:auto;border:1px solid var(--line);border-radius:3px;margin:12px 0 4px;display:block}.modal-architecture{display:flex;align-items:stretch;gap:7px;margin:16px 0;flex-wrap:wrap}.arch-node{border:1px solid var(--line);background:#f4f5f0;padding:10px 12px;flex:1;min-width:115px;font-size:11px}.arch-node small{display:block;font:9px var(--mono);color:var(--muted);margin-top:4px}.arch-arr{align-self:center;color:#708341}.modal-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.modal-links a{font-size:12px}
+    @media(max-width:850px){.hero-grid{grid-template-columns:1fr;gap:34px}.system-panel{max-width:610px}.project,.project:first-child,.project:nth-child(2),.project:nth-child(3){grid-column:span 6}.project:nth-child(3){grid-column:span 12}.about-grid{gap:38px}.quick-grid{gap:30px}}
+    @media(max-width:600px){.wrap{width:min(100% - 32px,var(--max))}.topbar{height:61px}.links{display:none}.availability{font-size:9px}.hero{padding:53px 0 39px}.hero-grid{gap:30px}.lede{font-size:16px}.system-panel{padding:19px 17px;min-height:275px}.panel-title{font-size:19px}.flow{grid-template-columns:1fr 16px 1fr 16px 1fr}.flow-node{padding:8px 6px;min-height:65px}.flow-node b{font-size:9px}.flow-node small{font-size:8px}.lens-inner{align-items:flex-start;flex-direction:column;gap:9px}.lens-note{text-align:left}.switcher{width:100%}.switcher button{flex:1;padding:9px 5px;font-size:10px}.section{padding:55px 0}.section-head{display:block}.section-desc{margin-top:12px}.projects{display:block}.project,.project:first-child,.project:nth-child(2),.project:nth-child(3){margin-bottom:10px;min-height:240px;padding:19px}.project h3{font-size:21px;margin-top:18px}.proof{padding:35px 0}.proof-grid{grid-template-columns:1fr;gap:21px}.proof-item{padding-left:14px}.proof-item strong{font-size:19px}.about-grid,.quick-grid{grid-template-columns:1fr;gap:24px}.about-grid h2{font-size:34px}.principles{grid-template-columns:1fr 1fr}.quick{padding:43px 0}.quick h2{font-size:31px}.footer-inner{align-items:flex-start;flex-direction:column}.footer-links{flex-wrap:wrap}.modal-head,.modal-body{padding-left:17px;padding-right:17px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+  </style>
 </head>
 <body>
-  <a href="#main" class="sr-only skip-link">Skip to content</a>
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-  
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="#home" class="nav-logo" aria-label="Home">sb.dev</a>
-      <div class="nav-links" id="navLinks">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#architecture" class="nav-link">Architecture</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#stack" class="nav-link">Stack</a>
-        <a href="#education" class="nav-link">Education</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="resume/resume_ats.html" class="nav-resume" target="_blank" rel="noopener noreferrer">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
-          Resume
-        </a>
-        <button class="nav-theme-mobile" id="themeToggleMobile" aria-label="Toggle theme">
-          <svg class="icon icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
-        </button>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Shubham Bhattacharya home"><span class="brand-mark">SB</span><span>Shubham Bhattacharya</span></a>
+      <div class="links">
+        <a href="#work">Selected work</a>
+        <a href="#approach">How I build</a>
+        <a href="resume/Shubham_Bhattacharya_SWE_GenAI.pdf" target="_blank" rel="noreferrer">Resume ↗</a>
+        <a href="#contact">Contact</a>
       </div>
-      <div class="nav-actions">
-        <button class="nav-theme" id="themeToggle" aria-label="Toggle theme">
-          <svg class="icon icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
-        </button>
-        <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
-          <svg class="icon icon-bars" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <main class="main" id="main">
-    <!-- HERO SECTION -->
-    <section class="hero" id="home">
-      <div class="container container--wide">
-        <div class="hero-content reveal">
-          <div class="hero-badge"><span class="hero-status-dot" aria-hidden="true"></span>Available: Internship now &middot; Full-time from Dec 2026 (Final-Year BCA) &middot; Open to Relocate / Remote</div>
-          <h1 class="hero-name">Shubham Bhattacharya</h1>
-          <p class="hero-title"><span class="hero-prompt">$</span> <span id="heroTyped">Software Engineer — Backend, Full-Stack &amp; GenAI Systems (TypeScript)</span><span class="typing-cursor">|</span></p>
-          <p class="hero-tagline">Engineering grounded RAG systems, agentic LLM backends, full-stack Next.js SaaS platforms, and evaluation harnesses with TypeScript, PostgreSQL, pgvector, and Redis.</p>
-          <div class="hero-ctas">
-            <a href="https://payguard-pied.vercel.app/payments" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-magnetic">Live PayGuard Demo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
-            <a href="https://agentic-contract-analyser-xbni.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-magnetic">Live ContractLens Demo</a>
-            <a href="https://github.com/shubhambhattacharya-dev" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-magnetic">GitHub</a>
-          </div>
-          <div id="loom-demo" class="video-embed"><!-- paste Loom embed iframe here --></div>
-          <div class="hero-quick-links">
-            <a href="https://github.com/shubhambhattacharya-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="hero-social"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
-            <a href="https://www.linkedin.com/in/shubhambhattadev/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="hero-social"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-            <a href="https://x.com/Shubham_level" target="_blank" rel="noopener noreferrer" aria-label="X" class="hero-social"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <div class="availability"><span class="dot" aria-hidden="true"></span> Internship now · Full-time Dec 2026</div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap" id="top">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Software engineer · Vadodara, India</div>
+          <h1><span class="hero-line">I build software</span><span class="hero-line">that stays <span class="hero-accent">honest.</span></span></h1>
+          <p class="lede" id="hero-copy">Backend and GenAI systems with explicit trust boundaries, grounded outputs, and failure paths that are designed before launch.</p>
+          <div class="hero-meta"><span class="pill">TypeScript · Node.js · Bun</span><span class="pill">PostgreSQL · pgvector · Redis</span><span class="pill">Available Now · Dec 2026 Grad</span></div>
+          <div class="actions">
+            <a class="btn" href="#work">Explore the work <span class="arrow" aria-hidden="true">↘</span></a>
+            <a class="btn secondary" href="https://payguard-pied.vercel.app/payments" target="_blank" rel="noreferrer">Live PayGuard Demo <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="btn secondary" href="resume/Shubham_Bhattacharya_SWE_GenAI.pdf" target="_blank" rel="noreferrer">Resume PDF <span class="arrow" aria-hidden="true">↗</span></a>
           </div>
         </div>
+        <aside class="system-panel" aria-label="Illustration of a grounded AI request flow">
+          <div class="panel-head"><span>Request lifecycle / 001</span><span class="panel-state"><span class="dot" aria-hidden="true"></span> fail closed</span></div>
+          <div class="panel-title">An answer has to earn its way out.</div>
+          <div class="flow" aria-label="Input flows through retrieval and verification before response">
+            <div class="flow-node"><b>Input</b><small>untrusted</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="flow-node"><b>Evidence</b><small>retrieve + gate</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="flow-node"><b>Verify</b><small>quote + schema</small></div>
+          </div>
+          <div class="trace"><span class="trace-mark">01</span><span>weak evidence? stop before generation.</span><span class="trace-mark">02</span><span>invalid quote? reject before render.</span></div>
+          <div class="panel-foot">DESIGN PRINCIPLE: A MODEL RESPONSE IS INPUT, NOT AUTHORITY.</div>
+        </aside>
       </div>
     </section>
-
-    <!-- ABOUT SECTION -->
-    <section class="section" id="about">
-      <div class="container container--wide">
-        <div class="section-header reveal">
-          <span class="section-number">01 / About</span>
-          <h2 class="section-title">Engineering Background</h2>
-        </div>
-        <div class="about-grid reveal">
-          <div class="about-photo-wrap">
-            <img src="img/profile.jpg" alt="Shubham Bhattacharya" class="about-photo" width="180" height="180" loading="eager" fetchpriority="high">
-          </div>
-          <div class="about-text">
-            <p>Final-year BCA student (graduating Dec 2026) at Parul University (CGPA 8.13) specializing in Backend, Full-Stack SaaS, and GenAI application engineering with TypeScript, Node.js, Next.js, Express, Fastify, PostgreSQL, and Redis. I build resilient AI and fintech systems guided by a strict design law: <em>"The LLM proposes; deterministic code disposes."</em> I benchmark retrieval accuracy, branded capability gates, and deterministic quote verifiers with 640+ automated tests and 32 golden evals. Based in Vadodara, Gujarat.</p>
-            <p>Open to <strong>Software Engineer (Backend / Full-Stack / GenAI)</strong> roles where I can ship high-impact product workflows and resilient AI infrastructure. Engineering philosophy: zero-trust schema validation, deterministic grounding verification, structured telemetry, and graceful failure handling.</p>
-            
-            <div class="about-highlights">
-              <div class="about-card">
-                <div class="about-card-title">Deterministic Quote Verifier</div>
-                <div class="about-card-desc">Pure code matches LLM citations against canonical document byte offsets; invented or paraphrased quotes are 100% rejected.</div>
-              </div>
-              <div class="about-card">
-                <div class="about-card-title">Multi-Model Resilience</div>
-                <div class="about-card-desc">Automatic waterfall failover across LLM providers (Groq, Gemini, OpenRouter) keeps sessions alive through provider outages.</div>
-              </div>
-              <div class="about-card">
-                <div class="about-card-title">Hybrid Retrieval (BM25 + Vector)</div>
-                <div class="about-card-desc">BM25 + dense embeddings fused with RRF (Reciprocal Rank Fusion) and strict evidence gating thresholds.</div>
-              </div>
-              <div class="about-card">
-                <div class="about-card-title">Full-Stack SaaS &amp; ReAct Agents</div>
-                <div class="about-card-desc">End-to-end Next.js/Node.js product engineering paired with custom sandboxed agent loops and ACID-compliant PostgreSQL workflows.</div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section class="lens-bar" aria-label="Choose a portfolio focus">
+      <div class="wrap lens-inner"><div><div class="lens-label">Explore by hiring lens</div><div class="switcher" role="group" aria-label="Filter portfolio by role">
+        <button type="button" data-lens="swe" aria-pressed="true">SWE / SDE</button><button type="button" data-lens="genai" aria-pressed="false">GenAI engineering</button><button type="button" data-lens="founder" aria-pressed="false">Founder skim</button>
+      </div></div><div class="lens-note" id="lens-note" aria-live="polite">Backend fundamentals, product flows, and reliability decisions.</div></div>
+    </section>
+    <section class="section wrap" id="work">
+      <div class="section-head"><div><div class="section-kicker">01 / Selected work</div><h2>Built, tested, and<br>ready to inspect.</h2></div><p class="section-desc">Three deployed systems where the important work lives in the boundaries: what can execute, what counts as evidence, and what happens when dependencies fail.</p></div>
+      <div class="projects" id="project-list" aria-live="polite"></div>
+    </section>
+    <section class="proof" aria-label="Engineering evidence">
+      <div class="wrap proof-grid">
+        <div class="proof-item"><strong>3 deployed systems</strong><span>PayGuard (Vercel), ContractLens (Vercel + video), and RAG Chat (Render).</span></div>
+        <div class="proof-item"><strong>Automated tests &amp; evals</strong><span>PayGuard: 124 tests + 18 evals · ContractLens: 318 CI tests · RAG Chat: 235 tests + 14/14 golden set.</span></div>
+        <div class="proof-item"><strong>One clear start window</strong><span>Paid internship now · Full-time from Dec 2026 · Open to relocation / remote.</span></div>
       </div>
     </section>
-
-    <!-- ARCHITECTURE SECTION -->
-    <section class="section" id="architecture">
-      <div class="container container--wide">
-        <div class="section-header reveal">
-          <span class="section-number">02 / Architecture</span>
-          <h2 class="section-title">GenAI &amp; Backend Architecture Patterns</h2>
-          <p class="section-subtitle">Production patterns I use to build reliable, observable LLM and SaaS applications in TypeScript.</p>
-        </div>
-        <div class="arch-grid">
-          <div class="arch-card tilt-card reveal">
-            <div class="arch-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg></div>
-            <h3 class="arch-title">The LLM Proposes, Deterministic Code Disposes</h3>
-            <p class="arch-desc">Model output is untrusted end to end. Every quote is verified against canonical document text by pure deterministic code before display — paraphrased or fabricated quotes are rejected.</p>
-            <div class="arch-tags"><span class="arch-tag">Deterministic Verification</span><span class="arch-tag">Zero Hallucination</span><span class="arch-tag">Pure Math</span></div>
-          </div>
-          <div class="arch-card tilt-card reveal">
-            <div class="arch-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></div>
-            <h3 class="arch-title">Multi-Model Waterfall Routing</h3>
-            <p class="arch-desc">Resilient orchestration across Groq, Gemini, and OpenRouter. If primary models hit rate limits or provider outages, automatic failover routes traffic to secondary models.</p>
-            <div class="arch-tags"><span class="arch-tag">Gemini</span><span class="arch-tag">Groq</span><span class="arch-tag">OpenRouter</span><span class="arch-tag">Failover</span></div>
-          </div>
-          <div class="arch-card tilt-card reveal">
-            <div class="arch-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l-.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
-            <h3 class="arch-title">Sandboxed ReAct Agent Execution</h3>
-            <p class="arch-desc">Custom ReAct research loop with server-side trusted tool executor injecting session/document scopes to prevent jailbreaks, with a strict 4-round safety cap.</p>
-            <div class="arch-tags"><span class="arch-tag">ReAct Loop</span><span class="arch-tag">Trusted Executor</span><span class="arch-tag">4-Round Cap</span></div>
-          </div>
-          <div class="arch-card tilt-card reveal">
-            <div class="arch-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
-            <h3 class="arch-title">Hybrid Retrieval &amp; Evidence Gating</h3>
-            <p class="arch-desc">BM25 lexical search combined with dense vector embeddings fused via Reciprocal Rank Fusion (RRF). Gated by strict evidence thresholds: weak signals escalate to agentic research or refusal.</p>
-            <div class="arch-tags"><span class="arch-tag">BM25</span><span class="arch-tag">pgvector</span><span class="arch-tag">RRF Fusion</span></div>
-          </div>
-          <div class="arch-card tilt-card reveal">
-            <div class="arch-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-            <h3 class="arch-title">Automated Evals &amp; Test Invariants</h3>
-            <p class="arch-desc">640+ automated tests and 32 golden evals across systems covering capability-token policy gates, chunker invariants, quote verification, refusal gates, and rate-limiting semantics.</p>
-            <div class="arch-tags"><span class="arch-tag">640+ Tests</span><span class="arch-tag">CI/CD</span><span class="arch-tag">32 Golden Evals</span></div>
-          </div>
-          <div class="arch-card tilt-card reveal">
-            <div class="arch-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-            <h3 class="arch-title">Telemetry &amp; Rate Limiting</h3>
-            <p class="arch-desc">Redis-backed fixed-window rate limiter on LLM endpoints failing open + structured Langfuse, Sentry, and Pino tracing for complete latency breakdown.</p>
-            <div class="arch-tags"><span class="arch-tag">Redis Limits</span><span class="arch-tag">Langfuse</span><span class="arch-tag">Pino &amp; Sentry</span></div>
-          </div>
-        </div>
-      </div>
+    <section class="section wrap" id="approach">
+      <div class="about-grid"><div><div class="section-kicker">02 / How I build</div><h2>Make the safe path<br>the default path.</h2></div><div class="about-copy"><p>I’m a final-year BCA student at Parul University (CGPA 8.13). I focus on backend and GenAI application engineering: typed APIs, grounded retrieval, bounded tool execution, and systems that explain why they refused a request.</p><div class="principles"><div class="principle"><b>Ground before generation</b><span>Retrieve relevant evidence, enforce thresholds, and refuse when support is weak.</span></div><div class="principle"><b>Validate every boundary</b><span>Use schemas and explicit capabilities before data writes or external actions.</span></div><div class="principle"><b>Plan for failure</b><span>Bound retries, handle provider errors, and make fallbacks visible.</span></div><div class="principle"><b>Test the failure cases</b><span>Golden cases and adversarial inputs make behavior reviewable.</span></div></div></div></div>
     </section>
-
-    <!-- PROJECTS SECTION (FEATURED ALTERNATING LAYOUT) -->
-    <section class="section section--wide" id="projects">
-      <div class="container container--wide">
-        <div class="section-header reveal">
-          <span class="section-number">03 / Projects</span>
-          <h2 class="section-title">Featured Work</h2>
-          <p class="section-subtitle">Production GenAI, backend, and full-stack SaaS systems I've architected and shipped solo.</p>
-        </div>
-        <div class="projects-grid">
-          <!-- CARD 1: PayGuard (FLAGSHIP #1) -->
-          <article class="project-card tilt-card reveal">
-            <div class="project-inner">
-              <div class="project-preview">
-                <img src="img/payguard.png" alt="PayGuard Deterministic Fiduciary Gateway interface" width="640" height="360">
-              </div>
-              <div class="project-content">
-                <div class="project-header">
-                  <span class="project-type">Oct–Nov 2026 · Personal Project (Solo) · Flagship #1</span>
-                  <h3 class="project-title">PayGuard — Deterministic Fiduciary Gateway for AI Agents</h3>
-                </div>
-                <ul class="project-highlights">
-                  <li><strong>Compile-time trust boundary:</strong> Branded <code>ApprovedForExecution</code> capability token constructible only inside <code>evaluatePolicy()</code>; bypassing the deterministic policy gate is a TypeScript compile-time error.</li>
-                  <li><strong>$100 policy gate &amp; signed QR HITL:</strong> Proposals &le; $100 auto-execute; orders &gt; $100 route to a single-use signed QR human-in-the-loop approval flow with TOCTOU re-verification before settlement.</li>
-                  <li><strong>Prompt-injection &amp; hallucination defense:</strong> Byte-offset invoice quote grounding (0% ungrounded tolerance), 4-round capped ReAct loop, and fail-closed doctrine on timeouts or malformed payloads.</li>
-                  <li><strong>Payment-grade PayPal Orders v2 &amp; 124 tests:</strong> OAuth2 token caching, 401 single-refresh, 429 exponential backoff, integer-cents double-entry ledger, and <strong>124 Vitest tests + 18 golden evals</strong> passing.</li>
-                </ul>
-                <div class="project-tech-stack">
-                  <span class="tech-tag">TypeScript (strict)</span><span class="tech-tag">Node.js</span><span class="tech-tag">Next.js 15</span><span class="tech-tag">PayPal Orders v2</span><span class="tech-tag">Zod</span><span class="tech-tag">Gemini</span><span class="tech-tag">Groq</span><span class="tech-tag">Vitest</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/shubhambhattacharya-dev/PayGuard" target="_blank" rel="noopener noreferrer" class="project-link">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Source Code
-                  </a>
-                  <a href="https://payguard-pied.vercel.app/payments" target="_blank" rel="noopener noreferrer" class="project-link">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo
-                  </a>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- CARD 2: ContractLens -->
-          <article class="project-card tilt-card reveal">
-            <div class="project-inner">
-              <div class="project-preview">
-                <img src="img/elcara.png" alt="ContractLens Agentic Legal Contract Analyser interface" width="640" height="360">
-              </div>
-              <div class="project-content">
-                <div class="project-header">
-                  <span class="project-type">Sep–Oct 2026 · Personal Project (Solo) · Top 3</span>
-                  <h3 class="project-title">ContractLens — Agentic Legal Contract Analyser</h3>
-                </div>
-                <ul class="project-highlights">
-                  <li><strong>The LLM proposes; deterministic code disposes:</strong> Pure whitespace-tolerant verification matching model quotes against canonical document byte offsets and page numbers. <strong>Every displayed quote is verified before render</strong> — unverified text cannot reach the UI.</li>
-                  <li><strong>Interactive citation highlighting:</strong> Clicking any citation instantly scrolls the viewer to and highlights the exact verified passage (page-correct, cross-page capable).</li>
-                  <li><strong>Agentic research loop:</strong> ReAct loop with a hard <strong>4-round cap</strong> and trusted server-side tool executor (<code>search_document</code>, <code>get_section</code>, <code>list_clauses</code>) injecting session/document scopes to prevent jailbreaks.</li>
-                  <li><strong>Clause comparison &amp; numeric severity:</strong> Clause-level alignment flagging numeric changes (e.g. liability cap moving <strong>$100,000 &rarr; $1,000,000 is CRITICAL</strong> regardless of identical phrasing); handles <strong>up to 5 documents simultaneously</strong>.</li>
-                  <li><strong>282 locally verified tests (+36 Redis CI integration):</strong> <strong>265 backend unit + 17 frontend tests passed</strong> locally (plus 36 Redis-backed integration tests in GitHub Actions CI) validating chunker invariants, quote-verification guarantees, and rate limits with Langfuse tracing.</li>
-                </ul>
-                <div class="project-tech-stack">
-                  <span class="tech-tag">Next.js 14</span><span class="tech-tag">React</span><span class="tech-tag">TypeScript (strict)</span><span class="tech-tag">Express 5</span><span class="tech-tag">Redis</span><span class="tech-tag">BM25</span><span class="tech-tag">Gemini</span><span class="tech-tag">Groq</span><span class="tech-tag">Langfuse</span><span class="tech-tag">SSE</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/shubhambhattacharya-dev/agentic-contract-analyser" target="_blank" rel="noopener noreferrer" class="project-link">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Source Code
-                  </a>
-                  <a href="https://agentic-contract-analyser-xbni.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo
-                  </a>
-                  <a href="https://drive.google.com/file/d/1h2iWWa6FdUlG5-W3LTz8Pb-deQZiEhX6/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="project-link">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg> Demo Video
-                  </a>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- CARD 2: RAG Chat -->
-          <article class="project-card tilt-card reveal">
-            <div class="project-inner">
-              <div class="project-preview">
-                <img src="img/ragchatbot.png" alt="RagChatBot chat interface preview" width="640" height="360">
-              </div>
-              <div class="project-content">
-                <div class="project-header">
-                  <span class="project-type">Jul–Sep 2026 · Personal Project (Solo)</span>
-                  <h3 class="project-title">RAG Chat — Grounded Document Intelligence</h3>
-                </div>
-                <ul class="project-highlights">
-                  <li><strong>Refusal over hallucination:</strong> Cosine-gated hybrid retrieval (Postgres full-text search via <code>to_tsvector</code> + pgvector at distance threshold &le; 0.5) — ungrounded evidence triggers automatic refusal instead of a hallucinated answer.</li>
-                  <li><strong>14/14 golden-set eval passed &amp; 235 offline unit tests:</strong> Automated harness testing answer grounding against adversarial trap prompts (knowledge in parametric memory but absent in the corpus); eval runs committed in-repo and gated by 235 passing offline unit tests (2 skipped).</li>
-                  <li><strong>Async job queue &amp; SSE streaming:</strong> Offloaded 10–30s document parsing &amp; vector embedding generation via BullMQ + Redis, streaming real-time tokens over SSE with Groq &rarr; Gemini failover.</li>
-                </ul>
-                <div class="project-tech-stack">
-                  <span class="tech-tag">Bun</span><span class="tech-tag">Fastify</span><span class="tech-tag">TypeScript</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">pgvector</span><span class="tech-tag">Gemini</span><span class="tech-tag">Groq</span><span class="tech-tag">SSE</span><span class="tech-tag">BullMQ</span><span class="tech-tag">Redis</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/shubhambhattacharya-dev/RagChatBot" target="_blank" rel="noopener noreferrer" class="project-link">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> Source Code
-                  </a>
-                  <a href="https://ragchatbot-5x9g.onrender.com/" target="_blank" rel="noopener noreferrer" class="project-link">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo
-                  </a>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- TECH STACK SECTION -->
-    <section class="section" id="stack">
-      <div class="container container--wide">
-        <div class="section-header reveal">
-          <span class="section-number">04 / Stack</span>
-          <h2 class="section-title">Technical Skills &amp; Technologies</h2>
-          <p class="section-subtitle">Technologies I use to build and ship Backend, Full-Stack SaaS, and GenAI applications.</p>
-        </div>
-        <div class="stack-grid reveal">
-          <div class="stack-category">
-            <h3 class="stack-category-title">Languages &amp; Frontend</h3>
-            <div class="stack-items">
-              <span class="stack-item">TypeScript</span>
-              <span class="stack-item">JavaScript (Node.js, Bun)</span>
-              <span class="stack-item">SQL</span>
-              <span class="stack-item">Next.js 14 (App Router)</span>
-              <span class="stack-item">React</span>
-              <span class="stack-item">Tailwind CSS</span>
-            </div>
-          </div>
-          <div class="stack-category">
-            <h3 class="stack-category-title">Backend &amp; APIs</h3>
-            <div class="stack-items">
-              <span class="stack-item">Node.js &amp; Bun</span>
-              <span class="stack-item">Express.js &amp; Fastify</span>
-              <span class="stack-item">REST API Design</span>
-              <span class="stack-item">SSE Streaming</span>
-              <span class="stack-item">Vonage WebRTC</span>
-              <span class="stack-item">Clerk Auth &amp; RBAC</span>
-            </div>
-          </div>
-          <div class="stack-category">
-            <h3 class="stack-category-title">Databases &amp; Caching</h3>
-            <div class="stack-items">
-              <span class="stack-item">PostgreSQL</span>
-              <span class="stack-item">pgvector</span>
-              <span class="stack-item">Prisma ORM</span>
-              <span class="stack-item">Redis (ioredis &amp; Upstash REST)</span>
-              <span class="stack-item">BullMQ</span>
-              <span class="stack-item">ACID Transactions</span>
-            </div>
-          </div>
-          <div class="stack-category">
-            <h3 class="stack-category-title">AI &amp; LLMs</h3>
-            <div class="stack-items">
-              <span class="stack-item">Deterministic Quote Verification</span>
-              <span class="stack-item">Hybrid Search (BM25 + Vector + RRF)</span>
-              <span class="stack-item">ReAct Agents (Sandboxed Tools)</span>
-              <span class="stack-item">Evals &amp; Golden Sets (640+ tests, 32 evals)</span>
-              <span class="stack-item">Multi-provider failover (Groq/Gemini/OpenRouter)</span>
-              <span class="stack-item">Zod Runtime Validation</span>
-            </div>
-          </div>
-          <div class="stack-category">
-            <h3 class="stack-category-title">DevOps &amp; Observability</h3>
-            <div class="stack-items">
-              <span class="stack-item">Langfuse Tracing</span>
-              <span class="stack-item">GitHub Actions CI/CD</span>
-              <span class="stack-item">Docker Compose</span>
-              <span class="stack-item">Vercel &amp; Render</span>
-              <span class="stack-item">Sentry</span>
-              <span class="stack-item">Pino Structured Logging</span>
-            </div>
-          </div>
-          <div class="stack-category">
-            <h3 class="stack-category-title">Fundamentals (BCA)</h3>
-            <div class="stack-items">
-              <span class="stack-item">Data Structures &amp; Algorithms</span>
-              <span class="stack-item">DBMS</span>
-              <span class="stack-item">Operating Systems</span>
-              <span class="stack-item">Computer Networks</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- JOURNEY SECTION -->
-    <section class="section" id="education">
-      <div class="container container--wide">
-        <div class="section-header reveal">
-          <span class="section-number">05 / Education</span>
-          <h2 class="section-title">Education</h2>
-        </div>
-        <div class="timeline">
-          <div class="timeline-item reveal">
-            <div class="timeline-marker" aria-hidden="true"></div>
-            <div class="timeline-content">
-              <div class="timeline-header">
-                <h3 class="timeline-title">Bachelor of Computer Applications (BCA)</h3>
-                <span class="timeline-date">Expected Dec 2026</span>
-              </div>
-              <p class="timeline-subtitle">Parul University · Vadodara, Gujarat</p>
-              <ul class="timeline-list">
-                <li>CGPA: 8.13 | First Class with Distinction · Relevant: Data Structures &amp; Algorithms, DBMS, OS, Networks, Software Engineering</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section class="section" id="contact">
-      <div class="container container--wide">
-        <div class="contact-container reveal">
-          <div class="section-header" style="margin-bottom: 2rem;">
-            <span class="section-number">06 / Contact</span>
-            <h2 class="section-title">Get In Touch</h2>
-          </div>
-          <p class="contact-text">Open to <strong>Software Engineer — Backend, Full-Stack &amp; GenAI Systems (TypeScript)</strong> roles. Feel free to reach out through any channel below.</p>
-          <p class="contact-text" style="margin-top: -1.25rem; font-size: 0.95rem; color: var(--accent); font-weight: 500;">Available: Internship now &middot; Full-time from Dec 2026 (Final-Year BCA) &middot; Open to Relocate / Remote</p>
-          <div class="contact-links">
-            <a href="mailto:shubhambhattacharya107@gmail.com" class="contact-link">
-              <span class="contact-link-label">Email</span>
-              <span class="contact-link-value">shubhambhattacharya107@gmail.com</span>
-            </a>
-            <a href="tel:+919155252394" class="contact-link">
-              <span class="contact-link-label">Phone</span>
-              <span class="contact-link-value">+91-9155252394</span>
-            </a>
-            <a href="https://github.com/shubhambhattacharya-dev" target="_blank" rel="noopener noreferrer" class="contact-link">
-              <span class="contact-link-label">GitHub</span>
-              <span class="contact-link-value">github.com/shubhambhattacharya-dev</span>
-            </a>
-            <a href="https://www.linkedin.com/in/shubhambhattadev/" target="_blank" rel="noopener noreferrer" class="contact-link">
-              <span class="contact-link-label">LinkedIn</span>
-              <span class="contact-link-value">linkedin.com/in/shubhambhattadev</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="quick" id="founder-view"><div class="wrap quick-grid"><div><div class="section-kicker" style="color:#aeb8ae">03 / The 20-second read</div><h2>What could I<br>ship with you?</h2><p class="quick-intro">A concise founder view: current focus, proof, and how to start a conversation.</p></div><div class="quick-list"><div class="quick-row"><span class="quick-num">01</span><div><strong>Backend product work</strong><span>TypeScript APIs, PostgreSQL data flows, async BullMQ jobs, and SSE streaming interfaces.</span></div></div><div class="quick-row"><span class="quick-num">02</span><div><strong>Useful GenAI features</strong><span>RAG, bounded agent tools, provider failover, and evaluation harnesses with explicit guardrails.</span></div></div><div class="quick-row"><span class="quick-num">03</span><div><strong>Available for a paid internship now</strong><span>Full-time from Dec 2026. Vadodara-based; open to relocate or work remotely.</span></div></div><div class="quick-row"><span class="quick-num">04</span><div><strong>Start with a real problem</strong><span>Share a product or engineering problem. I’ll reply with a relevant project and a concrete way I could help.</span></div></div><div class="actions"><a class="btn" href="mailto:shubhambhattacharya107@gmail.com?subject=Engineering%20role%20-%20Shubham%20Bhattacharya">Talk about a role <span class="arrow" aria-hidden="true">↗</span></a><button class="btn secondary" id="copy-email" type="button">Copy email</button></div></div></div></section>
   </main>
-
-  <footer class="footer">
-    <div class="container">
-      <span>Built with plain HTML, CSS, and JS. Zero frameworks, zero build tools.</span>
-      <span class="footer-divider">—</span>
-      <span>&copy; 2026 Shubham Bhattacharya</span>
-    </div>
-  </footer>
-
-  <script src="script.js" defer></script>
+  <footer class="footer wrap" id="contact"><div class="footer-inner"><p>© 2026 Shubham Bhattacharya · Built with HTML, CSS &amp; JavaScript</p><div class="footer-links"><a href="resume/Shubham_Bhattacharya_SWE_GenAI.pdf" target="_blank" rel="noreferrer">Resume PDF ↗</a><a href="https://github.com/shubhambhattacharya-dev" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://linkedin.com/in/shubhambhattadev" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="mailto:shubhambhattacharya107@gmail.com">Email ↗</a></div></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="case-modal" closedby="any" aria-labelledby="modal-title"><div class="modal-head"><div><div class="section-kicker" id="modal-kicker">Project / case study</div><h2 id="modal-title"></h2></div><button type="button" class="close" aria-label="Close project details">×</button></div><div class="modal-body" id="modal-body"></div></dialog>
+  <script>
+    const projects = [
+      {id:'payguard',index:'01',title:'PayGuard',type:'Payment safety · AI agents',status:'Live demo · Hackathon',img:'img/payguard.png',imgAlt:'PayGuard deterministic policy gate and evaluations interface',order:{swe:1,genai:2,founder:1},summary:'A deterministic policy gateway between an AI agent and PayPal execution. The model can propose; only a verified policy decision can authorize.',signal:'Branded execution token · >US$100 QR HITL · integer-cents ledger',stack:'TypeScript Strict · Node.js · Next.js 15 · PayPal Orders v2 · Zod · Vitest',repo:'https://github.com/shubhambhattacharya-dev/PayGuard',demo:'https://payguard-pied.vercel.app/payments',detail:'PayGuard puts a typed capability boundary in front of payment execution. Orders above US$100 require a single-use signed QR approval, followed by TOCTOU re-verification. The ledger uses integer cents and idempotency keys.',flow:[['Agent request','untrusted input'],['evaluatePolicy()','policy decision'],['Approval token','single-use capability'],['PayPal + ledger','execution boundary']],bullets:['A branded ApprovedForExecution token is constructible only inside evaluatePolicy(); bypassing the gate is a compile-time TypeScript error.','Orders >US$100 pause for single-use signed QR human approval and re-run policy checks before execution.','Provider handling includes OAuth2 token caching, 401 refresh, 429 exponential backoff, and idempotency keys.'],limits:'Solo project built for the PayPal AI Global Hackathon. 124 Vitest tests and 18 golden evals passing. No customer adoption or live production payment volume claimed.'},
+      {id:'contractlens',index:'02',title:'ContractLens',type:'Document intelligence · grounded agents',status:'Live demo + video',img:'img/elcara.png',imgAlt:'ContractLens legal contract analyser interface',order:{swe:2,genai:1,founder:2},summary:'A contract analysis system where every answer citation is checked against the source document byte offsets before it reaches the interface.',signal:'Byte-offset quote verification · 5-document analysis · numeric clause diffs',stack:'TypeScript · Next.js · Express · Redis · BM25 · SSE · Langfuse',repo:'https://github.com/shubhambhattacharya-dev/agentic-contract-analyser',demo:'https://agentic-contract-analyser-xbni.vercel.app/',video:'https://drive.google.com/file/d/1h2iWWa6FdUlG5-W3LTz8Pb-deQZiEhX6/view?usp=sharing',detail:'ContractLens helps inspect and compare legal agreements. The server verifies generated quotes against canonical document text using byte offsets. Unverified quotes are rejected before rendering; a bounded tool loop inspects up to five documents.',flow:[['Upload contracts','extract + index'],['Retrieve evidence','BM25 + embeddings'],['Verify quote','offset match'],['Render citation','click to highlight']],bullets:['Quote verification happens in deterministic code before the UI presents any citation.','The research loop is capped at four rounds and supports cross-document questions across up to 5 contracts.','Clause comparison flags numeric risk shifts, such as a liability cap increasing even if the wording stays similar.'],limits:'Solo project. 318 automated tests in GitHub Actions CI (unit + 36 Redis rate-limit/integration tests) with Langfuse tracing.'},
+      {id:'ragchat',index:'03',title:'RAG Chat',type:'Retrieval · evaluation · streaming',status:'Live demo',img:'img/ragchatbot.png',imgAlt:'RAG Chat grounded document intelligence interface',order:{swe:3,genai:3,founder:3},summary:'A document Q&A system that combines PostgreSQL lexical and vector retrieval, blocks weak evidence, and streams grounded answers over SSE.',signal:'Hybrid PostgreSQL retrieval · 14/14 (100%) golden cases · BullMQ async',stack:'Bun · Fastify · TypeScript · PostgreSQL · pgvector · BullMQ · Redis',repo:'https://github.com/shubhambhattacharya-dev/RagChatBot',demo:'https://ragchatbot-5x9g.onrender.com/',detail:'RAG Chat combines metadata filtering, PostgreSQL full-text search (tsvector), and pgvector retrieval. A cosine similarity gate (distance 0.5) blocks weak evidence before generation. Slow 10-30s document parsing runs asynchronously through BullMQ and Redis; answers stream over SSE.',flow:[['Document','10-30s BullMQ'],['Hybrid search','tsvector + pgvector'],['Evidence gate','distance <= 0.5'],['Answer','SSE stream']],bullets:['Retrieval combines lexical search and vector similarity rather than trusting a single signal.','An evidence threshold triggers refusal when retrieved context is weak instead of hallucinating.','Golden set (14/14 passing) includes adversarial refusal traps where the model knows an answer absent from the corpus.'],limits:'Solo project. 14/14 (100%) golden-set cases passing and 235 unit tests passing (2 skipped offline). Hosted on Render free tier so initial wake-up can take a few seconds.'}
+    ];
+    const lensCopy={swe:{note:'Backend fundamentals, product flows, and reliability decisions.',hero:'Backend and GenAI systems with explicit trust boundaries, grounded outputs, and failure paths that are designed before launch.'},genai:{note:'Grounding, tool safety, evals, and model failure handling.',hero:'GenAI systems with explicit evidence gates, bounded agents, and evaluation paths that make model behavior inspectable.'},founder:{note:'The short version: what I can build, the proof, and when I can start.',hero:'I’m available for a paid internship now. Here are three systems you can inspect, the engineering choices behind them, and how I can help.'}};
+    let currentLens='swe';
+    const list=document.querySelector('#project-list'),modal=document.querySelector('#case-modal');
+    function renderProjects(){const sorted=[...projects].sort((a,b)=>a.order[currentLens]-b.order[currentLens]);list.innerHTML=sorted.map(p=>`<article class="project"><div class="project-top"><span class="project-index">CASE / ${p.index}</span><span class="status">${p.status}</span></div><h3>${p.title}</h3><div class="project-type">${p.type}</div><p>${p.summary}</p><div class="signal">${p.signal}</div><div class="project-foot"><div class="stack">${p.stack}</div><div class="project-actions"><button data-case="${p.id}" style="border:0;background:transparent;padding:0;color:inherit;font:inherit;cursor:pointer;border-bottom:1px solid #a7b09f">Case study</button><a href="${p.demo}" target="_blank" rel="noreferrer">Demo ↗</a><a href="${p.repo}" target="_blank" rel="noreferrer">Code ↗</a></div></div></article>`).join('');list.querySelectorAll('[data-case]').forEach(b=>b.addEventListener('click',()=>openCase(b.dataset.case)))}
+    function openCase(id){const p=projects.find(x=>x.id===id);document.querySelector('#modal-title').textContent=p.title;document.querySelector('#modal-kicker').textContent=`Project / ${p.type}`;document.querySelector('#modal-body').innerHTML=`<p>${p.detail}</p>${p.img?`<img class="modal-shot" src="${p.img}" alt="${p.imgAlt}" loading="lazy">`:''}<div class="modal-architecture" aria-label="System flow">${p.flow.map((x,i)=>`${i?'<span class="arch-arr" aria-hidden="true">→</span>':''}<div class="arch-node"><b>${x[0]}</b><small>${x[1]}</small></div>`).join('')}</div><h3>Engineering choices</h3><ul>${p.bullets.map(x=>`<li>${x}</li>`).join('')}</ul><h3>Scope and evidence</h3><p>${p.limits}</p><div class="modal-links"><a class="btn" href="${p.repo}" target="_blank" rel="noreferrer">Inspect source ↗</a><a class="btn secondary" href="${p.demo}" target="_blank" rel="noreferrer">Open demo ↗</a>${p.video?`<a class="btn secondary" href="${p.video}" target="_blank" rel="noreferrer">Watch demo video ↗</a>`:''}</div>`;modal.showModal()}
+    document.querySelectorAll('[data-lens]').forEach(b=>b.addEventListener('click',()=>{currentLens=b.dataset.lens;document.querySelectorAll('[data-lens]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));document.querySelector('#lens-note').textContent=lensCopy[currentLens].note;document.querySelector('#hero-copy').textContent=lensCopy[currentLens].hero;renderProjects();if(currentLens==='founder')document.querySelector('#founder-view').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'})}));
+    document.querySelector('.close').addEventListener('click',()=>modal.close());
+    if(!('closedBy' in HTMLDialogElement.prototype)){modal.addEventListener('click',e=>{if(e.target!==modal)return;const r=modal.getBoundingClientRect();const inside=r.top<=e.clientY&&e.clientY<=r.top+r.height&&r.left<=e.clientX&&e.clientX<=r.left+r.width;if(!inside)modal.close()})}
+    const toast=document.querySelector('#toast');let toastTimer;document.querySelector('#copy-email').addEventListener('click',async()=>{try{await navigator.clipboard.writeText('shubhambhattacharya107@gmail.com');toast.textContent='Email copied to clipboard.'}catch{toast.textContent='Email: shubhambhattacharya107@gmail.com'}toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2400)});
+    renderProjects();
+  </script>
 </body>
 </html>
